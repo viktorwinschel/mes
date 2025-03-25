@@ -23,9 +23,7 @@ makedocs(
         ],
         # Add navigation options
         collapselevel=2,
-        sidebar_sitename=true,
-        # Add search functionality
-        search=true
+        sidebar_sitename=true
     ),
     pages=[
         "Home" => "index.md",

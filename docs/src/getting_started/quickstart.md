@@ -53,9 +53,9 @@ data = retrieve_memory(memory, "event1")
 
 ## Next Steps
 
-1. Read the [Theory Overview](@ref) to understand the mathematical foundations
-2. Explore the [Examples](@ref) for more complex use cases
-3. Check the [API Reference](@ref) for detailed function documentation
+1. Read the [Theory Overview](../theory.md) to understand the mathematical foundations
+2. Explore the [Examples Overview](../examples.md) for more complex use cases
+3. Check the [API Reference](../api.md) for detailed function documentation
 
 ## Common Patterns
 

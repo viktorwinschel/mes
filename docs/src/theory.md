@@ -11,8 +11,21 @@ In MES, categories are represented by the `Category` type:
 ```julia
 struct Category
     objects::Vector{String}
-    morphisms::Dict{String, Tuple{String, String}}
+    morphisms::Vector{Tuple{String, String, String}}  # (source, target, name)
 end
+```
+
+### Basic Operations
+
+```julia
+# Create a category
+cat = create_category([
+    ("A", "B", "f"),
+    ("B", "C", "g")
+])
+
+# Verify category properties
+is_valid = verify_category(cat)
 ```
 
 ## Patterns
@@ -24,96 +37,61 @@ In MES, patterns are represented by the `Pattern` type:
 ```julia
 struct Pattern
     objects::Vector{String}
-    morphisms::Dict{String, Tuple{String, String}}
-    source::Category
-    target::Category
+    morphisms::Vector{Tuple{String, String, String}}
 end
 ```
 
-## Colimits
-
-The colimit of a pattern \( P \) represents the "gluing together" of the objects in the pattern along their morphisms. This is a fundamental operation in Memory Evolutive Systems, used to represent:
-
-- Object formation through binding
-- Complex object construction
-- Memory formation
-
-## Memory Evolutive Systems
-
-Memory Evolutive Systems (MES) are based on the following principles:
-
-1. **Categories and Functors**
-   - Objects and morphisms
-   - Functorial evolution
-   - Composition rules
-
-2. **Patterns and Colimits**
-   - Pattern recognition
-   - Colimit computation
-   - Emergence of new objects
-
-3. **Memory Systems**
-   - Short-term and long-term memory
-   - Co-regulators
-   - Synchronization
-
-## Next Steps
+### Pattern Operations
 
 ```julia
-hierarchical_cat = Dict(
-    "levels" => levels,
-    "links" => links,
-    "complexity_order" => Dict()
-)
-```
+# Create a pattern
+pattern = create_pattern([
+    ("A", "B", "f")
+])
 
-## Complexification Process
-
-Complexification is the process of integrating patterns into higher-order structures. Each complexification step creates new objects and morphisms:
-
-```julia
-complexified_category = Dict(
-    "objects" => new_objects,
-    "morphisms" => new_morphisms
-)
+# Calculate colimit
+colimit = calculate_colimit(pattern)
 ```
 
 ## Memory Systems
 
-Memory Evolutive Systems extend categories with:
-- Procedures for processing information
-- Memory states
-- Co-regulators for managing system dynamics
+Memory Evolutive Systems extend categories with memory capabilities:
 
 ```julia
-memory_system = Dict(
-    "category" => category,
-    "procedures" => procedures,
-    "memory_states" => Dict(),
-    "co_regulators" => Dict()
-)
+# Create a memory system
+memory = create_memory_system()
+
+# Add memory trace
+add_memory_trace!(memory, "event1", "data1")
+
+# Retrieve memory
+data = retrieve_memory(memory, "event1")
 ```
 
-## Mathematical Formulas
+## Mathematical Foundations
 
 The key mathematical concepts are expressed through:
 
-1. Colimit Universal Property:
+1. Category Axioms:
+```math
+\forall f: A \to B, g: B \to C, h: C \to D
+(h \circ g) \circ f = h \circ (g \circ f)
+```
+
+2. Pattern Recognition:
+```math
+P = \{O_i, M_j\} \text{ where } O_i \text{ are objects and } M_j \text{ are morphisms}
+```
+
+3. Colimit Universal Property:
 ```math
 \forall X, \exists! \psi: C \to X \text{ such that } \psi \circ \varphi_D = \text{unique}
 ```
 
-2. Functorial Evolution:
-```math
-F(A) = A' \quad \text{and} \quad F(f: A \to B) = f': A' \to B'
-```
+## Next Steps
 
-3. Multiplicity Principle:
-```math
-\exists P, Q \text{ such that } colim(P) = colim(Q)
-```
-
-4. Memory Dynamics:
-```math
-M_{t+1} = F(M_t, P_t)
-``` 
+Future implementations will include:
+- Functorial evolution
+- Complexification process
+- Co-regulators
+- Advanced pattern recognition 

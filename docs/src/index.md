@@ -35,10 +35,10 @@ colimit = calculate_colimit(pattern)
 
 ## Documentation Structure
 
-1. **[Getting Started](@ref)** - Quick setup and basic usage
-2. **[Theory](@ref)** - Mathematical foundations and concepts
-3. **[Examples](@ref)** - Practical examples and use cases
-4. **[API Reference](@ref)** - Detailed function documentation
+1. **[Getting Started](getting_started/quickstart.md)** - Quick setup and basic usage
+2. **[Theory Overview](theory.md)** - Mathematical foundations and concepts
+3. **[Examples Overview](examples.md)** - Practical examples and use cases
+4. **[API Reference](api.md)** - Detailed function documentation
 
 ## Key Features
 
