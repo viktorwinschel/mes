@@ -1,15 +1,23 @@
 # Basic Usage
 
-This guide will walk you through the basic usage of MoMaT_Sim.
+This guide will walk you through the basic usage of MES.
+
+## Getting Started
+
+```julia
+using MES
+```
 
 ## Creating a Category
 
 ```julia
-using MoMaT_Sim
+using MES
 
 # Create a simple category with two objects and a morphism
 objects = ["A", "B"]
-morphisms = Dict(("A", "B") => ["f"])
+morphisms = Dict(
+    "f" => ("A", "B")
+)
 category = create_category(objects, morphisms)
 ```
 
@@ -27,4 +35,4 @@ colimit = calculate_colimit(pattern)
 
 ## Next Steps
 
-For more detailed examples, check out the examples in the [Basic Categories](../examples/basic_categories.md) section. 
+For more detailed examples, check out the [Examples](../examples.md) section. 

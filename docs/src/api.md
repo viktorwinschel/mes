@@ -1,25 +1,27 @@
 # API Reference
 
+This section provides detailed documentation for the MES API.
+
 ## Core Types
 
 ```@docs
-MoMaT_Sim.Category
-MoMaT_Sim.Pattern
+MES.Category
+MES.Pattern
 ```
 
-## Core Functions
+## Functions
 
 ```@docs
-MoMaT_Sim.create_category
-MoMaT_Sim.add_morphism!
-MoMaT_Sim.compose_morphisms!
-MoMaT_Sim.create_pattern
-MoMaT_Sim.calculate_colimit
+MES.create_category
+MES.add_morphism!
+MES.create_pattern
+MES.calculate_colimit
 ```
 
-## Advanced Functions
+## Other Functions
 
 ```@autodocs
-Modules = [MoMaT_Sim]
+Modules = [MES]
 Order   = [:function]
+Filter = t -> t != :create_category && t != :add_morphism! && t != :create_pattern && t != :calculate_colimit
 ```

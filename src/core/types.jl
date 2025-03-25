@@ -2,12 +2,12 @@ using Dates
 using DataStructures
 
 """
-# MoMaT Type Definitions
+# MES Type Definitions
 
-This module defines the categorical types for the MoMaT system, implementing H:T->ParCat
+This module defines the categorical types for the MES system, implementing H:T->ParCat
 with monadic behavior and infinite streams.
 """
-# Base types for MoMaT
+# Base types for MES
 struct TimePoint
     value::DateTime
 end
@@ -37,8 +37,8 @@ struct SimulationLogger
     log::Vector{Tuple{DateTime,String,Dict{String,Any}}}
 end
 
-# MoMaT state combining all components
-struct MoMaTState
+# MES state combining all components
+struct MESState
     functor::FunctorH
     state::Dict{String,Any}
     behavior::BehaviorStream
@@ -46,18 +46,18 @@ struct MoMaTState
 end
 
 # Monadic operations
-function bind(m::MoMaTState, f::Function)
+function bind(m::MESState, f::Function)
     """
-    Monadic bind operation for MoMaT state
+    Monadic bind operation for MES state
     """
     return f(m.state)
 end
 
 function return_value(x::Dict)
     """
-    Monadic return operation for MoMaT state
+    Monadic return operation for MES state
     """
-    return MoMaTState(
+    return MESState(
         FunctorH([], Dict(), Dict()),
         x,
         BehaviorStream(x, state -> state, state -> state),
@@ -66,9 +66,9 @@ function return_value(x::Dict)
 end
 
 # Evaluation function
-function evaluate(state::MoMaTState, steps::Int)
+function evaluate(state::MESState, steps::Int)
     """
-    Evaluate MoMaT state for given number of steps
+    Evaluate MES state for given number of steps
     """
     current_state = state.state
     for i in 1:steps
@@ -96,5 +96,5 @@ end
 # next_fn = state -> Dict("gdp" => state["gdp"] * 1.02, "inflation" => state["inflation"] * 1.01)
 # eval_fn = state -> Dict("gdp" => state["gdp"] * 1.02, "inflation" => state["inflation"] * 1.01)
 # 
-# system = MoMaTState(functor, initial_state, next_fn, eval_fn)
+# system = MESState(functor, initial_state, next_fn, eval_fn)
 # result = evaluate(system, 5) 

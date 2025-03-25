@@ -1,13 +1,16 @@
-# MoMaT_Sim Documentation
+# MES Documentation
 
-Welcome to the documentation for MoMaT_Sim, a Julia package for simulating Memory Evolutive Systems.
+Welcome to the documentation for MES (Memory Evolutive Systems), a Julia package implementing the mathematical framework for modeling cognitive and complex systems using category theory.
 
 ## Overview
 
-MoMaT_Sim provides tools for:
-- Creating and manipulating categories
+MES provides tools for implementing the Memory Evolutive Systems framework, as described in [Ehresmann and Vanbremeersch (2007)](papers.md#memory-evolutive-systems-hierarchy-emergence-cognition-2007) and [Ehresmann and Vanbremeersch (2023)](papers.md#memory-evolutive-systems-a-mathematical-model-for-cognitive-systems-2023). The package includes:
+
+- Creating and manipulating hierarchical categories
 - Working with patterns and colimits
-- Simulating memory evolutive systems
+- Implementing memory components with variable multiplicity
+- Modeling co-regulation and synchronization
+- Simulating complex system evolution
 
 ## Getting Started
 
@@ -16,11 +19,28 @@ MoMaT_Sim provides tools for:
 
 ## Examples
 
-Check out the [Examples](examples/basic_categories.md) section for practical demonstrations.
+### Core MES Examples
+- [Basic Categories](examples/basic_categories.md)
+- [Patterns and Colimits](examples/patterns.md)
+- [Memory Systems](examples/memory.md)
+- [Synchronization](examples/synchronization.md)
+
+### MOMAT Examples
+- [Monetary Macro Accounting](examples/momat/index.md)
+  - [Basic Examples](examples/momat/basic.md)
+  - [Advanced Examples](examples/momat/advanced.md)
 
 ## Theory
 
-Learn about the mathematical foundations in the [Theory](theory/categories.md) section.
+- [Categories](theory/categories.md)
+- [Patterns](theory/patterns.md)
+- [Memory Systems](theory/memory_systems.md)
+- [Synchronization](theory/synchronization.md)
+
+## Papers and References
+
+- [Core Papers](papers.md)
+- [Citation Guide](papers.md#citing-mes)
 
 ## API Reference
 

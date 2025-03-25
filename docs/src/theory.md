@@ -1,40 +1,63 @@
-# Theoretical Background
+# Theory
 
-This section provides an overview of the mathematical concepts underlying Memory Evolutive Systems.
+This section covers the mathematical foundations of MES.
 
-## Categories and Functors
+## Categories
 
-A category consists of:
-- Objects
-- Morphisms between objects
-- Composition of morphisms
-- Identity morphisms
+A category consists of objects and morphisms between them, satisfying certain properties.
 
-In our implementation, categories are represented as dictionaries with objects and morphisms:
+In MES, categories are represented by the `Category` type:
 
 ```julia
-category = Dict(
-    "objects" => objects,
-    "morphisms" => morphisms,
-    "composition" => Dict()
-)
+struct Category
+    objects::Vector{String}
+    morphisms::Dict{String, Tuple{String, String}}
+end
 ```
 
-## Patterns and Colimits
+## Patterns
 
-A pattern in a category is a collection of objects and morphisms that can be bound together through a colimit. The colimit represents the emergence of a new object that integrates the pattern:
+A pattern is a diagram in a category that represents a specific structure or relationship.
+
+In MES, patterns are represented by the `Pattern` type:
 
 ```julia
-pattern = Dict(
-    "category" => category,
-    "objects" => objects,
-    "links" => links
-)
+struct Pattern
+    objects::Vector{String}
+    morphisms::Dict{String, Tuple{String, String}}
+    source::Category
+    target::Category
+end
 ```
 
-## Hierarchy and Reductionism
+## Colimits
 
-Hierarchical categories organize objects into levels, with complexity increasing at each level. The multiplicity principle states that different patterns can lead to equivalent emergent objects:
+The colimit of a pattern \( P \) represents the "gluing together" of the objects in the pattern along their morphisms. This is a fundamental operation in Memory Evolutive Systems, used to represent:
+
+- Object formation through binding
+- Complex object construction
+- Memory formation
+
+## Memory Evolutive Systems
+
+Memory Evolutive Systems (MES) are based on the following principles:
+
+1. **Categories and Functors**
+   - Objects and morphisms
+   - Functorial evolution
+   - Composition rules
+
+2. **Patterns and Colimits**
+   - Pattern recognition
+   - Colimit computation
+   - Emergence of new objects
+
+3. **Memory Systems**
+   - Short-term and long-term memory
+   - Co-regulators
+   - Synchronization
+
+## Next Steps
 
 ```julia
 hierarchical_cat = Dict(

@@ -1,7 +1,7 @@
 using Test
-using MoMaT_Sim
+using MES
 
-@testset "MoMaT_Sim.jl" begin
+@testset "MES.jl" begin
     @testset "Category Operations" begin
         # Test category creation
         objects = ["A", "B", "C"]

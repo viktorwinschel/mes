@@ -1,6 +1,6 @@
-# MES
+# MES (Monetary Economic System)
 
-A Julia package for simulating Memory Evolutive Systems (MES) using category theory.
+A Julia package for modeling monetary and economic systems using category theory.
 
 ## Overview
 
@@ -11,9 +11,18 @@ MES provides tools for:
 
 ## Installation
 
+To install MES, use Julia's package manager:
+
 ```julia
 using Pkg
 Pkg.add("MES")
+```
+
+For development:
+
+```julia
+using Pkg
+Pkg.develop(path=".")
 ```
 
 ## Quick Start
@@ -22,43 +31,51 @@ Pkg.add("MES")
 using MES
 
 # Create a simple category
-objects = ["A", "B", "C"]
-morphisms = Dict(
-    ("A", "B") => ["f"],
-    ("B", "C") => ["g"]
-)
-category = create_category(objects, morphisms)
+objects = ["Bank", "Customer", "Account"]
+morphisms = ["deposit", "withdraw"]
+cat = create_category(objects, morphisms)
 
 # Create a pattern
-pattern = create_pattern(category, ["A", "B"], [("A", "B")])
+pattern = create_pattern(cat, cat, cat, [("deposit", "withdraw", "balance")])
 
 # Calculate colimit
-colimit = calculate_colimit(pattern)
+result = calculate_colimit(pattern)
 ```
 
 ## Documentation
 
-For detailed documentation, visit [https://viktorwinschel.github.io/MES.jl](https://viktorwinschel.github.io/MES.jl).
+For detailed documentation, visit [https://viktorwinschel.github.io/mes](https://viktorwinschel.github.io/mes)
+
+## Examples
+
+See the `examples/` directory for detailed examples including:
+- Bill of Exchange modeling
+- Double-entry accounting systems
+- Banking system patterns
 
 ## Development
 
-To set up the development environment:
+To contribute to MES:
 
-```julia
-using Pkg
-Pkg.develop(path=".")
-Pkg.instantiate()
-```
-
-## Testing
-
-Run the test suite:
-
-```julia
-using Pkg
-Pkg.test("MES")
-```
+1. Fork the repository
+2. Create a new branch for your feature
+3. Make your changes
+4. Run the tests: `julia --project=. test/test.jl`
+5. Submit a pull request
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+If you use MES in your research, please cite:
+
+```bibtex
+@software{mes2024,
+  author = {Winschel, Viktor},
+  title = {MES: Monetary Economic System},
+  year = {2024},
+  url = {https://github.com/viktorwinschel/mes}
+}
+``` 

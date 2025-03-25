@@ -1,17 +1,21 @@
-# Basic Category Examples
+# Basic Categories
 
-This section provides practical examples of working with categories in MoMaT_Sim.
+This section provides practical examples of working with categories in MES.
+
+## Example Usage
+
+```julia
+using MES
+```
 
 ## Creating a Simple Category
 
 ```julia
-using MoMaT_Sim
-
 # Define objects and morphisms
 objects = ["A", "B", "C"]
 morphisms = Dict(
-    ("A", "B") => ["f"],
-    ("B", "C") => ["g"]
+    "f" => ("A", "B"),
+    "g" => ("B", "C")
 )
 
 # Create the category
@@ -30,13 +34,6 @@ pattern = create_pattern(category, pattern_objects, pattern_links)
 colimit = calculate_colimit(pattern)
 ```
 
-## Advanced Topics
-
-For more advanced topics, see:
-- Memory Evolutive Systems
-- Complex Object Formation
-- Pattern Recognition
-
 ## Next Steps
 
-Check out the [Theory](../theory/categories.md) section for mathematical details. 
+Check out the [Bill of Exchange](bill_of_exchange.md) example for a more complex application. 

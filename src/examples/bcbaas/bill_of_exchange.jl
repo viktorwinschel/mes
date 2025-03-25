@@ -1,23 +1,23 @@
 using Pkg
 Pkg.activate(".")
 
-include("momat_types.jl")
+include("mes_types.jl")
 
 """
-### Figure 1: Dynamical MoMaT Model
+### Figure 1: Dynamical MES Model
 An evolutive system is defined by a functor from the category defining the order of the timeline 
 to the category of partial functors between small categories.
 """
-function dynamical_momat_model(timeline::Vector{DateTime}, economic_data::Dict)
+function dynamical_mes_model(timeline::Vector{DateTime}, economic_data::Dict)
     """
-    Implements the dynamical MoMaT model as an evolutive system.
+    Implements the dynamical MES model as an evolutive system.
 
     Parameters:
     - timeline: Vector of time points
     - economic_data: Dictionary containing economic indicators
 
     Returns:
-    - MoMaTState with dynamical model structure
+    - MESState with dynamical model structure
     """
     # Create functor H:T->ParCat
     functor = FunctorH{Dict{String,Any}}(
@@ -36,8 +36,8 @@ function dynamical_momat_model(timeline::Vector{DateTime}, economic_data::Dict)
         state -> state
     )
 
-    # Return MoMaTState with default behavior
-    return MoMaTState(
+    # Return MESState with default behavior
+    return MESState(
         functor,
         initial_state,
         default_behavior,  # Changed from nothing to default_behavior
@@ -46,19 +46,19 @@ function dynamical_momat_model(timeline::Vector{DateTime}, economic_data::Dict)
 end
 
 """
-### Figure 2: Reduced Form of MoMa
+### Figure 2: Reduced Form of MES
 Illustrates the hierarchical structure of the MES (Memory Evolutive System) H, showing how objects 
 are partitioned in a hierarchical manner.
 """
-function reduced_form_moma(economic_system::Dict)
+function reduced_form_mes(economic_system::Dict)
     """
-    Implements the reduced form of the Monetary Model (MoMa).
+    Implements the reduced form of the Monetary Model (MES).
 
     Parameters:
     - economic_system: Dictionary containing the economic system structure
 
     Returns:
-    - MoMaTState with reduced form structure
+    - MESState with reduced form structure
     """
     # Create timeline from economic system
     timeline = sort(collect(keys(economic_system)))
@@ -78,8 +78,8 @@ function reduced_form_moma(economic_system::Dict)
     # Create initial state
     initial_state = economic_system[timeline[1]]
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
@@ -96,7 +96,7 @@ function structural_econometric_model(quantitative_data::Dict, policy_data::Dict
     - policy_data: Dictionary containing policy-related data
 
     Returns:
-    - MoMaTState with structural model representation
+    - MESState with structural model representation
     """
     # Create timeline from data
     timeline = sort(collect(keys(quantitative_data)))
@@ -116,8 +116,8 @@ function structural_econometric_model(quantitative_data::Dict, policy_data::Dict
     # Create initial state
     initial_state = merge(quantitative_data[timeline[1]], policy_data[timeline[1]])
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
@@ -135,7 +135,7 @@ function hierarchical_folding(model_components::Dict)
     - model_components: Dictionary containing model components to be folded
 
     Returns:
-    - MoMaTState with hierarchical structure
+    - MESState with hierarchical structure
     """
     # Create timeline from components
     timeline = sort(collect(keys(model_components)))
@@ -156,8 +156,8 @@ function hierarchical_folding(model_components::Dict)
     # Create initial state
     initial_state = model_components[timeline[1]]
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
@@ -174,7 +174,7 @@ function estimate_parameters(model_data::Dict, estimation_method::String)
     - estimation_method: String specifying the estimation method
 
     Returns:
-    - MoMaTState with estimated parameters
+    - MESState with estimated parameters
     """
     # Create timeline from model data
     timeline = sort(collect(keys(model_data)))
@@ -195,8 +195,8 @@ function estimate_parameters(model_data::Dict, estimation_method::String)
     # Create initial state
     initial_state = model_data[timeline[1]]
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
@@ -214,7 +214,7 @@ function model_memory(estimated_model::Dict, historical_data::Dict)
     - historical_data: Dictionary containing historical data
 
     Returns:
-    - MoMaTState with memory representation
+    - MESState with memory representation
     """
     # Create timeline from historical data
     timeline = sort(collect(keys(historical_data)))
@@ -235,8 +235,8 @@ function model_memory(estimated_model::Dict, historical_data::Dict)
     # Create initial state
     initial_state = merge(estimated_model, historical_data[timeline[1]])
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
@@ -255,7 +255,7 @@ function model_landscape(memory_system::Dict, current_state::Dict)
     - current_state: Dictionary containing current system state
 
     Returns:
-    - MoMaTState with landscape representation
+    - MESState with landscape representation
     """
     # Create timeline from current state
     timeline = [Dates.now()]
@@ -276,8 +276,8 @@ function model_landscape(memory_system::Dict, current_state::Dict)
     # Create initial state
     initial_state = merge(memory_system, current_state)
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
@@ -295,7 +295,7 @@ function interpret_structural_model(structural_model::Dict, data_patterns::Dict)
     - data_patterns: Dictionary containing data patterns
 
     Returns:
-    - MoMaTState with structural model interpretation
+    - MESState with structural model interpretation
     """
     # Create timeline from data patterns
     timeline = sort(collect(keys(data_patterns)))
@@ -316,26 +316,26 @@ function interpret_structural_model(structural_model::Dict, data_patterns::Dict)
     # Create initial state
     initial_state = merge(structural_model, data_patterns[timeline[1]])
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 """
-### Figure 9: Monetary Policy under MoMaT
+### Figure 9: Monetary Policy under MES
 Shows how a group G of humans acts as a co-regulator of S.
 Illustrates how DA enables better cooperation between people.
 Demonstrates the formation of G-archetypal patterns of shared concepts.
 """
-function monetary_policy_momat(interpreted_model::Dict, policy_parameters::Dict)
+function monetary_policy_mes(interpreted_model::Dict, policy_parameters::Dict)
     """
-    Implements monetary policy as a service under MoMaT framework.
+    Implements monetary policy as a service under MES framework.
 
     Parameters:
     - interpreted_model: Dictionary containing the interpreted model
     - policy_parameters: Dictionary containing policy parameters
 
     Returns:
-    - MoMaTState with monetary policy service
+    - MESState with monetary policy service
     """
     # Create timeline from policy parameters
     timeline = [Dates.now()]
@@ -356,8 +356,8 @@ function monetary_policy_momat(interpreted_model::Dict, policy_parameters::Dict)
     # Create initial state
     initial_state = merge(interpreted_model, policy_parameters)
 
-    # Create MoMaT state with logging
-    return MoMaTState(functor, initial_state, next_fn, eval_fn)
+    # Create MES state with logging
+    return MESState(functor, initial_state, next_fn, eval_fn)
 end
 
 struct MacroBooking
@@ -423,52 +423,65 @@ function create_boe_model()
 end
 
 function next_fn(state::Dict)
-    current_date = state["current_date"]
-    dates = state["dates"]
+    """
+    State transition function for the bill of exchange model.
+    """
     new_state = deepcopy(state)
-
-    # Helper function for PV calculation
-    function calculate_pv(amount, rate, from_date, to_date)
-        days = abs(Dates.value(to_date - from_date)) ÷ (1000 * 60 * 60 * 24)
-        discount_factor = 1.0 / (1.0 + rate * (days / 365.0))
-        return amount * discount_factor
-    end
+    current_date = new_state["current_date"]
+    dates = new_state["dates"]
 
     if current_date == dates["delivery"]
-        # Bicycle delivery - just record the physical transaction
+        # Bicycle delivery - no financial impact
         new_state["status"] = "delivered"
-
-    elseif current_date == dates["creation"]
-        # BoE creation between seller and buyer
-        new_state["status"] = "created"
         new_state["current_holder"] = "seller"
 
+    elseif current_date == dates["creation"]
+        # Create BoE - calculate present value
+        face_value = new_state["parameters"]["face_value"]
+        rate = new_state["parameters"]["rates"]["commercial"]
+        time_to_maturity = (dates["maturity"] - current_date).value / (365 * 24 * 60 * 60)
+        pv = face_value / (1 + rate * time_to_maturity)
+
+        new_state["calculations"] = Dict(
+            "seller_bank_purchase" => Dict(
+                "face_value" => face_value,
+                "purchase_value" => pv,
+                "discount" => face_value - pv
+            )
+        )
+        new_state["status"] = "created"
+        new_state["current_holder"] = "seller_bank"
+
     elseif current_date == dates["seller_bank"]
-        # Seller bank buys BoE - calculate first discount
-        face_value = state["parameters"]["face_value"]
-        seller_bank_pv = calculate_pv(
+        # Seller bank buys BoE - calculate interbank spread
+        face_value = new_state["parameters"]["face_value"]
+        central_bank_pv = calculate_pv(
             face_value,
-            state["parameters"]["rates"]["commercial"],
+            new_state["parameters"]["rates"]["central_bank"],
             current_date,
             dates["maturity"]
         )
 
-        # Record the purchase and discount
-        new_state["calculations"] = Dict(
-            "seller_bank_purchase" => Dict(
-                "face_value" => face_value,
-                "purchase_value" => seller_bank_pv,
-                "discount" => face_value - seller_bank_pv
-            )
+        # Calculate earnings distribution
+        seller_bank_purchase = new_state["calculations"]["seller_bank_purchase"]["purchase_value"]
+        total_discount = face_value - central_bank_pv
+        central_bank_earning = face_value - central_bank_pv
+        commercial_spread = central_bank_pv - seller_bank_purchase
+        bank_earning = commercial_spread / 2  # Split between seller and buyer bank
+
+        new_state["calculations"]["earnings"] = Dict(
+            "central_bank" => central_bank_earning,
+            "seller_bank" => bank_earning,
+            "buyer_bank" => bank_earning
         )
-        new_state["current_holder"] = "seller_bank"
+        new_state["current_holder"] = "buyer_bank"
 
     elseif current_date == dates["buyer_bank"]
         # Buyer bank buys BoE - calculate interbank spread
-        face_value = state["parameters"]["face_value"]
+        face_value = new_state["parameters"]["face_value"]
         central_bank_pv = calculate_pv(
             face_value,
-            state["parameters"]["rates"]["central_bank"],
+            new_state["parameters"]["rates"]["central_bank"],
             current_date,
             dates["maturity"]
         )

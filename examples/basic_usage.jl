@@ -1,4 +1,4 @@
-using MoMaT_Sim
+using MES
 
 # Create a simple category with three objects and two morphisms
 objects = ["A", "B", "C"]
