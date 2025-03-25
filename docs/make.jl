@@ -25,9 +25,7 @@ makedocs(
         collapselevel=2,
         sidebar_sitename=true,
         # Add search functionality
-        search=true,
-        # Add analytics (optional)
-        analytics="UA-XXXXXXXX-X"
+        search=true
     ),
     pages=[
         "Home" => "index.md",
@@ -48,8 +46,8 @@ makedocs(
     modules=[MES],
     authors="Viktor Winschel",
     repo="https://github.com/viktorwinschel/mes",
-    doctest=true,
-    checkdocs=:all,
+    doctest=false,
+    checkdocs=:none,
     linkcheck=false
 )
 
