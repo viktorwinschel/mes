@@ -8,25 +8,18 @@ using MES
 using DocumenterTools
 DocumenterTools.genkeys()
 
+# Set prettyurls based on environment
+const is_ci = get(ENV, "CI", "false") == "true"
+
 # Build documentation
 makedocs(
-    sitename="MES",
+    sitename="MES Documentation",
     format=Documenter.HTML(
         # Enable pretty URLs for GitHub Pages
-        prettyurls=get(ENV, "CI", "false") == "true",
+        prettyurls=is_ci,
         # Update canonical URL to GitHub Pages
         canonical="https://viktorwinschel.github.io/mes",
-        assets=[
-            "assets/favicon.ico",
-            "assets/custom.css"
-        ],
-        # Navigation options
-        collapselevel=1,
-        sidebar_sitename=true,
-        # Enable git info for GitHub
-        disable_git=false,
-        # Add GitHub repo link
-        repolink="https://github.com/viktorwinschel/mes"
+        edit_link="main"
     ),
     pages=[
         "Home" => "index.md",
@@ -67,7 +60,7 @@ makedocs(
 
 # Deploy documentation
 deploydocs(
-    repo="github.com/viktorwinschel/mes.git",
+    repo="github.com/viktorwinschel/mes",
     devbranch="main",
     push_preview=true,  # Enable preview builds for PRs
     # Deploy built documentation from docs/build to gh-pages branch
