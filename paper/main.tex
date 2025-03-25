@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{tikz-cd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+
+\title{Commutative Diagrams for Algebras}
+\author{Dr.\,Viktor Winschel\footnote{viktor.winschel@gmail.com, +49 179 7621055}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+An \emph{algebra} \((U, a)\) over a functor \(T \colon \mathcal{C} \to \mathcal{C}\) consists of a carrier object \(U\) and a structure morphism \(a \colon T(U) \to U\).
+
+A morphism of \(T\)-algebras \(f \colon (U, a) \to (V, b)\) is a morphism \(f \colon U \to V\) in \(\mathcal{C}\) such that the following square commutes:
+
+\begin{equation}
+\label{eq:naturality}
+\begin{tikzcd}[row sep=large, column sep=large]
+T(U) \arrow[r,"T(f)"] \arrow[d,"a"'] & T(V) \arrow[d,"b"] \\
+U \arrow[r,"f"'] & V
+\end{tikzcd}
+\end{equation}
+
+That is, \(f \circ a = b \circ T(f)\), meaning \(f\) respects the algebra structures. Such morphisms are called \emph{algebra homomorphisms} or simply \emph{natural}.
+
+These morphisms compose, giving rise to sequences in the category of \(T\)-algebras:
+
+\begin{equation}
+\label{eq:algebra-morphism-sequence}
+\left( T(U) \xrightarrow{a} U \right) \xrightarrow{f}
+\left( T(V) \xrightarrow{b} V \right) \xrightarrow{g}
+\left( T(W) \xrightarrow{c} W \right)
+\end{equation}
+
+The category formed by \(T\)-algebras and their morphisms is called the \emph{Eilenberg–Moore category} \(\mathcal{C}^T\).
+
+The following diagram shows that functorial composition is compatible with algebra structure:
+
+\begin{equation}
+\label{eq:composition}
+\begin{tikzcd}[row sep=large, column sep=large]
+T(U) \arrow[r,"T(f)"] \arrow[d,"a"'] \arrow[rr,bend left=40,"T(g \circ f)"] &
+T(V) \arrow[r,"T(g)"] \arrow[d,"b"'] &
+T(W) \arrow[d,"c"] \\
+U \arrow[r,"f"'] \arrow[rr,bend right=40,"g \circ f"'] &
+V \arrow[r,"g"'] &
+W
+\end{tikzcd}
+\end{equation}
+
+This diagram ensures that composition in \(\mathcal{C}^T\) is well-defined: morphisms of algebras preserve structure not just individually, but also under composition, reflecting the functoriality of \(T\) and the coherence of the algebra morphisms.
+
+\end{document}
