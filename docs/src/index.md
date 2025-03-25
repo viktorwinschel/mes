@@ -1,34 +1,21 @@
 # Memory Evolutive Systems (MES)
 
+A Julia package for modeling complex systems using category theory, focusing on hierarchy, emergence, and evolution.
+
 ## Overview
 
-Memory Evolutive Systems (MES) is a Julia package for modeling complex systems using category theory. It provides a framework for understanding and analyzing systems that evolve over time while maintaining memory of their past states.
+Memory Evolutive Systems (MES) provide a mathematical framework for modeling complex systems that:
+- Develop hierarchical structures
+- Exhibit emergent properties
+- Evolve over time through interactions
+- Form and utilize memory
 
-## Structure
-
-The documentation is organized into three main parts:
-
-### Part A: Hierarchy and Emergence
-- [Categories](theory/categories.md) - Basic category theory concepts
-- [Patterns](theory/patterns.md) - Pattern recognition and colimits
-- [Memory Systems](theory/memory_systems.md) - Memory and system evolution
-- [Synchronization](theory/synchronization.md) - System coordination
-
-### Part B: Memory Evolutive Systems
-- [Categories](theory/categories.md) - Core category theory implementation
-- [Patterns](theory/patterns.md) - Pattern recognition and processing
-- [Memory Systems](theory/memory_systems.md) - Memory management and evolution
-- [Synchronization](theory/synchronization.md) - System coordination
-
-### Part C: Applications
-- [Categories](examples/categories.md) - Practical examples of category theory
-- [Papers](papers/mes/mes-summary.md) - Original MES papers and references
-
-## Getting Started
-
-Here's a simple example of using MES:
+## Quick Start
 
 ```julia
+using Pkg
+Pkg.add("MES")
+
 using MES
 
 # Create a simple category
@@ -46,30 +33,26 @@ pattern = create_pattern([
 colimit = calculate_colimit(pattern)
 ```
 
-## Features
+## Documentation Structure
 
-The MES framework provides:
+1. **[Getting Started](@ref)** - Quick setup and basic usage
+2. **[Theory](@ref)** - Mathematical foundations and concepts
+3. **[Examples](@ref)** - Practical examples and use cases
+4. **[API Reference](@ref)** - Detailed function documentation
 
-1. **Category Theory Foundations**
-   - Objects and morphisms
-   - Functors and natural transformations
-   - Limits and colimits
+## Key Features
 
-2. **Pattern Recognition**
-   - Pattern creation and manipulation
-   - Colimit calculations
-   - Pattern matching
+- **Category Theory Foundations**: Implementation of categories, functors, and natural transformations
+- **Pattern Recognition**: Tools for identifying and working with patterns in complex systems
+- **Colimit Calculations**: Mechanisms for binding and integration
+- **Hierarchical Structures**: Support for multi-level system modeling
+- **Evolution Tracking**: Tools for modeling system changes over time
+- **Memory Modeling**: Frameworks for representing and utilizing system memory
 
-3. **Memory Systems**
-   - Short-term and long-term memory
-   - Memory evolution
-   - State persistence
+## Contributing
 
-4. **Synchronization**
-   - System coordination
-   - State alignment
-   - Event synchronization
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Further Reading
+## License
 
-For more detailed information about MES concepts and applications, refer to the [original papers](papers/mes/mes-summary.md). 
+This project is licensed under the MIT License - see the LICENSE file for details. 

@@ -29,19 +29,17 @@ makedocs(
     ),
     pages=[
         "Home" => "index.md",
+        "Getting Started" => "getting_started/quickstart.md",
         "Theory" => [
+            "Overview" => "theory.md",
             "Categories" => "theory/categories.md",
-            "Patterns" => "theory/patterns.md",
-            "Memory Systems" => "theory/memory_systems.md",
-            "Synchronization" => "theory/synchronization.md"
+            "Patterns" => "theory/patterns.md"
         ],
         "Examples" => [
+            "Overview" => "examples.md",
             "Categories" => "examples/categories.md"
         ],
-        "Papers" => [
-            "MES Summary" => "papers/mes/mes-summary.md"
-        ],
-        "404" => "404.md"
+        "API Reference" => "api.md"
     ],
     modules=[MES],
     authors="Viktor Winschel",
