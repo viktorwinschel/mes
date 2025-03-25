@@ -3,15 +3,24 @@
 *.jl.cov
 *.jl.mem
 /deps/deps.jl
-/Manifest.toml
+/docs/build/
+Manifest.toml
 
 # System specific
 .DS_Store
 Thumbs.db
 
-# Editor specific
-.vscode/
+# IDE specific
 .idea/
+.vscode/
+*.swp
+*.swo
+
+# Build specific
+/build/
+/dist/
+
+# Editor specific
 *.swp
 *.swo
 *~
@@ -21,10 +30,6 @@ Thumbs.db
 *.log
 *.out
 *.synctex.gz
-
-# Build specific
-/build/
-/docs/build/
 
 # Environment specific
 .env

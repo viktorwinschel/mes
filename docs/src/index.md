@@ -1,70 +1,75 @@
-# MES Documentation
-
-Welcome to the documentation for MES (Memory Evolutive Systems), a Julia package implementing the mathematical framework for modeling cognitive and complex systems using category theory.
+# Memory Evolutive Systems (MES)
 
 ## Overview
 
-MES provides tools for implementing the Memory Evolutive Systems framework, as described in [Ehresmann and Vanbremeersch (2007)](papers.md#memory-evolutive-systems-hierarchy-emergence-cognition-2007) and [Ehresmann and Vanbremeersch (2023)](papers.md#memory-evolutive-systems-a-mathematical-model-for-cognitive-systems-2023). The package includes:
+Memory Evolutive Systems (MES) is a Julia package for modeling complex systems using category theory. It provides a framework for understanding and analyzing systems that evolve over time while maintaining memory of their past states.
 
-- Creating and manipulating hierarchical categories
-- Working with patterns and colimits
-- Implementing memory components with variable multiplicity
-- Modeling co-regulation and synchronization
-- Simulating complex system evolution
+## Structure
+
+The documentation is organized into three main parts:
+
+### Part A: Hierarchy and Emergence
+- [Categories](theory/categories.md) - Basic category theory concepts
+- [Patterns](theory/patterns.md) - Pattern recognition and colimits
+- [Memory Systems](theory/memory_systems.md) - Memory and system evolution
+- [Synchronization](theory/synchronization.md) - System coordination
+
+### Part B: Memory Evolutive Systems
+- [Categories](theory/categories.md) - Core category theory implementation
+- [Patterns](theory/patterns.md) - Pattern recognition and processing
+- [Memory Systems](theory/memory_systems.md) - Memory management and evolution
+- [Synchronization](theory/synchronization.md) - System coordination
+
+### Part C: Applications
+- [Categories](examples/categories.md) - Practical examples of category theory
+- [Papers](papers/mes/mes-summary.md) - Original MES papers and references
 
 ## Getting Started
 
-- [Installation](getting_started/installation.md)
-- [Basic Usage](getting_started/basic_usage.md)
+Here's a simple example of using MES:
 
-## Examples
+```julia
+using MES
 
-### Core MES Examples
-- [Basic Categories](examples/basic_categories.md)
-- [Patterns and Colimits](examples/patterns.md)
-- [Memory Systems](examples/memory.md)
-- [Synchronization](examples/synchronization.md)
+# Create a simple category
+cat = create_category([
+    ("A", "B", "f"),
+    ("B", "C", "g")
+])
 
-### MOMAT Examples
-- [Monetary Macro Accounting](examples/momat/index.md)
-  - [Basic Examples](examples/momat/basic.md)
-  - [Advanced Examples](examples/momat/advanced.md)
+# Create a pattern
+pattern = create_pattern([
+    ("A", "B", "f")
+])
 
-## Theory
+# Calculate a colimit
+colimit = calculate_colimit(pattern)
+```
 
-- [Categories](theory/categories.md)
-- [Patterns](theory/patterns.md)
-- [Memory Systems](theory/memory_systems.md)
-- [Synchronization](theory/synchronization.md)
+## Features
 
-## Papers and References
+The MES framework provides:
 
-- [Core Papers](papers.md)
-- [Citation Guide](papers.md#citing-mes)
-
-## API Reference
-
-Browse the [API Reference](api.md) for detailed function documentation.
-
-## Mathematical Background
-
-Memory Evolutive Systems are based on category theory and include:
-
-1. **Categories and Functors**
+1. **Category Theory Foundations**
    - Objects and morphisms
-   - Functorial evolution
-   - Composition rules
+   - Functors and natural transformations
+   - Limits and colimits
 
-2. **Patterns and Colimits**
-   - Pattern recognition
-   - Colimit computation
-   - Emergence of new objects
+2. **Pattern Recognition**
+   - Pattern creation and manipulation
+   - Colimit calculations
+   - Pattern matching
 
 3. **Memory Systems**
    - Short-term and long-term memory
-   - Co-regulators
-   - Synchronization
+   - Memory evolution
+   - State persistence
 
-## Contributing
+4. **Synchronization**
+   - System coordination
+   - State alignment
+   - Event synchronization
 
-Contributions are welcome! Please feel free to submit a Pull Request. 
+## Further Reading
+
+For more detailed information about MES concepts and applications, refer to the [original papers](papers/mes/mes-summary.md). 

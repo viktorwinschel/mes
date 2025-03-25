@@ -1,32 +1,51 @@
 # Memory Systems
 
-## Basic Concepts
+This chapter explores the concept of memory systems in Memory Evolutive Systems.
 
-Memory Evolutive Systems (MES) are based on the following principles:
+## Introduction
 
-1. **Categories and Functors**
-   - Objects and morphisms
-   - Functorial evolution
-   - Composition rules
+Memory systems are fundamental components of MES that enable the storage, retrieval, and evolution of information over time. They form the basis for understanding how systems maintain and adapt their structure.
 
-2. **Patterns and Colimits**
-   - Pattern recognition
-   - Colimit computation
-   - Emergence of new objects
+## Memory System Components
 
-3. **Memory Systems**
-   - Short-term and long-term memory
-   - Co-regulators
-   - Synchronization
+A memory system consists of:
+- Storage structures for information
+- Retrieval mechanisms
+- Evolution rules
+- Synchronization protocols
 
-## Applications in Financial Systems
+## Memory Dynamics
 
-Memory systems are used to model:
-- Transaction history
-- Value evolution
-- Time-dependent operations
-- Complex financial relationships
+Memory systems in MES exhibit several key characteristics:
+- Temporal persistence
+- Adaptive evolution
+- Pattern recognition
+- Information integration
 
-## Next Steps
+## Implementation
 
-Check out the [Examples](../examples/bill_of_exchange.md) section for practical applications. 
+```julia
+# Example of memory system creation and evolution
+using MES
+
+# Create a memory system
+memory = create_memory_system()
+
+# Add information to the memory
+add_to_memory!(memory, "pattern1", pattern)
+
+# Evolve the memory system
+evolve!(memory, time_step)
+```
+
+## Applications
+
+Memory systems are used in various contexts:
+- Neural network modeling
+- Learning systems
+- Adaptive algorithms
+- Complex system simulation
+
+## Further Reading
+
+For more detailed information about memory systems in MES, refer to the original papers in the [Papers](../papers/mes/mes-summary.md) section. 

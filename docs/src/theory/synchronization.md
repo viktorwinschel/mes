@@ -1,89 +1,52 @@
-# Synchronization Theory
+# Synchronization
 
-This page explains the theoretical foundations of synchronization in Memory Evolutive Systems.
+This chapter covers synchronization mechanisms in Memory Evolutive Systems.
 
-## Overview
+## Introduction
 
-Synchronization in MES refers to the coordinated behavior of system components through their interactions. This coordination can occur at multiple levels and through various mechanisms.
+Synchronization is a crucial aspect of MES that ensures coordinated evolution of different system components. It enables the harmonious interaction between various parts of a complex system.
 
-## Key Concepts
+## Synchronization Mechanisms
 
-### 1. Oscillator Networks
+Key synchronization features include:
+- Temporal coordination
+- State alignment
+- Event synchronization
+- Resource management
 
-Oscillator networks are fundamental building blocks for modeling synchronization in MES:
+## Synchronization Patterns
 
-- Each oscillator has a phase and frequency
-- Oscillators interact through coupling connections
-- The network topology determines synchronization patterns
+Common synchronization patterns in MES:
+- Co-regulator synchronization
+- Memory system coordination
+- Pattern alignment
+- State consistency
 
-### 2. Phase Locking
+## Implementation
 
-Phase locking occurs when oscillators maintain a constant phase difference:
+```julia
+# Example of synchronization in MES
+using MES
 
-- Strong coupling leads to complete synchronization
-- Weak coupling may result in partial synchronization
-- Phase locking values measure synchronization strength
+# Create synchronized components
+component1 = create_component()
+component2 = create_component()
 
-### 3. Co-regulation
+# Establish synchronization
+sync = create_synchronization(component1, component2)
 
-Co-regulation mechanisms enable system components to:
-
-- Maintain stable states
-- Respond to external perturbations
-- Adapt to changing conditions
-
-### 4. Entrainment
-
-Entrainment describes how oscillators influence each other:
-
-- Driver oscillators can entrain responder oscillators
-- The strength of entrainment depends on coupling
-- Frequency differences affect entrainment stability
-
-## Mathematical Framework
-
-### Phase Dynamics
-
-The phase evolution of coupled oscillators follows:
-
-```math
-\frac{d\phi_i}{dt} = \omega_i + \sum_{j=1}^N K_{ij} \sin(\phi_j - \phi_i)
-```
-
-where:
-- $\phi_i$ is the phase of oscillator i
-- $\omega_i$ is the natural frequency
-- $K_{ij}$ is the coupling strength
-
-### Synchronization Order Parameter
-
-The order parameter measures global synchronization:
-
-```math
-R = \left|\frac{1}{N}\sum_{j=1}^N e^{i\phi_j}\right|
-```
-
-### Co-regulation Equations
-
-The co-regulation dynamics are described by:
-
-```math
-\frac{dx_i}{dt} = f_i(x_i) + \sum_{j=1}^N g_{ij}(x_i, x_j)
+# Perform synchronized evolution
+evolve_synchronized!(sync, time_step)
 ```
 
 ## Applications
 
-1. **Neural Networks**
-   - Synchronization of neural populations
-   - Phase-locked oscillations
-   - Co-regulated neural states
+Synchronization is used in various contexts:
+- Distributed systems
+- Neural networks
+- Multi-agent systems
+- Complex adaptive systems
 
-2. **Financial Systems**
-   - Market synchronization
-   - Systemic risk assessment
-   - Policy transmission
+## Further Reading
 
-3. **Social Systems**
-   - Opinion formation
-   - Behavior coordination
-   - Group dynamics 
+For more detailed information about synchronization in MES, refer to the original papers in the [Papers](../papers/mes/mes-summary.md) section. 
