@@ -15,7 +15,19 @@ makedocs(
         prettyurls=is_ci,
         # Update canonical URL to GitHub Pages
         canonical="https://viktorwinschel.github.io/mes",
-        edit_link="main"
+        edit_link="main",
+        # Add GitHub Pages optimizations
+        assets=[
+            "assets/favicon.ico",
+            "assets/custom.css"
+        ],
+        # Add navigation options
+        collapselevel=2,
+        sidebar_sitename=true,
+        # Add search functionality
+        search=true,
+        # Add analytics (optional)
+        analytics="UA-XXXXXXXX-X"
     ),
     pages=[
         "Home" => "index.md",
@@ -30,7 +42,8 @@ makedocs(
         ],
         "Papers" => [
             "MES Summary" => "papers/mes/mes-summary.md"
-        ]
+        ],
+        "404" => "404.md"
     ],
     modules=[MES],
     authors="Viktor Winschel",

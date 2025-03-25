@@ -1,0 +1,65 @@
+/* Custom styles for MES documentation */
+
+/* Improve readability */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style code blocks */
+pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 16px;
+    overflow: auto;
+}
+
+/* Style headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #2c3e50;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+/* Style links */
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style navigation */
+.sidebar {
+    background-color: #f6f8fa;
+    border-right: 1px solid #e1e4e8;
+}
+
+/* Style search box */
+.search-box {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+}
