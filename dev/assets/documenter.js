@@ -32,7 +32,7 @@ requirejs.config({
 require([], function() {
 window.MathJax = {
   "tex": {
-    "preamble": "\\newcommand{\\cat}[1]{\\mathcal{#1}}\n\\newcommand{\\Set}{\\mathbf{Set}}\n\\newcommand{\\Cat}{\\mathbf{Cat}}\n\\newcommand{\\Ab}{\\mathbf{Ab}}\n\\newcommand{\\Time}{\\mathbf{Time}}\n",
+    "preamble": "\\newcommand{\\cat}[1]{\\mathcal{#1}}\n\\newcommand{\\Set}{\\mathbf{Set}}\n\\newcommand{\\Cat}{\\mathbf{Cat}}\n\\newcommand{\\Ab}{\\mathbf{Ab}}\n\\newcommand{\\Time}{\\mathbf{Time}}\n\\newcommand{\\Ord}{\\mathbf{Ord}}\n\\newcommand{\\Ctrl}{\\mathbf{Ctrl}}\n\\newcommand{\\State}{\\mathbf{State}}\n\\newcommand{\\cod}{\\mathrm{cod}}\n\\newcommand{\\id}{\\mathrm{id}}\n\\newcommand{\\colim}{\\mathrm{colim}}\n",
     "packages": [
       "base",
       "ams",
