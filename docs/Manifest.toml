@@ -260,7 +260,7 @@ version = "1.11.0"
 
 [[deps.MES]]
 deps = ["CSV", "DataFrames", "DataStructures", "Dates", "Documenter", "JSON", "Parameters", "Statistics"]
-path = ".."
+path = "/Users/viktorwinschel/Desktop/mes"
 uuid = "c8b6dd2d-7a48-4d37-9786-3c60cc158d00"
 version = "0.1.0"
 
