@@ -8,23 +8,27 @@ const latex_preamble = """
 \\newcommand{\\Cat}{\\mathbf{Cat}}
 \\newcommand{\\Ab}{\\mathbf{Ab}}
 \\newcommand{\\Time}{\\mathbf{Time}}
-\\newcommand{\\Ord}{\\mathbf{Ord}}
-\\newcommand{\\Ctrl}{\\mathbf{Ctrl}}
-\\newcommand{\\State}{\\mathbf{State}}
-\\newcommand{\\cod}{\\mathrm{cod}}
-\\newcommand{\\id}{\\mathrm{id}}
-\\newcommand{\\colim}{\\mathrm{colim}}
 """
 
 makedocs(;
     modules=[MES],
     authors="Viktor Winschel",
-    repo="https://github.com/viktorwinschel/mes/blob/{commit}{path}#L{line}",
+    repo="github.com/viktorwinschel/mes",
     sitename="Memory Evolutive Systems",
     format=Documenter.HTML(;
-        prettyurls=get(ENV, "CI", "nothing") == "true",
+        prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://viktorwinschel.github.io/mes/",
+        edit_link="main",
         assets=String[],
+        mathengine=Documenter.MathJax3(Dict(
+            :loader => Dict("load" => ["[tex]/physics"]),
+            :tex => Dict(
+                "inlineMath" => [["\$", "\$"], ["\\(", "\\)"]],
+                "tags" => "ams",
+                "packages" => ["base", "ams", "autoload", "physics"],
+                "preamble" => latex_preamble
+            ),
+        )),
     ),
     pages=[
         "Home" => "index.md",
