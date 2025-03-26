@@ -28,13 +28,11 @@ makedocs(
     repo="https://github.com/viktorwinschel/mes/blob/{commit}{path}#L{line}",
     pages=[
         "Home" => "index.md",
-        "Getting Started" => "getting_started.md",
+        "Getting Started" => "getting_started/index.md",
         "Theory" => [
-            "Overview" => "theory/overview.md",
-            "Category Theory" => "theory/categories.md",
-            "Memory Systems" => "theory/memory.md"
+            "Overview" => "theory.md",
+            "Examples" => "examples.md"
         ],
-        "Examples" => "examples.md",
         "API Reference" => "api.md",
         "Papers" => "papers.md"
     ]
@@ -42,6 +40,5 @@ makedocs(
 
 deploydocs(
     repo="github.com/viktorwinschel/mes",
-    devbranch="main",
-    versions=["stable" => "v^", "v#.#", "dev" => "dev"]
+    devbranch="main"
 )
