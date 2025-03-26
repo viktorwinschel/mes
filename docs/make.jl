@@ -29,10 +29,7 @@ makedocs(;
     pages=[
         "Home" => "index.md",
         "Getting Started" => "getting_started/index.md",
-        "Theory" => [
-            "Overview" => "theory.md",
-            "Examples" => "examples.md"
-        ],
+        "Theory" => "theory.md",
         "Examples" => [
             "Overview" => "examples/index.md",
             "Bill of Exchange" => "examples/boe_cycles.md",
