@@ -1,6 +1,7 @@
-# MOMASCF: National Accounting System
+# National Accounting System
 
 This document describes the categorical structure of the MOMASCF system and its implementation.
+It is the samllest possible national accounting system based on the monetary theory of the MoMaT paper. 
 
 ## Naming Conventions
 

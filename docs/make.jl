@@ -20,7 +20,7 @@ makedocs(;
     modules=[MES],
     authors="Viktor Winschel",
     repo="github.com/viktorwinschel/mes",
-    sitename="Memory Evolutive Systems",
+    sitename="MoMa using MES",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://viktorwinschel.github.io/mes/",
