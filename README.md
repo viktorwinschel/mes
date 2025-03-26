@@ -185,9 +185,7 @@ compose_morphisms!(C, "g", "f", "id_B")
 
 ## Documentation
 
-Documentation is currently being built and will be available soon.
-Here?
-
+Documentation is currently being built and is available here:
 https://viktorwinschel.github.io/mes/
 
 
