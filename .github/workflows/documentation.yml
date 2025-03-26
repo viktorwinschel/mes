@@ -9,31 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Set up Julia
-        uses: julia-actions/setup-julia@v1
+      - uses: julia-actions/setup-julia@v1
         with:
           version: '1.9'
-          
       - name: Install dependencies
         run: |
           julia --project=docs -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
-          julia --project=docs -e 'using Pkg; Pkg.add(["Documenter", "DocumenterTools", "HTTP", "Markdown"])'
-          
-      - name: Build documentation
+      - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          julia --project=docs -e 'using Pkg; Pkg.status()'
-          julia --project=docs docs/make.jl
-        
-      - name: Deploy documentation
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build 
+        run: julia --project=docs docs/make.jl 

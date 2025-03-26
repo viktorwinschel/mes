@@ -19,7 +19,7 @@ const latex_preamble = """
 makedocs(
     sitename="Memory Evolutive Systems",
     format=Documenter.HTML(
-        prettyurls=false,
+        prettyurls=true,
         assets=["assets/custom.css"]
     ),
     clean=true,
@@ -46,4 +46,9 @@ makedocs(
     ]
 )
 
-# Documenter can also automatically deploy documentation to gh-pages.
+# Deploy to GitHub Pages
+deploydocs(
+    repo="github.com/viktorwinschel/mes.git",
+    devbranch="main",
+    push_preview=true
+)
