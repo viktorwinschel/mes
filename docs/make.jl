@@ -19,36 +19,29 @@ const latex_preamble = """
 makedocs(
     sitename="Memory Evolutive Systems",
     format=Documenter.HTML(
-        prettyurls=true,
-        assets=["assets/custom.css"]
+        prettyurls=get(ENV, "CI", nothing) == "true",
+        canonical="https://viktorwinschel.github.io/mes/",
+        edit_link="main"
     ),
-    clean=true,
-    doctest=true,
-    checkdocs=:all,
     modules=[MES],
+    authors="Viktor Winschel",
+    repo="https://github.com/viktorwinschel/mes/blob/{commit}{path}#L{line}",
     pages=[
         "Home" => "index.md",
-        "Getting Started" => "getting_started/index.md",
+        "Getting Started" => "getting_started.md",
         "Theory" => [
-            "Overview" => "theory/index.md",
+            "Overview" => "theory/overview.md",
             "Category Theory" => "theory/categories.md",
-            "Synchronization" => "theory/synchronization.md",
-            "Memory Systems" => "theory/memory_systems.md"
+            "Memory Systems" => "theory/memory.md"
         ],
-        "Examples" => [
-            "Overview" => "examples/index.md",
-            "Basic Examples" => "examples.md",
-            "National Accounting" => "examples/national_accounting.md",
-            "Bill of Exchange" => "examples/boe_cycles.md"
-        ],
+        "Examples" => "examples.md",
         "API Reference" => "api.md",
-        "Papers & References" => "papers.md"
+        "Papers" => "papers.md"
     ]
 )
 
-# Deploy to GitHub Pages
 deploydocs(
-    repo="github.com/viktorwinschel/mes.git",
+    repo="github.com/viktorwinschel/mes",
     devbranch="main",
-    push_preview=true
+    versions=["stable" => "v^", "v#.#", "dev" => "dev"]
 )
