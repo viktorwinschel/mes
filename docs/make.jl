@@ -8,6 +8,12 @@ const latex_preamble = """
 \\newcommand{\\Cat}{\\mathbf{Cat}}
 \\newcommand{\\Ab}{\\mathbf{Ab}}
 \\newcommand{\\Time}{\\mathbf{Time}}
+\\newcommand{\\Ord}{\\mathbf{Ord}}
+\\newcommand{\\Ctrl}{\\mathbf{Ctrl}}
+\\newcommand{\\State}{\\mathbf{State}}
+\\newcommand{\\cod}{\\mathrm{cod}}
+\\newcommand{\\id}{\\mathrm{id}}
+\\newcommand{\\colim}{\\mathrm{colim}}
 """
 
 makedocs(;
