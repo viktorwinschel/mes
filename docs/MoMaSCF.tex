@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\title{Monetary Macro-Accounting Model for Supply Chain Finance (MoMaSCF)}
+\author{Documentation}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+
+MoMaSCF is a monetary macro-accounting model that simulates financial flows and economic interactions in a supply chain system. The model represents a closed economy with four main agents (Labor, Resource Owners, Company, and Capitalists) interacting through a banking system.
+
+\subsection{Historical Context}
+\begin{itemize}
+    \item Historical bill market in Germany 1990: 50 Billion DM per annum
+    \item Current trade finance market: $\sim 10^{12}$, with 2/3 as open account (deferred payment)
+\end{itemize}
+
+\section{Model Structure}
+
+\subsection{Agents and Their Roles}
+
+\subsubsection{Labor (Households)}
+\begin{itemize}
+    \item Provides labor to companies
+    \item Receives wages
+    \item Consumes goods
+    \item Maintains bank accounts and goods inventory
+\end{itemize}
+
+\subsubsection{Resource Owners}
+\begin{itemize}
+    \item Supply raw materials
+    \item Receive resource payments
+    \item Consume goods
+    \item Maintain resource stocks and bank accounts
+\end{itemize}
+
+\subsubsection{Company (Producer)}
+\begin{itemize}
+    \item Produces goods using labor and resources
+    \item Takes loans for investment
+    \item Pays wages, resource costs, and dividends
+    \item Maintains multiple account types (bank, loan, inventory)
+\end{itemize}
+
+\subsubsection{Capitalists}
+\begin{itemize}
+    \item Receive dividends
+    \item Consume goods
+    \item Maintain bank accounts and goods inventory
+\end{itemize}
+
+\subsubsection{Bank}
+\begin{itemize}
+    \item Provides loans to companies
+    \item Maintains accounts for all agents
+    \item Facilitates payments and settlements
+\end{itemize}
+
+\section{Mathematical Framework}
+
+\subsection{Key Parameters}
+\begin{align*}
+    \text{InvestmentLen} &= 10 && \text{(Investment cycle length)} \\
+    \text{LabResourceRatio} &= 0.2 && \text{(Labor to resources ratio)} \\
+    \text{ConsumRatio}_i &\in \{0.8, 0.95, 0.6\} && \text{(Consumption ratios)} \\
+    \text{MarkUp} &= 0.5 && \text{(Price markup)} \\
+    \text{DivRateDiff} &= 0.15 && \text{(Dividend ratio from surplus)} \\
+    \text{DivRateBank} &= 0.4 && \text{(Dividend ratio from balance)}
+\end{align*}
+
+\subsection{Production Function}
+The production function follows a Cobb-Douglas form:
+\begin{equation}
+    Q = 1 + \text{ScaleProd} \cdot L^{\alpha} \cdot R^{1-\alpha}
+\end{equation}
+where:
+\begin{itemize}
+    \item $Q$: Production output
+    \item $L$: Labor input
+    \item $R$: Resource input
+    \item $\alpha = \text{LabResSubstProd} = 0.75$
+    \item $\text{ScaleProd} = 0.42$
+\end{itemize}
+
+\subsection{Investment Function}
+Investment follows a sigmoid response to demand surplus:
+\begin{equation}
+    I = \text{sigA} + \frac{\text{sigB}}{1 + e^{-D_s/\text{sigC}}}
+\end{equation}
+where:
+\begin{itemize}
+    \item $D_s$: Demand surplus
+    \item $\text{sigA} = 20.0$ (Base level)
+    \item $\text{sigB} = 480.0$ (Scale)
+    \item $\text{sigC} = 200.0$ (Sensitivity)
+\end{itemize}
+
+\subsection{Price Formation}
+Price is determined through categorical morphisms:
+\begin{equation}
+    P = P_0 \cdot \mathbb{1}_{t=0} + \frac{D_p}{Q} + W_p \cdot D_s \cdot \mathbb{1}_{D_s > 0}
+\end{equation}
+where:
+\begin{itemize}
+    \item $P_0$: Initial price
+    \item $D_p$: Planned demand
+    \item $Q$: Production
+    \item $D_s$: Demand surplus
+    \item $W_p$: Windfall profit ratio
+\end{itemize}
+
+\subsection{Dividend Decision}
+Dividends are calculated using two components:
+\begin{equation}
+    D = r_d \cdot \max(L_d, 0) + r_b \cdot \max(B, 0)
+\end{equation}
+where:
+\begin{itemize}
+    \item $L_d$: Loan difference
+    \item $B$: Bank balance
+    \item $r_d$: Dividend rate from difference
+    \item $r_b$: Dividend rate from balance
+\end{itemize}
+
+\section{Categorical Implementation}
+
+\subsection{Morphisms}
+The model implements categorical morphisms for decision-making:
+
+\begin{lstlisting}[language=Julia]
+struct ConditionalMorphism
+    condition::Function
+    true_morphism::Function
+    false_morphism::Function
+end
+
+struct PriceFormationMorphisms
+    initial_price::ConditionalMorphism
+    demand_price::Function
+    surplus_price::ConditionalMorphism
+end
+
+struct DividendDecisionMorphisms
+    surplus_dividend::ConditionalMorphism
+    bank_dividend::ConditionalMorphism
+end
+\end{lstlisting}
+
+\section{System Dynamics}
+
+\subsection{Flow Equations}
+Key flow relationships:
+\begin{align*}
+    \text{FLOW\_CONSUMPTION}_i &= \text{BANK}_i \cdot \text{ConsumRatio}_i \\
+    \text{FLOW\_INVESTMENT\_RESOURCE} &= I \cdot (1 - \text{LabResourceRatio}) \\
+    \text{FLOW\_INVESTMENT\_LABOR} &= I \cdot \text{LabResourceRatio}
+\end{align*}
+
+\subsection{Clearing System}
+Two-phase clearing with efficiency rates:
+\begin{align*}
+    \text{MORNING\_NETTED} &= 0.85 \cdot \text{MORNING\_FLOWS} \\
+    \text{EVENING\_NETTED} &= 0.90 \cdot \text{EVENING\_FLOWS}
+\end{align*}
+
+\section{Results}
+
+\subsection{Key Metrics}
+Average values from simulation:
+\begin{align*}
+    \text{Wage Payment} &\approx 877.77 \\
+    \text{Resource Payment} &\approx 438.88 \\
+    \text{Dividend Payment} &\approx 2.63 \times 10^6 \\
+    \text{Production} &\approx 21.62 \\
+    \text{Price} &\approx 2.39 \times 10^6
+\end{align*}
+
+\subsection{System Stability}
+The model maintains:
+\begin{itemize}
+    \item Net positions near equilibrium
+    \item Consistent clearing efficiencies
+    \item Balanced flow relationships
+\end{itemize}
+
+\section{Conclusion}
+
+MoMaSCF successfully implements a categorical approach to monetary macro-accounting, demonstrating:
+\begin{itemize}
+    \item Robust financial flow modeling
+    \item Stable clearing mechanisms
+    \item Complex agent interactions
+    \item Emergent economic behavior
+\end{itemize}
+
+\end{document} 

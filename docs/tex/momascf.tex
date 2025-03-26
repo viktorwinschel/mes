@@ -1,0 +1,55 @@
+% MOMASCF Documentation
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{MOMASCF: A Categorical Framework for Monetary and Financial Systems}
+\author{Viktor Winschel}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document describes the categorical structure of the MOMASCF system.
+
+\section{Basic Structure}
+
+The basic categorical structure is given by:
+
+\[
+\begin{align*}
+\cat{C} &= (\mathrm{Obj}(\cat{C}), \mathrm{Mor}(\cat{C}), \circ, \mathrm{id}) \\
+\mathrm{Obj}(\cat{C}) &= \{\text{Accounts}\} \cup \{\text{Agents}\} \\
+\mathrm{Mor}(\cat{C}) &= \{f: A \to B \mid A, B \in \mathrm{Obj}(\cat{C})\}
+\end{align*}
+\]
+
+\section{Double-Entry Structure}
+
+The double-entry principle is represented by the following pullback:
+
+\[
+\begin{array}{ccc}
+\text{Transaction} & \xrightarrow{\text{credit}} & \text{CreditAccount} \\
+\downarrow_{\text{debit}} & & \downarrow_{\text{balance}} \\
+\text{DebitAccount} & \xrightarrow{\text{balance}} & \text{Money}
+\end{array}
+\]
+
+\section{Balance Sheet Functor}
+
+The balance sheet structure is represented by a functor:
+
+\[
+\begin{array}{ccc}
+\cat{C}(t) & \xrightarrow{F_t} & \cat{C}(t+1) \\
+\downarrow_{\beta_t} & & \downarrow_{\beta_{t+1}} \\
+\Ab & \xrightarrow{\id} & \Ab
+\end{array}
+\]
+
+\end{document} 

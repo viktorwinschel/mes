@@ -1,0 +1,2355 @@
+machine learning &
+knowledge extraction
+
+Article
+
+A Mathematical Framework for Enriching
+Human–Machine Interactions
+Andrée C. Ehresmann 1, *, Mathias Béjean 2
+1
+2
+3
+
+*
+
+and Jean-Paul Vanbremeersch 3
+
+LAMFA, Université de Picardie Jules Verne, 80039 Amiens, France
+IRG, Université Paris-Est-Créteil, 94010 Creteil, France
+EHPAD Saint-Joseph, 80330 Cagny, France
+Correspondence: ehres@u-picardie.fr
+
+Abstract: This paper presents a conceptual mathematical framework for developing rich human–
+machine interactions in order to improve decision-making in a social organisation, S. The idea is to
+model how S can create a “multi-level artificial cognitive system”, called a data analyser (DA), to
+collaborate with humans in collecting and learning how to analyse data, to anticipate situations, and
+to develop new responses, thus improving decision-making. In this model, the DA is “processed”
+to not only gather data and extend existing knowledge, but also to learn how to act autonomously
+with its own specific procedures or even to create new ones. An application is given in cases where
+such rich human–machine interactions are expected to allow the DA+S partnership to acquire deep
+anticipation capabilities for possible future changes, e.g., to prevent risks or seize opportunities. The
+way the social organization S operates over time, including the construction of DA, is described
+using the conceptual framework comprising “memory evolutive systems” (MES), a mathematical
+theoretical approach introduced by Ehresmann and Vanbremeersch for evolutionary multi-scale,
+multi-agent and multi-temporality systems. This leads to the definition of a “data analyser–MES”.
+Keywords: human–machine interactions; memory evolutive systems; artificial intelligence; anticipation
+
+Citation: Ehresmann, A.C.;
+Béjean, M.; Vanbremeersch, J.-P. A
+Mathematical Framework for
+Enriching Human–Machine
+Interactions. Mach. Learn. Knowl. Extr.
+2023, 5, 597–610. https://doi.org/
+10.3390/make5020034
+Academic Editor: Andreas Holzinger
+Received: 2 February 2023
+Revised: 4 May 2023
+Accepted: 25 May 2023
+Published: 6 June 2023
+
+Copyright: © 2023 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed under the terms and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+
+1. Introduction
+In most social organizations, human–machine interactions are nowadays commonly considered as ubiquitous, the classic “machine” going from a simple computer to “a machine which
+displays human-like capabilities such as reasoning, learning, planning and creativity” [1]. Still,
+if the increasing use of AI is supposed to make all of these human–machine interactions more
+efficient, the impact of AI will depend on what we mean by AI.
+The history of AI is difficult to establish. Some authors date it back to the 1950s
+and attribute its paternity to Marvin Minsky—one of the fathers of computer science and
+cofounder in 1956 of the Artificial Intelligence Laboratory at MIT. Minsky’s dissertation in
+1954 was entitled “A Theory of Neural Analog Reinforcement Systems and Its Application
+to the Brain Model Problem” [2]. In the late 1960s, Minsky published a number of important
+well-known works on similar themes, in particular [3,4] and later [5,6].
+Other people date “real” AI much later and consider Newell and Simon to be the
+introducers of “symbolic AI” in 1976, writing: “A physical symbol system has the necessary
+and sufficient means of general intelligent action.” [7]. Historically, symbolism is indeed
+the first of the two different paradigmatic approaches to AI. It is based on the definition of
+an arbitrary set of symbols and semantic rules that manipulate the symbols.
+Many more recent AI-based systems draw on a more bottom-up approach named
+“connectionism” which seeks to explain intellectual abilities by using artificial “neural
+networks” or “neural nets”. Among the connectionists, there are a large number of authors
+dealing with complex neural systems and learning, such as Changeux, Dehaene, and
+Toulouse [8], who use a physically based approach, or Rumelhart, Hinton, and Williams [9].
+
+Mach. Learn. Knowl. Extr. 2023, 5, 597–610. https://doi.org/10.3390/make5020034
+
+https://www.mdpi.com/journal/make
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+598
+
+Still, a certain number of authors do not recognize a deep gap between the symbolic
+and the connectionist paradigms, with each of them having their own strengths and
+weaknesses. This often leads to the idea of finding ways to combine the two paradigms.
+For instance, Minsky stated in [10]: “Which approach is best to pursue? This question itself
+is simply wrong. Each has virtues and deficiencies, and we need integrated systems that
+can exploit the advantages of both”.
+This general view has been developed further in more recent research works. For
+instance, Zhang, Zhu, and Su [11] propose three generations of AI, with symbolism as the
+first and connectionism as the second. Doing so, they call for a “third generation artificial
+intelligence by combining the current paradigms”, for they believe that “AI cannot achieve
+human behaviours by relying on only one paradigm”.
+We defend this point of view, even if we do not agree with their tentative definition of
+the third generation using a vector spaces framework. Instead, the aim of this paper is to
+provide a conceptual mathematical framework, based on category theory [12], for a future
+third generation of AI, and to show that this makes it possible to create multi-level artificial
+cognitive systems allowing for richer human–machine interactions.
+To this end, we first consider a social organisation S, such as a company, an educative
+or a health institution. While preserving a kind of permanence or collective identity, we
+assume that such an organisation evolves over time due to changes in the different natures
+of its composition (e.g., members who leave S), structure (e.g., reconfiguration of material
+resources of S) and functioning (e.g., new ways of working or communicating in S).
+Then, we analyse the case of a close collaboration between S and an evolutionary
+high-tech machine named a data analyser (DA) that S develops over time. This DA is
+not only able to gather and memorize data about the environment, past and current
+activities and potential difficulties, but is also able to develop common deep strategies,
+for instance allowing the DA+S partnership to generate rich anticipatory assumptions for
+risk prevention.
+Let us note the particularity of such a DA on an example where S is a healthcare
+service. In this case, medical robotics teams can propose robots to streamline workflows
+and offer value in many areas by accomplishing specific and more-or-less repetitive tasks.
+Our aim for DA is much richer. Our objective is that it should, by itself, be able to
+detect some symptoms (after a thorough medical learning) and be trained to autonomously
+select appropriate responses to resolve a situation. Another role we assign to DA is to
+develop rich interactions with S that allow it to participate in decision-making meetings as
+an actor and as an observer capable of detecting and seeking to correct misunderstandings
+between participants.
+To describe the functioning of S over time, including the construction of a DA, we
+draw on the “memory evolutive systems” (MES) concept introduced by Ehresmann and
+Vanbremeersch [13–15], a mathematical model for evolutionary and complex multi-scale,
+multi-agent and multi-temporality systems, such as biological, cognitive and social systems.
+This leads us to define a particular kind of MES, named DA–MES, by which we study how
+DA can improve human–machine decision-making.
+As we also wish to consider decision-making about the future, we analyse how a
+particular DA–MES may become “Futures Literate” (FL), referring to Riel Miller’s work on
+rich anticipatory processes and assumptions [16]. This makes it possible to show how, while
+relying on collective intelligence knowledge creation processes, one can model the development of richer human–machine interactions, including anticipation and risk prevention.
+The paper is organised as follows: in Section 2, we recall the general notion of MES. In
+Section 3, we introduce a particular kind of MES, called a DA–MES, in which we model the
+construction of a “multi-level artificial cognitive system”, called a data analyser (DA), which
+we then trained to develop rich human–machine interactions that allow for finer decision
+making, including anticipation. In Section 4, we provide ideas for potential applications.
+
+599
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+2. Methodological Approach: Recalls on MES
+Memory evolutive systems (MES) were introduced by Ehresmann and Vanbremeersch [13–15]. They consist of a mathematical approach based on category theory [12] coupled
+with dynamic systems and are used for the study of “complex” evolutionary and adaptive
+systems such as biological, social and cognitive systems.
+Such systems have:
+(i)
+(ii)
+
+a tangled hierarchy of complexity levels with multifaceted components;
+a multi-agent, multi-temporal self-organisation with a network of local co-regulators,
+each operating at its own rhythm with the help of;
+(iii) a flexible memory allowing for self-repair and adaptation to changes.
+MES do not describe the invariant structure of the system but give a “dynamic model”
+that evaluates the system in its becoming, with the variation of its components and their
+interrelations over time, and with some of these interrelations disappearing while new
+ones appear.
+2.1. MES H Associated to a System S
+This MES H has interacting components of different natures:
+(i)
+(ii)
+
+individuals and a hierarchy of groups of interacting individuals;
+material components such as artefacts, computers, machines, (in a DA–MES, this will
+include the data analyser (DA) to be implemented);
+(iii) memory components such as contextual data, conceptual and procedural knowledge,
+algorithms, various memories, and also unconscious or implicit knowledge such as
+pure practices, heuristics, values of different kinds, and even affects and emotions.
+The components and the links through which they can communicate are dynamic
+entities whose successive states during their “life” can depend on some physical attributes
+(e.g., activity at a given time, propagation delay and strength of a link, . . . ).
+The configuration of H at a time t consists of the states at t of the components and links
+between them that exist at that time. In the MES H, this is represented by a category Ht
+which has for objects the states of the components existing at t, and for morphisms the states
+of the links between them. Over time, there are two kinds of change for configurations:
+(i)
+(ii)
+
+dynamic changes of the state of the components and links existing at t, for instance
+imposed by energetic constraints;
+structural changes leading to the possible loss or addition of some components
+or links.
+
+In H, the change of configuration, or ‘transition’ from t to t0 > t is modelled by a partial
+functor from Ht to Ht0 , defined on the components and links at t which still exist at t0 ,
+which maps their state at t on their new state at t0 . As shown by Figure 1, the different
+categories Ht and the transition functors connecting them form an evolutive system [13],
+consisting in a functor H: T -> ParCat from the time category T to the category ParCat of
+partial functors between (small) categories.
+2.2. The Hierarchical Structure of H
+The MES H has a compositional hierarchy. As illustrated by Figure 2, this means
+that its components are distributed into a finite number of complexity levels, verifying the
+condition: at a time t, an object C of the configuration category at t of level n + 1 ‘combines’
+a pattern P of interacting components of levels  n so that C alone has the same operational
+role as P acting collectively.
+In categorical terms, this means that C is the colimit (or inductive limit, Kan [17]) of
+P. Formally, a pattern (or diagram) P in a category consists of a family of objects Pi and
+some morphisms between them. A cone (modelling a collective link) from P to C is a family
+of morphisms si from Pi to C well correlated by the morphisms distinguished in P. The
+pattern P admits a colimit cP if there is a cone from P to cP through which any cone from P
+
+600
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+Mach. Learn. Knowl. Extr. 2023, 5, FOR
+REVIEW
+toPEER
+C0 factors
+uniquely. A hierarchical evolutive system is an evolutive system in which the4
+
+configuration categories are hierarchical categories.
+
+Figure 1. An evolutive system. This is deﬁned by a functor from the category deﬁning the order o
+the timeline to the category of partial functors between small categories.
+
+2.2. The Hierarchical Structure of H
+
+The MES H has a compositional hierarchy. As illustrated by Figure 2, this means tha
+its components are distributed into a ﬁnite number of complexity levels, verifying the con
+dition: at a time t, an object C of the conﬁguration category at t of level n + 1 ‘combines’
+pattern P of interacting components of levels ≤ n so that C alone has the same operationa
+role as P acting collectively.
+In categorical terms, this means that C is the colimit (or inductive limit, Kan [17]) o
+P. Formally, a pattern (or diagram) P in a category consists of a family of objects Pi an
+some morphisms between them. A cone (modelling a collective link) from P to C is a fam
+ily of morphisms si from Pi to C well correlated by the morphisms distinguished in P. Th
+pattern P admits a colimit cP if there is a cone from P to cP through which any cone from
+P
+to C′
+factors
+uniquely.
+hierarchical
+system
+is an evolutive
+Figure
+Anevolutive
+evolutive
+system.A
+This
+deﬁnedby
+byevolutive
+functorfrom
+from
+thecategory
+category
+deﬁningthe
+thesystem
+orderon
+onin whic
+Figure
+1.1.An
+system.
+This
+isisdefined
+aafunctor
+the
+defining
+order
+the
+timeline
+to
+the
+category
+of
+partial
+functors
+between
+small
+categories.
+thetimeline
+conﬁguration
+categories
+are
+hierarchical
+the
+to the category
+of partial
+functors
+between categories.
+small categories.
+2.2. The Hierarchical Structure of H
+The MES H has a compositional hierarchy. As illustrated by Figure 2, this means that
+its components are distributed into a ﬁnite number of complexity levels, verifying the condition: at a time t, an object C of the conﬁguration category at t of level n + 1 ‘combines’ a
+pattern P of interacting components of levels ≤ n so that C alone has the same operational
+role as P acting collectively.
+In categorical terms, this means that C is the colimit (or inductive limit, Kan [17]) of
+P. Formally, a pattern (or diagram) P in a category consists of a family of objects Pi and
+some morphisms between them. A cone (modelling a collective link) from P to C is a family of morphisms si from Pi to C well correlated by the morphisms distinguished in P. The
+pattern P admits a colimit cP if there is a cone from P to cP through which any cone from
+P to C′ factors uniquely. A hierarchical evolutive system is an evolutive system in which
+the conﬁguration categories are hierarchical categories.
+
+Figure2.2.A A
+hierarchical
+category.
+A category
+is hierarchical
+if the
+of itsisobjects
+is partitione
+Figure
+hierarchical
+category.
+A category
+is hierarchical
+if the class
+of class
+its objects
+partitioned
+intoa afinite
+ﬁnite
+number
+of complexity
+levels,
+soeach
+thatobject
+each C
+object
+C of
+n +colimit
+1 is theofcolimit
+into
+number
+of complexity
+levels,
+so that
+of level
+n +level
+1 is the
+at least of at leas
+onepattern
+pattern
+P with
+each
+Pilevel
+of level
+n such
++ 1; such
+P is called
+lowerdecomposition
+levels decomposition
+of C.
+one
+P with
+each
+Pi of
+< n +< 1;
+a P isacalled
+a lowera levels
+of C.
+
+Over time, the decomposition P of C may vary progressively and eventually completely disappear while C persists. C acts as a “Janus”: it is “simple” vs. higher levels, and
+“complex” vs. lower levels. Successive decompositions of C down to level 0 are named the
+ramifications of C. The order of complexity of C at t is the smallest length of a ramification
+of C; it is less or equal to the level of C. This definition is inspired by the Kolmogorov [18]
+and Chaitin [19] complexity of a string.
+2.3. The Multiplicity Principle at the Basis of Flexibility
+An important property of the MES H is the ‘flexible redundancy’ which generalizes the
+Figure 2. A hierarchical
+A category
+hierarchical
+if the
+class of its
+objects
+partitioned
+degeneracy
+property ofcategory.
+biological
+systemsis(Edelman
+[20],
+Edelman
+and
+Gallyis[21]).
+This
+into a ﬁnite number of complexity levels, so that each object C of level n + 1 is the colimit of at least
+one pattern P with each Pi of level < n + 1; such a P is called a lower levels decomposition of C.
+
+rov [18] and Chaitin [19] complexity of a string.
+2.3. The Multiplicity Principle at the Basis of Flexibility
+Mach. Learn. Knowl. Extr. 2023, 5
+
+An important property of the MES H is the ‘ﬂexible redundancy’ which generalize
+601
+the degeneracy property of biological systems (Edelman [20], Edelman and Gally [21])
+This asserts the existence of the components C which are multifaceted, in the sense tha
+they can
+(formally,C are
+theare
+colimit
+of) several
+diﬀerent
+non
+asserts
+the operate
+existencethrough
+of the components
+which
+multifaceted,
+in thestructurally
+sense that they
+can
+connected
+lower-level
+decompositions
+and
+can
+switch
+between
+them;
+over
+time,
+they
+tak
+operate through (formally, are the colimit of) several structurally different non-connected
+their own decompositions
+individuation, and
+independently
+of theirthem;
+lower-level
+constituents.
+In H,
+this prop
+lower-level
+can switch between
+over time,
+they take their
+own
+individuation,
+of their
+lower-level
+In Figure
+H, this property
+is called
+erty is called independently
+the multiplicity
+principle
+(MP).constituents.
+As shown by
+3, it allows
+for the exist
+the
+multiplicity
+principle
+(MP).
+As which
+shown by
+Figure
+3, it allows
+for the
+existence,
+beside the links, o
+ence,
+beside the
+simple
+links
+bind
+clusters
+(Beurier
+[22])
+of lower-level
+simple
+links
+which
+bind
+clusters
+(Beurier
+[22])
+of
+lower-level
+links,
+of
+complex
+links
+complex links which are composites formed when the simple links bindwhich
+non-adjacen
+are composites formed when the simple links bind non-adjacent clusters. In Chalmer’s [23]
+clusters. In Chalmer’s [23] terminology, these complex links are weakly emergent at thei
+terminology, these complex links are weakly emergent at their level with respect to the
+level with respect to the lower levels. The emergence of complex links is at the root o
+lower levels. The emergence of complex links is at the root of “change in the conditions of
+“changeininKarl
+thePopper’s
+conditions
+of [24].
+change” in Karl Popper’s sense [24].
+change”
+sense
+
+Figure 3. Simple and complex links. C is a multifaceted object colimit of both Q and P. The link
+Figure 3. Simple and complex links. C is a multifaceted object colimit of both Q and P. The link g:
+g: cQ0 -> cQ is a simple link binding a cluster G from Q0 to Q, and idem for f binding a cluster from P
+cQ′ -> cQ is a simple link binding a cluster G from Q′ to Q, and idem for f binding a cluster from P
+to P0 . Their composite is a complex link which is only weakly emergent at its level.
+
+to P′. Their composite is a complex link which is only weakly emergent at its level.
+
+Theorem1.1.Complexity
+Complexity
+Theorem.
+is a necessary
+condition
+the existence
+of components
+o
+Theorem
+Theorem.
+MP MP
+is a necessary
+condition
+for the for
+existence
+of components
+of
+complexity
+> 1.
+Otherwise,
+we have
+purepure
+reductionism.
+With MP
+weMP
+can speak
+of speak
+emergentist
+complexityorder
+order
+> 1.
+Otherwise,
+we have
+reductionism.
+With
+we can
+of emergentis
+reductionism
+thethe
+sense
+of Mario
+Bunge
+[25]).[25]).
+reductionism(in(in
+sense
+of Mario
+Bunge
+
+MP gives flexibility to the system, in particular to the development of robustness
+MP gives ﬂexibility to the system, in particular to the development of robustnes
+though flexible memory (cf. Section 2.5) in which a component (named record) can be
+though
+ﬂexible memory (cf. Section 2.5) in which a component (named record) can b
+recalled through any of its different ramifications, providing plasticity over time to adapt
+recalled
+throughchanges.
+any of its diﬀerent ramiﬁcations, providing plasticity over time to adap
+to
+environmental
+
+to environmental changes.
+
+2.4. The De/Complexification Process Leading to Emergence
+
+2.4. As
+Thestated
+De/Complexiﬁcation
+Process
+Leading
+to Emergence
+in Section 2.1, the
+change
+of configuration
+from t to t0 is both due to dy-
+
+namical
+states and
+structural
+The structural
+correspond
+Aschanges
+stated inofSection
+2.1,tothe
+change changes.
+of conﬁguration
+from tchanges
+to t′ is both
+due to dynam
+to the four “standard transformations” singled out by Thom [26]: Birth, Death, Scission,
+ical changes of states and to structural changes. The structural changes correspond to th
+Confluence. In H, these correspond to the introduction of a new component (e.g., recruitfour “standard
+transformations”
+singled
+out by
+Thom
+Birth, Death,
+Scission, Conﬂu
+ment
+of a new employee),
+rejection of
+an existing
+one,
+and [26]:
+decomposition
+or formation
+ence.
+In H, thesegroup
+correspond
+to the introduction
+ofby
+a new
+component
+(e.g., recruitment o
+of
+an interactive
+of components.
+As illustrated
+Figure
+4, in the configuration
+a
+new
+employee),
+rejection
+of
+an
+existing
+one,
+and
+decomposition
+or
+formation
+category Ht, they correspond to the following operations: ’adding’ external
+elements,of an in
+teractive group
+of components.
+illustrated
+by‘combining’
+Figure 4, in
+the conﬁguration
+’suppressing’
+or ’decomposing’
+someAs
+components,
+and
+a given
+pattern P into acategory
+new emerging component (due to become the colimit of P).
+Given a procedure Pr with objectives of the above kinds on the category H, the
+de/complexification process for Pr consists in constructing a category H0 in which these
+objectives are optimally satisfied (meaning H0 is the solution of a universal problem). In [13],
+H0 has been explicitly constructed and its ‘categorical’ construction gives conditions on Pr
+for the validity of the following:
+
+Mach. Learn. Knowl. Extr. 2023, 5, FOR PEER REVIEW
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+6
+
+Ht, they correspond to the following operations: ’adding’ external elements, ’suppressing’
+602
+or ’decomposing’ some components, and ‘combining’ a given pattern P into a new emerging component (due to become the colimit of P).
+
+Figure 4. De/complexification process. We consider the procedure Pr on H with objectives: to add
+Figure
+Weadd
+consider
+thecPprocedure
+on H
+with objectives:
+0 and cQ0 Pr
+0 . add
+the set 4.
+A,De/complexiﬁcation
+to suppress the coneprocess.
+E, and to
+colimits
+to the
+diagrams
+P0 and Qto
+The
+the set A, to suppress 0the cone E, and to add colimits cP′ and cQ′ 0to the diagrams
+P′
+and
+Q′.
+The
+de/complexification H ‘optimally’ adds the colimit cones of bases Q and P0 , the simple links cG and
+de/complexiﬁcation
+H′ ‘optimally’ adds the colimit cones of bases Q′ and P′, the simple links cG and
+cG0 binding the clusters G and G0 and the complex link c: cQ0 -> cP0 which is their composite.
+cG′ binding the clusters G and G′ and the complex link c: cQ′ -> cP′ which is their composite.
+
+Given2. aEmergence
+procedure
+Pr withFor
+objectives
+of the above
+kinds on the category
+H, the
+Theorem
+Theorem.
+specific procedures,
+the de/complexification
+process leads
+to
+de/complexiﬁcation
+process
+for
+Pr
+consists
+in
+constructing
+a
+category
+H′
+in
+which
+the emergence of (multifaceted) components of increasing complexity orders and of complexthese
+links,
+objectives
+areunpredictable
+optimally satisﬁed
+is the solution of a universal problem). In
+which render
+the result(meaning
+of iterated H′
+de/complexifications.
+[13], H′ has been explicitly constructed and its ‘categorical’ construction gives conditions
+0
+Thevalidity
+‘categorical’
+Warning.
+on
+Pr for the
+of theconstruction
+following: of H does not explicitly take into account the dynamic
+0
+attributes of the components and links. For H to become the effective configuration of the system at
+a later time,
+must be compatible
+the different
+dynamic
+physical constraints
+imposed
+Theorem
+2.itEmergence
+Theorem. with
+For speciﬁc
+procedures,
+theand
+de/complexiﬁcation
+process
+leads by
+to
+these
+attributes.
+the
+emergence
+of (multifaceted) components of increasing complexity orders and of complex links,
+which render unpredictable the result of iterated de/complexiﬁcations.
+2.5. The Memory
+Warning.
+The ‘categorical’
+construction
+does not
+explicitlymemory.
+take intoIn
+account
+theH
+dynamic
+The social
+organization
+S developsofaH′
+flexible
+long-term
+the MES
+associattributes
+of
+the
+components
+and
+links.
+For
+H′
+to
+become
+the
+eﬀective
+conﬁguration
+of
+the
+system
+ated with S, the memory is modelled by a hierarchical evolutive subsystem whose
+comat
+a later time,
+it mustrecords.
+be compatible
+with the diﬀerent
+physical
+constraints
+imposed
+ponents
+are named
+A multifaceted
+recorddynamic
+takes itsand
+own
+individuation
+over
+time
+by
+these
+and
+canattributes.
+be recalled through its different ramifications. This memory develops over time
+through successive de/complexifications, and it therefore acquires records of increasing
+2.5.
+The Memory
+complexity
+orders (cf. emergence theorem which implies that iterated de/complexification
+processes
+give
+categorical approach
+to a“Deep
+Learning”).
+The social aorganization
+S develops
+ﬂexible
+long-term memory. In the MES H assothe memory,
+we distinguish
+different
+types of records,
+among
+them: whose comciatedInwith
+S, the memory
+is modelled
+by a hierarchical
+evolutive
+subsystem
+ponents
+are namedmemory
+records.whose
+A multifaceted
+record takes
+itskind
+ownof
+individuation
+over
+time
+(i) A procedural
+records memorize
+some
+action allowing
+certain
+and can
+be
+recalled
+through
+its
+diﬀerent
+ramiﬁcations.
+This
+memory
+develops
+over
+time
+objectives to be achieved; such a procedural record Pr is connected by ‘command’ links
+through
+de/complexiﬁcations,
+and
+it therefore
+acquires
+records
+of increasing
+to asuccessive
+pattern of effectors
+through which
+it can
+be realized;
+for instance,
+a procedure
+for
+complexity
+orders
+emergence
+theorem
+implies
+iterated de/complexiﬁcation
+modifying
+the(cf.
+dynamic
+attributes
+of awhich
+component
+canthat
+be realized
+by an algorithm that
+processes
+give athe
+categorical
+to “Deep
+Learning”).
+computes
+changes toapproach
+be undertaken.
+If Pr
+has formerly been applied with success in
+In
+the memory,
+we distinguish
+diﬀerent
+types
+records,
+among
+them:
+a specific
+situation,
+it can exist an
+activator
+link of
+from
+the record
+of the
+situation to Pr;
+(ii)
+A
+semantic
+memory
+which
+gradually
+develops
+through
+the
+classification
+of records
+(i) A procedural memory whose records memorize some kind of action allowing
+certain
+into
+invariance
+classes
+represented
+by
+a
+specific
+concept
+[13].
+objectives to be achieved; such a procedural record Pr is connected by ‘command’
+links to a pattern of eﬀectors through which it can be realized; for instance, a proce2.6. The Local and Global Dynamics
+dure for modifying the dynamic attributes of a component can be realized by an alH acts asthat
+a multi-agent
+self-organized
+whose
+dynamics
+are modulated
+by
+gorithm
+computes the
+changes to besystem
+undertaken.
+If Pr
+has formerly
+been applied
+the cooperation
+and/or
+competition
+between
+its
+processing
+agents.
+These
+agents,
+named
+with success in a speciﬁc situation, it can exist an activator link from the record of the
+co-regulators,
+can
+situation to
+Pr;be simple individuals or formal groups of interacting people and/or
+machines (for instance, the data analyser of a DA–MES will act as a co-regulator). The
+overall dynamics weave the different internal local dynamics of the co-regulators. In the
+MES H, a co-regulator is modelled by an evolutive subsystem.
+
+603
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+Each co-regulator CR has its own function, its differential access to the memory, in
+particular in recalling the procedures related to its function, and it acts stepwise at its own
+rhythm; the rhythms of the co-regulators can be very different.
+A step of a co-regulator CR from t to t0 is divided into three or more or less overlapping phases:
+(i)
+
+Formation of the landscape of CR at t, which collects the partial information of the system and its environment that is obtained via the active links arriving to objects of CR
+during the step from other parts of the system, e.g., the memory or other co-regulators.
+This information is analysed in order to make sense of it; (In H, the landscape is
+modelled by an evolutive system that has these active links for components.)
+(ii) Using the memory, a procedure Pr is selected through the landscape. It is not realized
+on the landscape but by activation of its commands to the effectors of Pr;
+(iii) This starts a dynamical process (eventually leading to differential equations) whose
+result will be evaluated at the beginning of the next step. If the objectives of Pr are not
+attained, in particular if Pr is not compatible with dynamic and temporal constraints,
+there is a fracture for CR.
+At a given time, the various co-regulators may send conflicting commands to effectors.
+The global dynamic results form an ‘interplay’ among them, and this may cause a fracture
+to some of them. While the local dynamics can be computable, the interplay between
+co-regulators renders the global dynamic unpredictable.
+2.7. MENS and Multi-Level Artificial Cognitive Systems
+In Entropy, the paper entitled “MENS” [27] details the application of MES to the
+modelling of neuro-cognitive systems. The so-called model MENS is an MES whose level
+0 of its hierarchy, NEUR, models the neural system whose configuration at a time t is the
+category of synaptic paths between neurons existing at t. The construction of its higher
+levels relies on two properties of the neural system (Edelman [20]):
+(i)
+(ii)
+
+The Hebb rule [28]: a mental object corresponds to the formation and reinforcement
+of a synchronous pattern of neurons;
+The degeneracy of the neural code, which will imply that MENS satisfies the “Multiplicity Principle” (MP, cf. Section 2.3).
+
+Its successive levels, whose components are called cat-neurons (for category neurons),
+are constructed by successive de/complexifications of the level 0.
+More
+precisely: as shown by Figure 5, a cat-neuron of level 1 models a mental object O
+Mach. Learn. Knowl. Extr. 2023, 5, FOR PEER
+REVIEW
+which activates a synchronous pattern P of neurons as the “binding” (or colimit) cP of P
+added via a de/complexification of the category of neurons at t.
+
+Figure
+A cat-neuron
+of level
+This 2.
+is obtained
+via a double
+de/complexification
+of Neur and it of Ne
+Figure5. 5.
+A cat-neuron
+of 2.level
+This is obtained
+via
+a double de/complexiﬁcation
+gives
+a
+dynamic
+model
+of
+a
+mental
+object
+O
+by
+becoming
+the
+colimit
+of
+the
+different
+neural
+patterns neural
+gives a dynamic model of a mental object O by becoming the colimit of the diﬀerent
+activated
+by
+O.
+activated by O.
+
+Cat-neurons of higher levels are obtained by successive de/complexiﬁcations
+levels so that a cat-neuron of level n + 1 is obtained by iterative binding of patt
+lower-level cat-neurons, which model ﬂexible mental objects or processes of inc
+complexity. Due to (ii) such a cat-neuron gives a “dynamic” model of a mental o
+
+604
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+Cat-neurons of higher levels are obtained by successive de/complexifications of lower
+levels so that a cat-neuron of level n + 1 is obtained by iterative binding of patterns of
+lower-level cat-neurons, which model flexible mental objects or processes of increasing
+complexity. Due to (ii) such a cat-neuron gives a “dynamic” model of a mental object O by
+becoming the colimit cP = cP0 in MENS of the various patterns P and P0 of the (cat-)neurons
+of lower levels able to activate O.
+The number of levels increases over time, allowing for the formation of a robust and
+flexible memory with a higher level, called an archetypal core, driving the formation of
+conscious processes [13].
+“Multi-level artificial cognitive systems”, also defined in [27] (see the last section),
+are similarly defined as an MES obtained by successive de/complexifications of a category
+of paths of a graph satisfying the analogue of the Hebb rule and of the multiplicity principle. An important result obtained in [29] is that MENS supports both symbolism and
+connectionism (and even an “iterated connectionism” which defines a connectionism for
+each level). Due to the similarity of the constructions of the artificial cognitive systems, the
+same result is valid for each of them.
+Now, if we accept the classification of AI in [11], it follows that such systems are of
+the third generation AI. If such a result seems more easily obtained here than in [11], it is
+because we use stronger mathematical tools based on category theory. For instance, the
+complexification process, in presence of the multiplicity principle, leads to the formation of
+multifaceted objects and complex links between them. Such an approach provides a way of
+combining both the connectionist and symbolist views, while the use of the vector spaces
+framework in [11] raises issues at each step.
+3. Results: Constructing a DA–MES for Enriching Human–Machine Interactions
+3.1. Definitions
+Here, we define the concept of a DA–MES to model a continuous situation in which
+a social organization S collectively develops an internal multi-level artificial cognitive
+system (cf. Section 2.7), called a “data analyser” (DA). This DA should be able to collect
+and memorize a large number of different data and knowledge and, through rich human–
+machine interactions, act as a partner in collaborative decision-making.
+As illustrated by Figure 6, the DA is conceptually equipped with four main units:
+(i)
+
+A “receptors unit” with different kinds of ‘receptors’ (e.g., sensors, user interfaces, etc.)
+and ‘effectors’ to communicate both ways between the system and its environment.
+Let us note that, unlike in [30], we do not seek to describe a specific implementation
+of this unit but only to indicate its role;
+(ii) A central “processing unit” to analyse and treat information, for instance by constructing de/complexifications;
+(iii) A “multi-level memory” which develops over time;
+(iv) An “output unit” which transmits commands to effectors.
+Let us note that we are not looking for an explicit implementation of these units. We
+are only looking for a conceptual way for them to communicate, not an explicit practical
+way to implement them.
+DA is “evolutive” in the sense that, in time, S may improve DA performances by
+configuring relevant changes (in hardware or software) to address current challenges
+effectively, for instance by increasing the number, the precision and/or the capacities of the
+receptors and effectors.
+In the MES representing S, DA acts as a co-regulator of the system (cf. Section 2.6) able
+to accomplish the following operations, either alone or through interactions with higher
+co-regulators to form a collaborative work system:
+(i)
+
+As a CR, DA forms its landscape by continuously collecting material and behavioural
+data through its receptors (e.g., sensors) that come from the system and its environment, in particular from different co-regulators. As shown by Figure 7, it selects an
+
+Mach. Learn. Knowl. Extr. 2023, 5, FOR PEER REVIEW
+
+9
+
+Mach. Learn. Knowl. Extr. 2023, 5, FOR PEER REVIEW
+
+9
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+(iv) An “output unit” which transmits commands to eﬀectors.
+
+605
+
+note that
+wewhich
+are not
+lookingcommands
+for an explicit
+implementation of these units. We
+(iv) Let
+An us
+“output
+unit”
+transmits
+to eﬀectors.
+are only
+looking
+for
+a
+conceptual
+way
+for
+them
+to
+communicate,
+not anof
+explicit
+practical
+Let us note that we are not looking for an explicit implementation
+these units.
+We
+admissible
+procedure
+Pr with the help of the memory (seen as pr in the landscape)
+way
+to
+implement
+them.
+are only looking for a conceptual way for them to communicate, not an explicit practical
+and is
+sends
+its commands
+to effectors E. The result is evaluated at the end of the step,
+“evolutive”
+way DA
+to implement
+them.in the sense that, in time, S may improve DA performances by
+(ii)
+DA
+helps
+to
+develop
+the
+memory.
+As shown
+by Figureto8,address
+the activation of challenges
+a pattern P efof
+conﬁguring
+relevant changes
+hardware
+ortime,
+software)
+DA is “evolutive”
+in the(in
+sense
+that, in
+S may improve current
+DA performances
+by
+0 in the processing
+receptors
+is
+transported,
+via
+the
+landscape,
+into
+the
+activation
+of
+a
+pattern
+P
+fectively,
+for relevant
+instance changes
+by increasing
+the number,
+the precision
+and/orcurrent
+the capacities
+of the
+conﬁguring
+(in hardware
+or software)
+to address
+challenges
+ef0
+unit. The record
+of P will be a colimit of P added via a de/complexification process.
+receptors
+eﬀectors.
+fectively, and
+for instance
+by increasing the number, the precision and/or the capacities of the
+receptors and eﬀectors.
+
+Figure6.6.Presentation
+PresentationofofDA.
+DA.AADA
+DAwith
+with
+4 main
+units
+diﬀerent
+kinds
+of interactions
+Figure
+itsits
+4 main
+units
+andand
+thethe
+different
+kinds
+of interactions
+it hasit
+has
+with
+components
+of
+the
+system
+S.
+with
+components
+of the of
+system
+S. DA with its 4 main units and the diﬀerent kinds of interactions it
+Figure
+6. Presentation
+DA. A
+has with components of the system S.
+
+In the
+MES representing
+acts as a co-regulator
+the system (cf.
+Section 2.6)
+This
+memory
+is organizedS,inDA
+a “relational
+database” byofevolutionary
+computing.
+able DA
+to
+accomplish
+the
+following
+operations,
+either
+alone
+or
+through
+interactions
+also
+cooperates
+with
+higher
+co-regulators
+to
+develop
+the
+global
+memory
+ofwith
+the
+In the MES representing S, DA acts as a co-regulator of the system (cf. Section
+2.6)
+higher
+co-regulators
+to
+form
+a
+collaborative
+work
+system:
+system
+S
+and
+organize
+it
+into
+multiple
+levels
+up
+to
+the
+formation
+of
+a
+conceptual
+able to accomplish the following operations, either alone or through interactions with
+level
+(in the
+and
+more
+complex
+procedures
+andand
+procepts
+(in the
+(i)
+Asco-regulators
+a CR,
+DAsemantic
+forms
+itsmemory)
+landscape
+by of
+continuously
+collecting
+material
+behavioural
+higher
+to form
+a collaborative
+work
+system:
+procedural
+memory).
+data
+through
+its
+receptors
+(e.g.,
+sensors)
+that
+come
+from
+the
+system
+and
+its
+environ(i) As a CR, DA forms its landscape by continuously collecting material and behavioural
+(iii) Another
+important from
+role of DA willco-regulators.
+be in helpingAs
+in decision-making
+by
+ment,
+in particular
+shown
+Figureand
+7, itinteracting
+an
+data through
+its receptorsdiﬀerent
+(e.g., sensors) that come
+from
+theby
+system
+itsselects
+environwith
+higher
+co-regulators.
+Thus,
+the
+MES
+also
+acts
+as
+a
+“collaborative
+decision-making
+admissible
+procedure
+Pr with
+the help
+of the memory
+(seenby
+asFigure
+pr in the
+ment, in particular
+from
+diﬀerent
+co-regulators.
+As shown
+7, itlandscape)
+selects an
+system”
+[31];
+however,
+eventually
+DAE.can
+itself
+select
+already known
+procedures
+and
+and
+sends
+its
+commands
+to
+eﬀectors
+The
+result
+is
+evaluated
+at
+the
+end
+of
+the step,
+admissible procedure Pr with the help of the memory (seen as pr in the landscape)
+realize them (by activation of their effectors).
+and sends its commands to eﬀectors E. The result is evaluated at the end of the step,
+
+Figure 7. DA landscape. DA acts as a CR by steps. One step is divided into three parts: (i) formation
+of the landscape which is an ES with components that are the links activating at least one element
+Figure7.7.DA
+DA landscape.DA
+DAacts
+actsas
+asaaCR
+CRby
+bysteps.
+steps.One
+Onestep
+stepisisdivided
+dividedinto
+intothree
+threeparts:
+parts:(i)
+(i)formation
+formation
+Figure
+of
+DA
+duringlandscape.
+thewhich
+step; (ii)
+selection
+ofcomponents
+a procedure
+Pr in
+the
+memory
+via pr; and
+(iii) one
+sending
+the
+of
+the
+landscape
+is
+an
+ES
+with
+that
+are
+the
+links
+activating
+at
+least
+element
+of
+the landscape
+is an ES with
+are
+the links
+at least one
+element
+commands
+of Pr which
+to its eﬀectors.
+Therecomponents
+is a fracturethat
+if the
+results
+of Practivating
+are not achieved
+at the
+end of
+of DA during the step; (ii) selection of a procedure Pr in the memory via pr; and (iii) sending the
+of
+during the step; (ii) selection of a procedure Pr in the memory via pr; and (iii) sending the
+theDA
+step.
+commands of Pr to its eﬀectors. There is a fracture if the results of Pr are not achieved at the end of
+commands of Pr to its effectors. There is a fracture if the results of Pr are not achieved at the end of
+the step.
+the step.
+
+Mach. Learn. Knowl. Extr. 2023, 5, FOR PEER REVIEW
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+10
+
+(ii) DA helps to develop the memory. As shown by Figure 8, the activation of a pattern
+P of receptors is transported, via the landscape, into the activation of a pattern P′ in
+606
+the processing unit. The record of P will be a colimit of P′ added via a de/complexiﬁcation process.
+
+Figure8.8.Formation
+Formationof
+ofaarecord
+recordin
+inDA
+DAmemory.
+memory.The
+Theactivation
+activationof
+ofaapattern
+patternPPof
+ofreceptors
+receptorsleads
+leads(via
+(via
+Figure
+the
+landscape)
+to
+the
+activation
+of
+a
+pattern
+P′
+in
+the
+processing
+unit.
+The
+record
+recP
+of
+P
+is
+obtained
+0
+the landscape) to the activation of a pattern P in the processing unit. The record recP of P is obtained
+as a colimit of P′ added via a de/complexiﬁcation process.
+as a colimit of P0 added via a de/complexification process.
+
+This memory
+is organized
+in a “relational database” by evolutionary computing.
+3.2. General
+Functioning
+of DA–MES
+DA
+also
+cooperates
+with
+higher
+co-regulators
+to develop
+thean
+global
+memory
+of the
+To simplify, when no confusion can
+arise, we will
+not make
+explicit
+distinction
+system
+S
+and
+organize
+it
+into
+multiple
+levels
+up
+to
+the
+formation
+of
+a
+conceptual
+level
+between a social organization S equipped with a data analyser DA and its associated
+(in
+the
+semantic
+memory)
+and
+of
+more
+complex
+procedures
+and
+procepts
+(in
+the
+proDA–MES in which DA operates either by itself or in coordination with humans.
+cedural
+By
+itself,memory).
+DA acts as a co-regulator of the MES: at a given time, its landscape gathers
+(iii)
+Another
+important
+DA
+will be incoming
+helpingfrom
+in decision-making
+by interacting
+the information
+receivedrole
+fromofits
+receptors,
+the memory or sent
+by other
+with
+higher
+co-regulators.
+Thus,
+the
+MES
+also
+acts
+as
+a
+“collaborative
+decision-makco-regulators. Depending on the number and precision of its receptors, it can distinguish
+system”
+eventually
+can itself
+select
+already
+known
+procedures
+some ing
+weak
+signals[31];
+(e.g.,however,
+a small anomaly
+in DA
+the data
+sent by
+a sensor)
+and
+alert the
+system.
+and
+realize
+them
+(by
+activation
+of
+their
+eﬀectors).
+If it has already met a similar experience, it can even select (through an activator link) a
+procedure used to correct it and activate its effectors. This allows for a quicker answer,
+3.2. General
+Functioning
+of DA–MES
+possibly
+avoiding
+risks that
+are more serious, but may need some control to avoid errors or
+unethical
+behaviour.
+To simplify, when no confusion can arise, we will not make an explicit distinction
+However,
+weorganization
+are going to show
+that the
+main
+role analyser
+of DA is to
+cooperate
+with a human
+between
+a social
+S equipped
+with
+a data
+DA
+and its associated
+DA–
+co-regulator
+G DA
+to ensure
+high
+quality
+decision-making,
+with help
+the development
+MES in which
+operates
+either
+by itself
+or in coordination
+withfrom
+humans.
+of rich
+Inofthis
+twotime,
+co-regulators
+G and
+DA
+Byhuman–machine
+itself, DA acts asinteractions.
+a co-regulator
+thesituation,
+MES: at athe
+given
+its landscape
+gathers
+and
+the differentreceived
+links which
+them act
+as a (macro-)coregulator
+thebyDA–MES.
+the information
+fromconnect
+its receptors,
+coming
+from the memory or of
+sent
+other coIts
+landscape,
+named theon
+macro-landscape
+(ML),
+constitutes
+collective it
+working
+space in
+regulators.
+Depending
+the number and
+precision
+of itsareceptors,
+can distinguish
+which
+we
+are
+going
+to
+show
+that
+G
+and
+DA
+proceed
+as
+follows:
+some weak signals (e.g., a small anomaly in the data sent by a sensor) and alert the system.
+If it has
+already
+met a similar
+experience,
+can
+even select
+(through
+an activator
+link)
+(i)
+They
+share information
+and
+knowledgeit of
+different
+kinds,
+thus forming
+a pattern
+AGa
+called used
+the pattern
+of ‘G-archetypal’
+records;
+procedure
+to correct
+it and activate
+its eﬀectors. This allows for a quicker answer,
+(ii)
+Theyavoiding
+constructrisks
+the macro-landscape
+ML with
+the help
+AG and
+analyse
+it to make
+possibly
+that are more serious,
+but may
+needofsome
+control
+to avoid
+errors
+sense
+of
+the
+present
+situation
+(retrospection
+process);
+or unethical behaviour.
+(iii) They
+search
+procedures
+answer
+situation
+(prospection
+However,
+wefor
+areadequate
+going to show
+that thetomain
+rolethe
+of DA
+is to cooperate
+with process)
+a human
+and finally
+reach
+a consensus
+decision.
+co-regulator
+G to
+ensure
+high quality
+decision-making, with help from the development
+of rich
+human–machine
+interactions.
+In this
+situation,
+the two co-regulators
+and
+In these
+operations, DA
+does not just
+operate
+as a multi-level
+database but G
+also
+as DA
+an
+and
+the
+diﬀerent
+links
+which
+connect
+them
+act
+as
+a
+(macro-)coregulator
+of
+the
+DA–MES.
+information collector able to detect some weak signals, and as an active coordinator.
+Its landscape, named the macro-landscape (ML), constitutes a collective working space in
+3.3.
+Formation
+a G-Archetypal
+Pattern
+AGDA
+of Shared
+Records
+which
+we are of
+going
+to show that
+G and
+proceed
+as follows:
+Initially,
+the
+members
+of
+G
+have
+different
+individual
+expertise
+and knowledge.
+A
+(i) They share information and knowledge of diﬀerent kinds,
+thus forming
+a pattern AG
+higher
+order
+multifaceted
+record
+C,
+such
+as
+a
+polysemic
+concept
+integrating
+knowledge
+called the pattern of ‘G-archetypal’ records;
+of different modalities (explicit or not), may have different meanings for two members of
+G depending on the ramifications through which they recall it. Exchanges of information
+between them to reach a common understanding are perceived by DA receptors and
+memorized so that DA may store C with all of its different ramifications, whence forming
+a common enriched perspective C* of C accessible to all. C* encompasses the different
+
+As illustrated by Figure 9, the G-archetypal records are connected by loops of strong
+and fast complex links, which self-maintain their activity for a long time. With these links
+they form the evolutive G-archetypal pattern, AG. (The development of AG is a consequence of the emergence theorem).
+607
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+Remark 1. The formation of AG will be improved if DA can record voices through hearing devices,
+memorize them, and process them to infer some personality traits of the speakers such as dominance
+or trustworthiness (Ponsot et al. [32]). It may also detect some primary emotions (e.g., pleasure, or
+meanings of C and eventually some tacit knowledge, such as emotions aroused in the
+arousal) from their attitudes and deduce other emotions (using the computational PAD Emotion
+course of the discussion. C* is called a G-archetypal record.
+Model,As
+Zangh
+et al. [33]).
+This would
+DA withrecords
+a kind ofare
+theory
+of mindby
+(ability
+illustrated
+by Figure
+9, theprovide
+G-archetypal
+connected
+loopstoofimpute
+strong
+unobservable
+mental
+states
+to
+others);
+for
+M.
+Kosinski
+[34]:
+“this
+ToM-like
+activity
+far these
+conand fast complex links, which self-maintain their activity for a long time.(thus
+With
+sidered
+to
+be
+uniquely
+human)
+may
+have
+spontaneously
+emerged
+as
+a
+by
+product
+of
+language
+modlinks they form the evolutive G-archetypal pattern, AG. (The development of AG is a
+els’
+improving language
+skills”. theorem).
+consequence
+of the emergence
+
+Figure 9. Improving decision-making. Let G be a group of humans acting as a co-regulator of S. By
+Figure 9. Improving decision-making. Let G be a group of humans acting as a co-regulator of S. By
+working with G, DA allows a better cooperation between persons in forming a G-archetypal pattern
+working with G, DA allows a better cooperation between persons in forming a G-archetypal pattern
+AGofofshared
+sharedconcepts.
+concepts.This
+Thisallows
+allowsthe
+theformation
+formationofofa acommon
+commonmacro-landscape,
+macro-landscape,ML,
+ML,ininwhich
+which
+AG
+retrospection
+and
+prospection
+processes
+can
+develop.
+retrospection and prospection processes can develop.
+
+3.4. Construction and Analysis of the Macro-Landscape ML
+Remark 1. The formation of AG will be improved if DA can record voices through hearing devices,
+AG acts
+as an
+thetoconstruction
+of the macro-landscape
+MLsuch
+which
+contains
+memorize
+them,
+andengine
+processfor
+them
+infer some personality
+traits of the speakers
+as dominance
+the
+landscapes
+of
+G
+and
+DA,
+interconnects
+them
+and
+extends
+them
+both
+spatially
+andor
+or trustworthiness (Ponsot et al. [32]). It may also detect some primary emotions (e.g., pleasure,
+temporally
+Indeed,
+the
+recall
+by
+G
+or
+DA
+of
+a
+G-archetypal
+record
+C*
+in
+their
+landscape
+arousal) from their attitudes and deduce other emotions (using the computational PAD Emotion
+ﬁrst
+diﬀuses
+inetAG
+archetypal
+loops,
+then
+to lower
+levels
+through
+the
+Model,
+Zangh
+al. through
+[33]). This
+would provide
+DA
+withpropagates
+a kind of theory
+of mind
+(ability
+to impute
+unobservable mental states to others); for M. Kosinski [34]: “this ToM-like activity (thus far
+considered to be uniquely human) may have spontaneously emerged as a by product of language
+models’ improving language skills”.
+
+3.4. Construction and Analysis of the Macro-Landscape ML
+AG acts as an engine for the construction of the macro-landscape ML which contains
+the landscapes of G and DA, interconnects them and extends them both spatially and
+temporally Indeed, the recall by G or DA of a G-archetypal record C* in their landscape
+first diffuses in AG through archetypal loops, then propagates to lower levels through the
+unfolding of ramifications and switches between them, thus extending ML to lower levels.
+Moreover, ML lasts longer due to the self-maintained activation induced by AG.
+In ML, current observations and recent events can be related to past, more-or-less
+similar cases, allowing to sense and to make sense of the present situation, its trends and
+its possible evolution. This retrospection process is followed by a prospection process, still
+using the engine role of AG, to search for possible anticipatory assumptions, to ‘virtually’
+evaluate their risk of dysfunction, and finally to select one. Once a consensus decision has
+been taken, it is memorized by DA together with the rejected dissenting views, as well as
+its later outcomes, to be of help if a similar situation recurs.
+Remark 2. The above constructions generalize those undertaken in a D–MES (Béjean and Ehresmann [35]) to model how a simple group of humans collaborates. The benefits of introducing DA
+are the detection of more (even weak) signals and the development of a more efficient collaboration
+thanks to a larger sharing of explicit or tacit knowledge.
+
+608
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+4. Applications and Conclusions
+4.1. DA–MES Becoming Futures Literate (FL) [16,36]
+For a system to become FL means that it develops a rich variety of anticipatory
+assumptions (AA) which “are the fundamental descriptive and analytical building blocks
+for understanding FL” and “using-the-future” (Miller [16], p. 24). An AA for a co-regulator
+CR (at a given time t) corresponds to the choice of a specific procedure Pr on its landscape
+and evaluation of its expected result (if the realization of Pr succeeds). These AAs can
+be explicit (conscious or not for human groups) or only tacit. The rich human–machine
+interactions with DA can help transform tacit AAs into explicit ones that become realizable.
+For instance, the anticipation of a risk will help to prevent it.
+In Miller [16] (Chapter 2), AAs are classified in different groups. Here we adapt this
+classification in our frame.
+(i)
+
+AAs corresponding to some kind of “repetition”. These correspond to cases where the
+present situation has already been met, and there is an activator link from its record
+to a procedural record which had given a satisfying result. The AA will then consist
+of the activation of the same procedure (via the activator link). An example is given
+by the use of statistics, where this represents a kind of “colonization” of the future,
+impeding real novelty. In cases where the situation has prompted different responses
+in former occurrences, there can be several activator links, and some choice will have
+to be made. In any case, the result of the procedure can be different from the expected
+one, due to possibly unrecognized changes in the situation;
+(ii) AAs corresponding to novel futures in answer to the detection of “Specific-Unique”
+phenomena such as weak signals. These may require new procedures, eventually
+leading to the emergence of higher complex objects and links;
+(iii) In a DA–MES, the richer interactions between DA and G make it possible to find
+more AAs, e.g., corresponding to weak signals, and to answer with a richer stock
+of innovative procedures on extended landscapes. Thus, the system increases its
+futures literacy.
+4.2. An Illustration in the Case of Risk Prevention
+Let us give a potential illustration that has been at the root of this research work,
+namely the problem of health, or risk prevention in a care-home for elderly persons,
+developed in Ehresmann and Vanbremeersch [37].
+In this scenario, the medical staff (physicians and nurses), S, trains an evolutionary
+multi-level artificial cognitive data analyser, DA, to assemble a large number of medical
+knowledge and personal data on the residents (collected through non-invasive devices),
+to analyse them, and to learn, from S, possible treatments and their effects. The DA–MES
+conceptual framework could show how, together, they can develop creative processes to
+monitor health risks and, as much as possible, prevent or reduce stressful events. Once DA
+has memorized pathological symptoms, it can quickly recognize them, inform the medical
+team and eventually begin an already used adequate treatment. Thus, pathologies are
+recognized and cured more quickly, e.g., preventing dissemination of epidemics.
+4.3. Conclusions
+The aim of this article was to study how a social organization of any kind, say S, can
+improve its internal cohesion and its external output by designing a high-tech multi-level
+artificial cognitive system, called a data analyser (DA), able to cooperate with certain
+human teams to improve their collaboration and so achieve a better quality of decisions.
+Generally, in such a social organisation S, there are a number of high-tech machines,
+acting as lower-level specialized co-regulators, but these machines are usually controlled
+by human rules, leaving them with little freedom. In this paper, the idea was different
+because we aimed to consider a rich collaboration between a multi-level artificial cognitive
+data analyser, DA, constructed to act on its own and anticipate future situations.
+
+609
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+To do so, we used the MES (Ehresmann and Vanbremeersch [13]) framework, a
+conceptual mathematical approach based on category theory, developed for studying
+complex evolutionary hierarchical systems, such as social or cognitive systems. The global
+dynamic of such systems is obtained by an interplay between the dynamics of a family of
+sub-systems, called co-regulators, acting as agents, each of which has its own complexity
+level and temporality (cf. Section 2).
+We then introduced the notion of a DA–MES (in Section 3), namely an MES which, in
+time, modelled the building of a customized evolutionary multi-level artificial cognitive DA
+with specific characteristics to make it more autonomous and independent from humans
+than usual machines, even high-tech machines, and to become more anticipatory over time.
+It was limited only in its assignment to respect human ethical rules.
+The DA–MES framework opens new ways for modelling the collaboration between
+machine and human teams. In particular, it provides conceptual tools to study how the
+artificial cognitive system DA can collaborate with a human group working on a certain
+topic. By modelling the different devices of DA as well as the characteristics of the coregulator G representing the human group (cf. Section 3), it is possible to formalize how
+DA can exchange both ways with the members of G, considering the case where DA
+explicitly participates in the discussions and even possibly supervises them. For instance,
+the DA–MES framework renders it possible to model the way in which two members of
+G can discuss the “same” multifaceted object by using its different facets, e.g., by using
+two meanings of the same word, without realizing the differences. In this situation, the
+DA–MES makes it possible to formalize at least two contrasting cases. First, the case where
+the discussion leads to a misunderstanding threatening the cooperation between the two G
+members. Second, the case where DA identifies the problem with the multifaceted object,
+memorizes the two meanings by forming an archetypal object (cf. Section 3) and finally
+communicates with the two G members to facilitate their cooperation. The DA-MES could
+even consider the case where DA identifies the way in which some emotions make it
+difficult to reach a common understanding.
+As a whole, the article provides a conceptual mathematical framework to conceive and
+design artificial cognitive data analysers (DA) (which, as mentioned at the end of Section 2,
+could exemplify a third generation AI) able to enhance the collaboration between humans
+and machines. While potentially improving the quality of the decisions made, such new
+DA would also be able not only to keep track of the decisions made, but also of the way
+they were made, so that they could be recalled in cases where a similar experience occurs
+later on. In particular, in Section 4, we gave an application in which the presence of such a
+DA can be useful for decisions about the future. This allows the DA–MES to develop better
+anticipatory assumptions, as far as becoming “futures literate” (as described in [16]). In
+practical situations, this may help prevent some risks and lead to better futures.
+Author Contributions: Conceptualisation and methodology: A.C.E., M.B. and J.-P.V. have equally
+contributed to this paper. This is a consequence of the fact that they have been working together for
+many years in adjacent domains and is shown by the necessary self-references to some of their older
+publications in the Bibliography; Writing: A.C.E. and M.B.; Graphics: J.-P.V. All authors have read
+and agreed to the published version of the manuscript.
+Funding: This research received no external funding.
+Data Availability Statement: Not applicable.
+Conflicts of Interest: The authors declare no conflict of interest.
+
+References
+1.
+2.
+3.
+
+European Parliament. Available online: https://www.europarl.europa.eu/news/en/headlines/society/20200827STO85804
+/what-is-artificial-intelligence-and-how-is-it-used (accessed on 2 February 2023).
+Minsky, M. A Theory of Neural Analog Reinforcement Systems and Its Application to the Brain Model Problem. Ph.D. Thesis,
+Princeton University, Princeton, NJ, USA, 1954.
+Minsky, M. Semantic Information Processing; MIT Press: Cambridge, MA, USA, 1969; 448p.
+
+Mach. Learn. Knowl. Extr. 2023, 5
+
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+21.
+22.
+23.
+24.
+25.
+26.
+27.
+28.
+29.
+30.
+31.
+32.
+33.
+
+34.
+35.
+36.
+
+37.
+
+610
+
+Minsky, M.; Papert, S. Perceptrons: An Introduction to Computational Geometry; MIT Press: Cambridge, MA, USA, 1969; 268p.
+Minsky, M.; Papert, S. Artificial Intelligence; University of Oregon Press: Eugene, OR, USA, 1972.
+Minsky, M. The Society of Mind; Simon and Schuster: New York, NY, USA, 1986.
+Newell, A.; Simon, H.A. Computer Science as Empirical Inquiry: Symbols and Search. Commun. ACM 1976, 19, 113–126.
+[CrossRef]
+Changeux, J.-P.; Dehaene, S.; Toulouse, G. Spin-glass model of learning by selection. Proc. Natl. Acad. Sci. USA 1986, 83,
+1695–1998.
+Rumelhart, D.E.; Hinton, G.E.; Williams, R.J. Learning representations by back-propagating errors. Nature 1986, 323, 533–536.
+[CrossRef]
+Minsky, M.L. Logical versus analogical or symbolic versus connectionist or neat versus scruffy. AI Mag. 1991, 12, 34.
+Zhang, B.; Zhu, J.; Su, H. Toward the third generation artificial intelligence. Sci. China Inf. Sci. 2023, 66, 121101. [CrossRef]
+Eilenberg, S.; Mac Lane, S. General Theory of Natural Equivalences. Trans. Am. Math. Soc. 1945, 58, 231–294. [CrossRef]
+Ehresmann, A.C.; Vanbremeersch, J.-P. Memory Evolutive Systems: Hierarchy, Emergence, Cognition; Elsevier Science: Amsterdam,
+The Netherlands, 2007.
+Ehresmann, A.C.; Vanbremeersch, J.-P. MES: A mathematical model for the revival of Natural Philosophy. Philosophies 2019, 4, 9.
+[CrossRef]
+Ehresmann, A.C.; Vanbremeersch, J.-P. Hierarchical Evolutive Systems: A Mathematical Model for Complex Systems. Bull. Math.
+Biol. 1987, 49, 13–50. [CrossRef] [PubMed]
+Miller, R. Transforming the Future. Anticipation in the 21st Century. 2018. Available online: https://www.routledge.com
+(accessed on 2 February 2023).
+Kan, D. Adjoint Functors. Trans. Am. Math. Soc. 1958, 87, 294–329. [CrossRef]
+Kolmogorov, A. On Tables of Random Numbers. Sankhyā Ser. A 1963, 25, 369–375. [CrossRef]
+Chaitin, G. On the Simplicity and Speed of Programs for Computing Infinite Sets of Natural Numbers. J. ACM 1969, 16, 407–422.
+[CrossRef]
+Edelman, G. The Remembered Present; Basic Books: New York, NY, USA, 1989.
+Edelman, G.M.; Gally, J.A. Degeneracy and Complexity in Biological Systems. Proc. Natl. Acad. Sci. USA 2001, 98, 13763–13768.
+[CrossRef] [PubMed]
+Beurier, E. Caracterisation of Organisations for Resilient Detection of Threats. Ph.D. Thesis, IMT Atlantique, Brest, France, 2020.
+Chalmers, D. The Conscious Mind; Oxford University Press: Oxford, UK, 1996.
+Popper, K. The poverty of historicism, III. Economica 1945, 12, 69–89. [CrossRef]
+Bunge, M. Treatise on Basic Philosophy; Reidel: Dordrecht, The Netherlands, 1979; Volume 4.
+Thom, R. Structural Stability and Morphogenesis: An Outline of a General Theory of Models; Reading: Benjamin, MA, USA, 1975.
+Ehresmann, A.C. MENS, an Info-Computational Model for (Neuro-)cognitive Systems Capable of Creativity. Entropy 2012, 14,
+1703–1716. [CrossRef]
+Hebb, D.O. The Organization of Behaviour; Wiley: New York, NY, USA, 1949.
+Ehresmann, A.C.; Gomez-Ramirez, J. Conciliating neuroscience and phenomenology via category theory. Prog. Biophys. Mol. Biol.
+2015, 119, 347–359. [CrossRef] [PubMed]
+Guzman, A.L.; Lewis, S.C. Artificial Intelligence and Communication: A human-machine communication research agenda. New
+Media Soc. 2020, 22, 70–86. [CrossRef]
+Zaraté, P. Tools for Collaborative Decision-Making; ISTE Ed: London, UK, 2013.
+Ponsot, E.; Burredd, J.J.; Bellini, P.; Aucouturier, J.J. Cracking the Social Code of Speech Prosody Using Reverse Correlation. 2018.
+Available online: https://www.pnas.org/cgi/doi/10.1073/pnas.1716090115 (accessed on 2 February 2023).
+Zhang, S.; Xu, Y.; Jia, J.; Cai, L. Analysis and Modelling of Affective Audio Visual Speech Based on PAD Emotion Space, ISCA
+Archive. 2008. Available online: http://www.isca-speech.org/archive_open/archive_papers/iscslp2008/281.pdf (accessed on
+1 June 2023).
+Kosinski, M. Theory of Mind May Have Spontaneously Emerged in Large Language Models. arXiv 2023, arXiv:2302.020.
+Béjean, M.; Ehresmann, A.C. D-MES: Conceptualizing the Working Designers. Int. J. Des. Manag. Prof. Pract. 2015, 9, 1–20.
+[CrossRef]
+Ehresmann, A.; Béjean, M.; Vanbremeersch, J.-P. A conceptual framework of human-machine interactions for enriched Futures
+Literacy. In Proceedings of the 6th International Conference on FTA2018, Brussels, Belgium, 4–5 June 2018; European Commission:
+Brussels, Belgium, 2018.
+Ehresmann, A.C.; Vanbremeersch, J.-P. Memory Evolutive Systems and Geriatric Data Analysis Design; Les Conférences Scientifiques
+Mensuelles à Dassault Systèmes: Vélizy, France, 2017.
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+
