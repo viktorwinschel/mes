@@ -185,12 +185,14 @@ compose_morphisms!(C, "g", "f", "id_B")
 
 ## Documentation
 
-The full documentation is available at [https://viktorwinschel.github.io/mes/](https://viktorwinschel.github.io/mes/).
+Documentation is currently being built and will be available soon.
 
 ## Papers
 
-The following papers are available in the `docs/papers/` directory:
-- `bcbaas25.pdf`: "Memory Evolutive Systems in Economic Contexts"
+The following papers are available in the `papers/` directory:
+- `bcbaas25/bcbaas25.pdf`: "Memory Evolutive Systems in Economic Contexts"
+- `mes07/mes07.pdf`: "Memory Evolutive Systems"
+- `mes23/mes23.pdf`: "Memory Evolutive Systems in Economics"
 
 ## License
 
