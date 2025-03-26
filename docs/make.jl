@@ -16,16 +16,16 @@ const latex_preamble = """
 \\newcommand{\\colim}{\\mathrm{colim}}
 """
 
-makedocs(
-    sitename="Memory Evolutive Systems",
-    format=Documenter.HTML(
-        prettyurls=get(ENV, "CI", nothing) == "true",
-        canonical="https://viktorwinschel.github.io/mes/",
-        edit_link="main"
-    ),
+makedocs(;
     modules=[MES],
     authors="Viktor Winschel",
     repo="https://github.com/viktorwinschel/mes/blob/{commit}{path}#L{line}",
+    sitename="Memory Evolutive Systems",
+    format=Documenter.HTML(;
+        prettyurls=get(ENV, "CI", "nothing") == "true",
+        canonical="https://viktorwinschel.github.io/mes/",
+        assets=String[],
+    ),
     pages=[
         "Home" => "index.md",
         "Getting Started" => "getting_started/index.md",
@@ -38,7 +38,7 @@ makedocs(
     ]
 )
 
-deploydocs(
+deploydocs(;
     repo="github.com/viktorwinschel/mes",
-    devbranch="main"
+    devbranch="main",
 )
