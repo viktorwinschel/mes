@@ -1,4 +1,4 @@
-# Monetary Macro Accounting with Memory Evolutive Systems
+# Monetary Macro Accounting Memory Evolutive Systems (MoMaMES)
 
 Welcome to the documentation of MoMa (Monetary Macro Accounting) implemented using Memory Evolutive Systems (MES)! This package provides tools for modeling monetary and economic systems using category theory and memory evolutive systems.
 
@@ -44,6 +44,7 @@ To get started with MoMa and MES:
 
 - **[Getting Started](getting_started/index.md)**: Installation and basic usage
 - **[Theory](theory.md)**: Mathematical and economic foundations
+  - [National Accounting with Categorical Structures](theory/national_accounting.md)
 - **[Examples](examples/index.md)**: Practical applications
   - Bill of Exchange cycles
   - National accounting system

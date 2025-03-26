@@ -4,8 +4,7 @@ using DataStructures
 """
 # MES Type Definitions
 
-This module defines the categorical types for the MES system, implementing H:T->ParCat
-with monadic behavior and infinite streams.
+This module defines the basic types for the MES system.
 """
 # Base types for MES
 struct TimePoint

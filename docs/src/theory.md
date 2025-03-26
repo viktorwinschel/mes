@@ -159,4 +159,16 @@ These properties make MES suitable for modeling complex systems that:
 - Develop hierarchical structures
 - Learn from experience
 - Adapt to changing conditions
-- Maintain stability while evolving 
+- Maintain stability while evolving
+
+## Applications
+
+### National Accounting
+
+For a detailed discussion of how these categorical structures are applied to national accounting, see [National Accounting with Categorical Structures](theory/national_accounting.md). This section covers:
+
+1. Economic objects and morphisms
+2. Category construction for national accounting
+3. Functors and natural transformations
+4. Patterns and colimits in economic systems
+5. Mathematical properties of the economic categories 

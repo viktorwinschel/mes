@@ -6,10 +6,21 @@ This page documents the public API of the Memory Evolutive Systems (MES) package
 
 ```@docs
 Category
+ConcreteCategory
 create_category
 verify_category
 verify_composition_closure
 verify_identity_existence
+```
+
+## Financial Categories
+
+```@docs
+FinancialCategory
+create_financial_category
+create_time_series_functor
+create_price_natural_transformation
+verify_conservation_laws
 ```
 
 ## Patterns
