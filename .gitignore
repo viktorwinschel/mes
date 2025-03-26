@@ -54,4 +54,8 @@ Thumbs.db
 
 # Environment specific
 .env
-.env.local 
+.env.local
+
+# Clojure specific (not needed for Julia project)
+.clj-kondo/
+.lsp/ 
