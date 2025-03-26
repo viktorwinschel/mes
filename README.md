@@ -1,6 +1,6 @@
 # Monetary Macro Accounting (MoMa)
 
-AA Julia package for simulating and analyzing money flows and operations in monetary economic systems using Memory Evolutive Systems (MES) principles.
+A Julia package for simulating and analyzing money flows and operations in monetary economic systems using Memory Evolutive Systems (MES) principles.
 
 ## Overview
 
