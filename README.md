@@ -19,27 +19,6 @@ MOMA is a simulation tool that models economic transactions and money flows betw
 
 ```julia
 using Pkg
-# MOMA (Money and Operations Management Analysis)
-
-A Julia package for simulating and analyzing money flows and operations in economic systems using Memory Evolutive Systems (MES) principles.
-
-## Overview
-
-MOMA is a simulation tool that models economic transactions and money flows between different agents in a financial system. It implements a double-entry accounting system and tracks the evolution of balance sheets over time.
-
-## Features
-
-- Agent-based simulation with support for multiple economic actors
-- Double-entry accounting system
-- Balance sheet tracking and evolution
-- Transaction flow analysis
-- Visualization of results
-- Detailed reporting and statistics
-
-## Installation
-
-```julia
-using Pkg
 Pkg.add("MOMA")
 ```
 
@@ -146,4 +125,86 @@ The simulation supports various financial events:
 Each event maintains both micro and macro invariance through proper double-entry bookkeeping.
 
 ## References
-[Add references to monetary economics papers/books] 
+[Add references to monetary economics papers/books]
+
+# MES (Memory Evolutive Systems)
+
+A Julia package for implementing and analyzing Memory Evolutive Systems (MES) in economic contexts.
+
+## Overview
+
+MES is a mathematical framework for modeling complex systems that evolve over time, with particular applications in economic systems. This package provides tools for creating, analyzing, and visualizing MES structures.
+
+## Features
+
+- Category theory-based implementation of MES
+- Support for functors and natural transformations
+- Economic system modeling capabilities
+- Comprehensive documentation and examples
+
+## Installation
+
+```julia
+using Pkg
+Pkg.add("MES")
+```
+
+## Usage
+
+```julia
+using MES
+
+# Create a category
+C = create_category(["A", "B"], ["f", "g"])
+
+# Add morphisms
+add_morphism!(C, "A", "B", "f")
+add_morphism!(C, "B", "A", "g")
+
+# Define composition
+compose_morphisms!(C, "f", "g", "id_A")
+compose_morphisms!(C, "g", "f", "id_B")
+```
+
+## Project Structure
+
+- `src/core/`: Core MES implementation
+  - `types.jl`: Basic type definitions
+  - `category.jl`: Category theory implementation
+  - `functor.jl`: Functor implementation
+  - `natural_transformation.jl`: Natural transformation implementation
+- `src/examples/`: Example usage and demonstrations
+- `docs/`: Documentation and papers
+
+## Dependencies
+
+- Julia 1.6 or higher
+- Dates
+- DataFrames
+- Documenter.jl (for documentation)
+
+## Documentation
+
+The full documentation is available at [https://viktorwinschel.github.io/mes/](https://viktorwinschel.github.io/mes/).
+
+## Papers
+
+The following papers are available in the `docs/papers/` directory:
+- `bcbaas25.pdf`: "Memory Evolutive Systems in Economic Contexts"
+
+## License
+
+MIT License
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Testing
+
+To run the tests, use:
+
+```julia
+using Pkg
+Pkg.test("MES")
+``` 
