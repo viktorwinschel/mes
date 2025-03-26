@@ -8,24 +8,24 @@ A focused example demonstrating how MES can model financial instruments and thei
 ## National Accounting System
 A comprehensive example showing how MES can be used to model an entire national accounting system, including multiple economic agents, their interactions, and the resulting economic flows.
 
-## Available Examples
+## Example Categories
 
-1. **Basic Examples**
-   - Introduction to category theory concepts
-   - Simple memory system implementations
-   - Basic synchronization patterns
+Our examples cover several key areas:
 
-2. **National Accounting**
-   - Economic flow modeling
-   - Multi-level accounting structures
-   - System-wide invariants
-   - Balance sheet relationships
-
-3. **Bill of Exchange**
-   - Financial instrument modeling
+1. **Financial Instruments**
+   - Credit relationships
+   - Payment systems
+   - Settlement processes
+   - Bill of Exchange modeling
    - Transaction networks
    - Temporal evolution
-   - Multi-level invariance
+
+2. **Economic Systems**
+   - Flow modeling
+   - Balance sheets
+   - Multi-level accounting structures
+   - System-wide invariants
+   - Economic agent interactions
 
 ## Example Structure
 
@@ -52,28 +52,8 @@ Each example follows a consistent structure:
 
 For those new to MES, we recommend following this sequence:
 
-1. Start with the [Basic Examples](../examples.md) to understand fundamental concepts
-2. Move on to the [National Accounting](national_accounting.md) example for economic applications
-3. Explore the [Bill of Exchange](boe_cycles.md) example for financial modeling
-
-## Example Categories
-
-Our examples cover several key areas:
-
-1. **Mathematical Foundations**
-   - Category theory applications
-   - Functor implementations
-   - Natural transformations
-
-2. **Economic Systems**
-   - Flow modeling
-   - Balance sheets
-   - Transaction networks
-
-3. **Financial Instruments**
-   - Credit relationships
-   - Payment systems
-   - Settlement processes
+1. Start with the [Bill of Exchange](boe_cycles.md) example for a focused introduction
+2. Move on to the [National Accounting](national_accounting.md) example for comprehensive economic modeling
 
 ## Contributing Examples
 
