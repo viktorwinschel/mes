@@ -1,11 +1,37 @@
 # National Accounting System
 
-This document describes the categorical structure of the MOMASCF system and its implementation.
-It is the samllest possible national accounting system based on the monetary theory of the MoMaT paper. 
+## System Structure
+- Naming Conventions
+- Agents and Account Types
+- State Variables
+- Balance Sheet Relationships
+- Flow Equations
+
+## Mathematical Framework
+- Category Structure
+- Basic Transaction Structure
+- Double-Entry Structure
+- Conservation Laws
+
+## Implementation Details
+- Core Functions
+- Transaction Types
+- System State
+- Analysis Tools
+
+## System Analysis
+- Balance Sheet Evolution
+- Flow Analysis
+- Visualization
+- Testing
+
+## References and Documentation
 
 ## Naming Conventions
 
-The system uses a systematic naming convention for agents and accounts:
+The system uses a systematic naming convention for agents and accounts.
+
+## Agents and Account Types
 
 ### Agents
 - `LABOR`: Labor/worker households
@@ -20,14 +46,6 @@ The system uses a systematic naming convention for agents and accounts:
 - `GOOD`: Goods inventory
 - `LOAN`: Loan accounts
 - `DIV`: Dividend accounts
-
-### Combined Names
-Account names follow the pattern `AGENT_ACCOUNT`, for example:
-- `LABOR_BANK`: Labor's bank account balance
-- `RESOURCE_STOCK`: Resource owner's resource stock
-- `COMPANY_LOAN`: Company's loan liabilities
-- `CAPITAL_DIV`: Capitalist's dividend receivables
-- `BANK_COMPANY_LOAN`: Bank's loans to company (asset)
 
 ## State Variables
 
