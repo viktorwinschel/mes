@@ -1,6 +1,12 @@
 # Examples Overview
 
-This section provides practical examples of using Memory Evolutive Systems (MES) to model various systems. Each example demonstrates different aspects of the framework and its applications.
+This section contains detailed examples of using Memory Evolutive Systems (MES) in economic and financial contexts.
+
+## Bill of Exchange (BOE) Cycles
+A focused example demonstrating how MES can model financial instruments and their circulation using category theory. This example shows the power of categorical modeling in representing complex financial relationships at multiple scales.
+
+## National Accounting System
+A comprehensive example showing how MES can be used to model an entire national accounting system, including multiple economic agents, their interactions, and the resulting economic flows.
 
 ## Available Examples
 

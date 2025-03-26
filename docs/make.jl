@@ -33,6 +33,11 @@ makedocs(;
             "Overview" => "theory.md",
             "Examples" => "examples.md"
         ],
+        "Examples" => [
+            "Overview" => "examples/index.md",
+            "Bill of Exchange" => "examples/boe_cycles.md",
+            "National Accounting" => "examples/national_accounting.md"
+        ],
         "API Reference" => "api.md",
         "Papers" => "papers.md"
     ]
