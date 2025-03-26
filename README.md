@@ -4,7 +4,7 @@ A Julia package for simulating and analyzing money flows and operations in monet
 
 ## Overview
 
-MOMA is a simulation tool that models economic transactions and money flows between different agents in a financial system. It implements a double-entry accounting system and tracks the evolution of balance sheets over time.
+MOMA is a simulation tool that models economic transactions and money flows between different agents in a financial system. It implements a double-entry accounting system and tracks the evolution of balance sheets over time. The macro economics dynamics are modelled in memory evolutive systems (MES) of Andree Ehresmann and Jean-Paul Vanbremeersch.
 
 ## Features
 
