@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Patterns and Colimits · Memory Evolutive Systems</title><meta name="title" content="Patterns and Colimits · Memory Evolutive Systems"/><meta property="og:title" content="Patterns and Colimits · Memory Evolutive Systems"/><meta property="twitter:title" content="Patterns and Colimits · Memory Evolutive Systems"/><meta name="description" content="Documentation for Memory Evolutive Systems."/><meta property="og:description" content="Documentation for Memory Evolutive Systems."/><meta property="twitter:description" content="Documentation for Memory Evolutive Systems."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/custom.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../index.html">Memory Evolutive Systems</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../index.html">Home</a></li><li><a class="tocitem" href="../getting_started/index.html">Getting Started</a></li><li><span class="tocitem">Theory</span><ul><li><a class="tocitem" href="index.html">Overview</a></li><li><a class="tocitem" href="categories.html">Category Theory</a></li><li><a class="tocitem" href="synchronization.html">Synchronization</a></li><li><a class="tocitem" href="memory_systems.html">Memory Systems</a></li></ul></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../examples/index.html">Overview</a></li><li><a class="tocitem" href="../examples.html">Basic Examples</a></li><li><a class="tocitem" href="../examples/national_accounting.html">National Accounting</a></li><li><a class="tocitem" href="../examples/boe_cycles.html">Bill of Exchange</a></li></ul></li><li><a class="tocitem" href="../api.html">API Reference</a></li><li><a class="tocitem" href="../papers.html">Papers &amp; References</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href="patterns.html">Patterns and Colimits</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="patterns.html">Patterns and Colimits</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/viktorwinschel/mes" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/viktorwinschel/mes/blob/main/docs/src/theory/patterns.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Patterns-and-Colimits"><a class="docs-heading-anchor" href="#Patterns-and-Colimits">Patterns and Colimits</a><a id="Patterns-and-Colimits-1"></a><a class="docs-heading-anchor-permalink" href="#Patterns-and-Colimits" title="Permalink"></a></h1><p>Patterns are essential structures in MES that represent complex configurations of objects and their relationships. They form the basis for understanding how different components of a system interact and evolve.</p><h2 id="Basic-Concepts"><a class="docs-heading-anchor" href="#Basic-Concepts">Basic Concepts</a><a id="Basic-Concepts-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Concepts" title="Permalink"></a></h2><h3 id="Mathematical-Definition"><a class="docs-heading-anchor" href="#Mathematical-Definition">Mathematical Definition</a><a id="Mathematical-Definition-1"></a><a class="docs-heading-anchor-permalink" href="#Mathematical-Definition" title="Permalink"></a></h3><p>A pattern P in a category C is defined as:</p><p class="math-container">\[P = \{O_i, M_j\}\]</p><p>where:</p><ul><li>O_i are objects in C</li><li>M_j are morphisms between these objects</li></ul><p>The pattern recognition process can be expressed mathematically as:</p><p class="math-container">\[P = \{O_i, M_j\} \text{ where } O_i \text{ are objects and } M_j \text{ are morphisms}\]</p><h3 id="Implementation"><a class="docs-heading-anchor" href="#Implementation">Implementation</a><a id="Implementation-1"></a><a class="docs-heading-anchor-permalink" href="#Implementation" title="Permalink"></a></h3><p>In MES, patterns are implemented using the <code>Pattern</code> type:</p><pre><code class="language-julia hljs">struct Pattern
+    objects::Vector{String}
+    morphisms::Vector{Tuple{String, String, String}}
+end</code></pre><h3 id="Example"><a class="docs-heading-anchor" href="#Example">Example</a><a id="Example-1"></a><a class="docs-heading-anchor-permalink" href="#Example" title="Permalink"></a></h3><p>Here&#39;s a simple example of creating and working with patterns:</p><pre><code class="language-julia hljs"># Create a simple pattern with three objects and their morphisms
+pattern = Pattern(
+    [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+    [
+        (&quot;A&quot;, &quot;B&quot;, &quot;f&quot;),
+        (&quot;B&quot;, &quot;C&quot;, &quot;g&quot;),
+        (&quot;A&quot;, &quot;C&quot;, &quot;h&quot;)
+    ]
+)
+
+# Verify pattern properties
+verify_pattern(pattern)  # Returns true if pattern is valid</code></pre><h2 id="Colimits"><a class="docs-heading-anchor" href="#Colimits">Colimits</a><a id="Colimits-1"></a><a class="docs-heading-anchor-permalink" href="#Colimits" title="Permalink"></a></h2><h3 id="Mathematical-Definition-2"><a class="docs-heading-anchor" href="#Mathematical-Definition-2">Mathematical Definition</a><a class="docs-heading-anchor-permalink" href="#Mathematical-Definition-2" title="Permalink"></a></h3><p>The colimit of a pattern P, denoted colim(P), is an object C with morphisms v<em>i: O</em>i \to C satisfying:</p><p class="math-container">\[\begin{array}{l}
+X \in C, \forall v_i: O_i \to X \\
+\exists! v: C \to X \text{ with } v \circ v_i = v_i
+\end{array}\]</p><h3 id="Implementation-2"><a class="docs-heading-anchor" href="#Implementation-2">Implementation</a><a class="docs-heading-anchor-permalink" href="#Implementation-2" title="Permalink"></a></h3><p>Colimits are calculated in the code:</p><pre><code class="language-julia hljs">function calculate_colimit(pattern::Pattern)
+    # Create a new object for the colimit
+    colimit_obj = &quot;colim_$(join(pattern.objects, &quot;_&quot;))&quot;
+    
+    # Create morphisms from each object to the colimit
+    colimit_morphisms = [
+        (obj, colimit_obj, &quot;to_colimit_$obj&quot;)
+        for obj in pattern.objects
+    ]
+    
+    # Return the colimit object and morphisms
+    return (colimit_obj, colimit_morphisms)
+end
+
+# Verify colimit properties
+function verify_colimit(pattern::Pattern, colimit_obj, colimit_morphisms)
+    # Check universal property
+    for obj in pattern.objects
+        has_morphism = any(src == obj &amp;&amp; tgt == colimit_obj 
+            for (src, tgt, _) in colimit_morphisms)
+        if !has_morphism
+            return false
+        end
+    end
+    return true
+end</code></pre><h3 id="Example-2"><a class="docs-heading-anchor" href="#Example-2">Example</a><a class="docs-heading-anchor-permalink" href="#Example-2" title="Permalink"></a></h3><p>Here&#39;s an example of calculating and verifying a colimit:</p><pre><code class="language-julia hljs"># Create a pattern representing a simple neural network
+nn_pattern = Pattern(
+    [&quot;Input&quot;, &quot;Hidden&quot;, &quot;Output&quot;],
+    [
+        (&quot;Input&quot;, &quot;Hidden&quot;, &quot;weights1&quot;),
+        (&quot;Hidden&quot;, &quot;Output&quot;, &quot;weights2&quot;)
+    ]
+)
+
+# Calculate its colimit
+colimit_obj, colimit_morphisms = calculate_colimit(nn_pattern)
+
+# Verify the colimit
+@assert verify_colimit(nn_pattern, colimit_obj, colimit_morphisms)</code></pre><h2 id="Applications"><a class="docs-heading-anchor" href="#Applications">Applications</a><a id="Applications-1"></a><a class="docs-heading-anchor-permalink" href="#Applications" title="Permalink"></a></h2><h3 id="Neural-Networks"><a class="docs-heading-anchor" href="#Neural-Networks">Neural Networks</a><a id="Neural-Networks-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-Networks" title="Permalink"></a></h3><p>Patterns can represent neural network architectures:</p><pre><code class="language-julia hljs"># Create a pattern for a more complex neural network
+complex_nn_pattern = Pattern(
+    [&quot;Input&quot;, &quot;Hidden1&quot;, &quot;Hidden2&quot;, &quot;Output&quot;],
+    [
+        (&quot;Input&quot;, &quot;Hidden1&quot;, &quot;w1&quot;),
+        (&quot;Hidden1&quot;, &quot;Hidden2&quot;, &quot;w2&quot;),
+        (&quot;Hidden2&quot;, &quot;Output&quot;, &quot;w3&quot;)
+    ]
+)
+
+# Calculate and verify its colimit
+colimit_obj, colimit_morphisms = calculate_colimit(complex_nn_pattern)
+@assert verify_colimit(complex_nn_pattern, colimit_obj, colimit_morphisms)</code></pre><h3 id="Social-Networks"><a class="docs-heading-anchor" href="#Social-Networks">Social Networks</a><a id="Social-Networks-1"></a><a class="docs-heading-anchor-permalink" href="#Social-Networks" title="Permalink"></a></h3><p>Patterns can model social network relationships:</p><pre><code class="language-julia hljs"># Create a pattern for a social network
+social_pattern = Pattern(
+    [&quot;User&quot;, &quot;Post&quot;, &quot;Comment&quot;],
+    [
+        (&quot;User&quot;, &quot;Post&quot;, &quot;creates&quot;),
+        (&quot;Post&quot;, &quot;Comment&quot;, &quot;has&quot;),
+        (&quot;User&quot;, &quot;Comment&quot;, &quot;writes&quot;)
+    ]
+)
+
+# Calculate and verify its colimit
+colimit_obj, colimit_morphisms = calculate_colimit(social_pattern)
+@assert verify_colimit(social_pattern, colimit_obj, colimit_morphisms)</code></pre><p>For more detailed information about patterns and colimits in MES, refer to the original papers in the <a href="../papers/mes/mes-summary.html">Papers</a> section. </p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.9.0 on <span class="colophon-date" title="Wednesday 26 March 2025 14:04">Wednesday 26 March 2025</span>. Using Julia version 1.9.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
