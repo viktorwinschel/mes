@@ -25,6 +25,21 @@ struct PartialCategory
     morphisms::Dict{Tuple{Any,Any},Any}
 end
 
+# Category functor
+struct Functor{T}
+    source::Category{T}
+    target::Category{T}
+    object_map::Dict{T,T}
+    morphism_map::Dict{T,T}
+end
+
+# Natural transformation
+struct NaturalTransformation{T}
+    source::Functor{T}
+    target::Functor{T}
+    components::Dict{T,T}
+end
+
 # Behavior stream for infinite behavior
 mutable struct BehaviorStream
     current::Dict{String,Any}

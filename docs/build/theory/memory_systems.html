@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Memory Systems · Memory Evolutive Systems</title><meta name="title" content="Memory Systems · Memory Evolutive Systems"/><meta property="og:title" content="Memory Systems · Memory Evolutive Systems"/><meta property="twitter:title" content="Memory Systems · Memory Evolutive Systems"/><meta name="description" content="Documentation for Memory Evolutive Systems."/><meta property="og:description" content="Documentation for Memory Evolutive Systems."/><meta property="twitter:description" content="Documentation for Memory Evolutive Systems."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/custom.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../index.html">Memory Evolutive Systems</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../index.html">Home</a></li><li><span class="tocitem">Theory</span><ul><li><a class="tocitem" href="categories.html">Category Theory</a></li><li><a class="tocitem" href="synchronization.html">Synchronization</a></li><li class="is-active"><a class="tocitem" href="memory_systems.html">Memory Systems</a><ul class="internal"><li><a class="tocitem" href="#Basic-Definition"><span>Basic Definition</span></a></li><li><a class="tocitem" href="#Memory-Operations"><span>Memory Operations</span></a></li><li><a class="tocitem" href="#Applications"><span>Applications</span></a></li></ul></li></ul></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../examples.html">Basic Examples</a></li><li><a class="tocitem" href="../examples/national_accounting.html">National Accounting</a></li><li><a class="tocitem" href="../examples/boe_cycles.html">Bill of Exchange</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Theory</a></li><li class="is-active"><a href="memory_systems.html">Memory Systems</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="memory_systems.html">Memory Systems</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/viktorwinschel/mes" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/viktorwinschel/mes/blob/main/docs/src/theory/memory_systems.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Memory-Systems"><a class="docs-heading-anchor" href="#Memory-Systems">Memory Systems</a><a id="Memory-Systems-1"></a><a class="docs-heading-anchor-permalink" href="#Memory-Systems" title="Permalink"></a></h1><p>This document describes the core structure of Memory Evolutive Systems.</p><h2 id="Basic-Definition"><a class="docs-heading-anchor" href="#Basic-Definition">Basic Definition</a><a id="Basic-Definition-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Definition" title="Permalink"></a></h2><p>A Memory Evolutive System M is defined as:</p><p class="math-container">\[M = (C, M, P)\]</p><p>where:</p><ul><li>C is a category</li><li>M is a memory function</li><li>P is a set of procedures</li></ul><p>The memory function maps:</p><p class="math-container">\[M: T \times E \to D\]</p><p>where:</p><ul><li>T is time domain</li><li>E is event space</li><li>D is data space</li></ul><h3 id="Implementation"><a class="docs-heading-anchor" href="#Implementation">Implementation</a><a id="Implementation-1"></a><a class="docs-heading-anchor-permalink" href="#Implementation" title="Permalink"></a></h3><p>In MES, memory systems are implemented using the <code>MemorySystem</code> type:</p><pre><code class="language-julia hljs">struct MemorySystem
+    category::Category
+    memory::Dict{String, Any}
+    procedures::Vector{Function}
+end</code></pre><h3 id="Example"><a class="docs-heading-anchor" href="#Example">Example</a><a id="Example-1"></a><a class="docs-heading-anchor-permalink" href="#Example" title="Permalink"></a></h3><p>Here&#39;s a simple example of creating and working with a memory system:</p><pre><code class="language-julia hljs"># Create a memory system with a simple category
+cat = Category(
+    [&quot;A&quot;, &quot;B&quot;],
+    [(&quot;A&quot;, &quot;B&quot;, &quot;f&quot;)]
+)
+
+# Initialize memory and procedures
+memory = Dict{String, Any}()
+procedures = [
+    function store_data(data)
+        memory[&quot;data&quot;] = data
+    end,
+    function retrieve_data()
+        return get(memory, &quot;data&quot;, nothing)
+    end
+]
+
+# Create the memory system
+mem_sys = MemorySystem(cat, memory, procedures)
+
+# Use the procedures
+store_data(mem_sys, &quot;test data&quot;)
+@assert retrieve_data(mem_sys) == &quot;test data&quot;</code></pre><h2 id="Memory-Operations"><a class="docs-heading-anchor" href="#Memory-Operations">Memory Operations</a><a id="Memory-Operations-1"></a><a class="docs-heading-anchor-permalink" href="#Memory-Operations" title="Permalink"></a></h2><h3 id="Mathematical-Properties"><a class="docs-heading-anchor" href="#Mathematical-Properties">Mathematical Properties</a><a id="Mathematical-Properties-1"></a><a class="docs-heading-anchor-permalink" href="#Mathematical-Properties" title="Permalink"></a></h3><p>The memory operations satisfy:</p><ol><li><p><strong>Storage</strong>:</p><p class="math-container">\[\begin{array}{rcl}
+\forall t \in T, e \in E, d \in D &amp; : &amp; M(t, e) = d
+\end{array}\]</p></li><li><p><strong>Retrieval</strong>:</p><p class="math-container">\[\begin{array}{rcl}
+\forall t \in T, e \in E &amp; : &amp; \exists d \in D: M(t, e) = d
+\end{array}\]</p></li><li><p><strong>Update</strong>:</p><p class="math-container">\[\begin{array}{rcl}
+\forall t_1, t_2 \in T, e \in E &amp; : &amp; M(t_2, e) = f(M(t_1, e))
+\end{array}\]</p></li></ol><h3 id="Implementation-2"><a class="docs-heading-anchor" href="#Implementation-2">Implementation</a><a class="docs-heading-anchor-permalink" href="#Implementation-2" title="Permalink"></a></h3><p>These operations are implemented in the code:</p><pre><code class="language-julia hljs">function store_data(mem_sys::MemorySystem, key::String, data::Any)
+    mem_sys.memory[key] = data
+end
+
+function retrieve_data(mem_sys::MemorySystem, key::String)
+    return get(mem_sys.memory, key, nothing)
+end
+
+function update_data(mem_sys::MemorySystem, key::String, update_fn::Function)
+    if haskey(mem_sys.memory, key)
+        mem_sys.memory[key] = update_fn(mem_sys.memory[key])
+    end
+end</code></pre><h3 id="Example-2"><a class="docs-heading-anchor" href="#Example-2">Example</a><a class="docs-heading-anchor-permalink" href="#Example-2" title="Permalink"></a></h3><p>Here&#39;s an example of using memory operations:</p><pre><code class="language-julia hljs"># Create a memory system for tracking neural network states
+nn_mem = MemorySystem(
+    Category(
+        [&quot;Input&quot;, &quot;Hidden&quot;, &quot;Output&quot;],
+        [(&quot;Input&quot;, &quot;Hidden&quot;, &quot;w1&quot;), (&quot;Hidden&quot;, &quot;Output&quot;, &quot;w2&quot;)]
+    ),
+    Dict{String, Any}(),
+    []
+)
+
+# Store network weights
+store_data(nn_mem, &quot;weights&quot;, Dict(
+    &quot;w1&quot; =&gt; rand(10, 5),
+    &quot;w2&quot; =&gt; rand(5, 2)
+))
+
+# Update weights with gradient descent
+function update_weights(weights, learning_rate=0.01)
+    return Dict(k =&gt; v .- learning_rate .* rand(size(v))
+        for (k, v) in weights)
+end
+
+update_data(nn_mem, &quot;weights&quot;, w -&gt; update_weights(w))</code></pre><h2 id="Applications"><a class="docs-heading-anchor" href="#Applications">Applications</a><a id="Applications-1"></a><a class="docs-heading-anchor-permalink" href="#Applications" title="Permalink"></a></h2><h3 id="Neural-Networks"><a class="docs-heading-anchor" href="#Neural-Networks">Neural Networks</a><a id="Neural-Networks-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-Networks" title="Permalink"></a></h3><p>Memory systems can track neural network states:</p><pre><code class="language-julia hljs"># Create a memory system for a complex neural network
+complex_nn_mem = MemorySystem(
+    Category(
+        [&quot;Input&quot;, &quot;Hidden1&quot;, &quot;Hidden2&quot;, &quot;Output&quot;],
+        [
+            (&quot;Input&quot;, &quot;Hidden1&quot;, &quot;w1&quot;),
+            (&quot;Hidden1&quot;, &quot;Hidden2&quot;, &quot;w2&quot;),
+            (&quot;Hidden2&quot;, &quot;Output&quot;, &quot;w3&quot;)
+        ]
+    ),
+    Dict{String, Any}(),
+    []
+)
+
+# Store network configuration
+store_data(complex_nn_mem, &quot;config&quot;, Dict(
+    &quot;architecture&quot; =&gt; [&quot;Input&quot;, &quot;Hidden1&quot;, &quot;Hidden2&quot;, &quot;Output&quot;],
+    &quot;activation&quot; =&gt; &quot;relu&quot;,
+    &quot;optimizer&quot; =&gt; &quot;adam&quot;
+))
+
+# Store training history
+store_data(complex_nn_mem, &quot;history&quot;, Dict(
+    &quot;loss&quot; =&gt; Float64[],
+    &quot;accuracy&quot; =&gt; Float64[]
+))</code></pre><h3 id="Social-Networks"><a class="docs-heading-anchor" href="#Social-Networks">Social Networks</a><a id="Social-Networks-1"></a><a class="docs-heading-anchor-permalink" href="#Social-Networks" title="Permalink"></a></h3><p>Memory systems can track social network states:</p><pre><code class="language-julia hljs"># Create a memory system for a social network
+social_mem = MemorySystem(
+    Category(
+        [&quot;User&quot;, &quot;Post&quot;, &quot;Comment&quot;],
+        [
+            (&quot;User&quot;, &quot;Post&quot;, &quot;creates&quot;),
+            (&quot;Post&quot;, &quot;Comment&quot;, &quot;has&quot;),
+            (&quot;User&quot;, &quot;Comment&quot;, &quot;writes&quot;)
+        ]
+    ),
+    Dict{String, Any}(),
+    []
+)
+
+# Store user data
+store_data(social_mem, &quot;users&quot;, Dict(
+    &quot;user1&quot; =&gt; Dict(
+        &quot;name&quot; =&gt; &quot;Alice&quot;,
+        &quot;posts&quot; =&gt; [&quot;post1&quot;, &quot;post2&quot;],
+        &quot;comments&quot; =&gt; [&quot;comment1&quot;]
+    )
+))
+
+# Store post data
+store_data(social_mem, &quot;posts&quot;, Dict(
+    &quot;post1&quot; =&gt; Dict(
+        &quot;content&quot; =&gt; &quot;Hello, world!&quot;,
+        &quot;author&quot; =&gt; &quot;user1&quot;,
+        &quot;comments&quot; =&gt; [&quot;comment1&quot;]
+    )
+))</code></pre><p>For more detailed information about memory systems in MES, refer to the original papers in the <a href="../papers/mes/mes-summary.html">Papers</a> section. </p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="synchronization.html">« Synchronization</a><a class="docs-footer-nextpage" href="../examples.html">Basic Examples »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.9.0 on <span class="colophon-date" title="Wednesday 26 March 2025 13:19">Wednesday 26 March 2025</span>. Using Julia version 1.11.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

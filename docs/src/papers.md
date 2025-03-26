@@ -1,61 +1,45 @@
-# MES Papers and References
+# Related Papers and Publications
 
-This page contains references to the foundational papers and books on Memory Evolutive Systems (MES).
+This page lists key papers and publications related to Memory Evolutive Systems (MES).
 
-## Core References
+## Core Publications
 
-### Memory Evolutive Systems: Hierarchy, Emergence, Cognition (2007)
-**Authors**: Andrée C. Ehresmann and Jean-Paul Vanbremeersch  
-**Publisher**: Elsevier  
-**ISBN**: 978-0-444-52723-7
+### MOMAT: A Multi-level Optimization Model for Analyzing Trade Finance (2024)
+**Authors**: Dr. Renée Menéndez and Dr. Viktor Winschel  
+**Journal**: Blockchain in Banking and Financial Services  
+**DOI**: [Forthcoming]  
+**PDF**: [Download MOMAT Paper](assets/papers/bcbaas25.pdf)
 
-This seminal book introduces the mathematical framework of Memory Evolutive Systems, presenting:
-- The hierarchical structure of MES
-- The role of memory in system evolution
-- Applications to cognitive systems
-- Mathematical foundations in category theory
+This paper develops a specification for macro accounting (MoMa) and a monetary macro accounting theory (MoMaT) where:
+- Money functions as a medium of payment for obligations and debts
+- Addresses temporal misalignment in production processes
+- Operates at three interconnected levels:
+  * Micro level: facilitating division of labor
+  * Meso level: enabling risk sharing in banking
+  * Macro level: governing GDP distribution through money issuance
+- Uses Bills of Exchange (BoE) as a unifying instrument
+- Provides mathematical foundations through sheaf theory
+- Implements computation using open games
+- Applies to monetary policy and supply chain finance
 
-[Download PDF](https://www.sciencedirect.com/book/9780444527237/memory-evolutive-systems)
+## Implementation Papers
 
-### Memory Evolutive Systems: A Mathematical Model for Cognitive Systems (2023)
-**Authors**: Andrée C. Ehresmann and Jean-Paul Vanbremeersch  
-**Journal**: Journal of Mathematical Psychology  
-**Volume**: 112, 102728
+### MES.jl: A Julia Implementation of Memory Evolutive Systems
+**Status**: In preparation  
+**Expected Publication**: 2024
 
-This recent paper provides:
-- Updated mathematical foundations
-- New applications to cognitive systems
-- Recent developments in MES theory
-- Connections to modern neuroscience
+This paper will describe:
+- The Julia implementation of MES theory
+- Core algorithms and data structures
+- Performance optimizations
+- Example applications
+- Future development directions
 
-[View Paper](https://doi.org/10.1016/j.jmp.2022.102728)
+## Future Directions
 
-## Citing MES
-
-When using this package in academic work, please cite both papers:
-
-```bibtex
-@book{ehresmann2007memory,
-  title={Memory Evolutive Systems: Hierarchy, Emergence, Cognition},
-  author={Ehresmann, Andr{\'e}e C. and Vanbremeersch, Jean-Paul},
-  year={2007},
-  publisher={Elsevier},
-  isbn={978-0-444-52723-7}
-}
-
-@article{ehresmann2023memory,
-  title={Memory Evolutive Systems: A Mathematical Model for Cognitive Systems},
-  author={Ehresmann, Andr{\'e}e C. and Vanbremeersch, Jean-Paul},
-  journal={Journal of Mathematical Psychology},
-  volume={112},
-  pages={102728},
-  year={2023},
-  publisher={Elsevier}
-}
-```
-
-## Additional Resources
-
-- [MES Research Group](https://mes-research-group.org)
-- [Category Theory for Cognitive Science](https://category-theory-cogsci.org)
-- [Memory Systems Research](https://memory-systems-research.org) 
+Current research directions in MES theory include:
+1. Applications to artificial general intelligence
+2. Integration with modern deep learning architectures
+3. Biological neural network modeling
+4. Social network analysis
+5. Complex systems theory 

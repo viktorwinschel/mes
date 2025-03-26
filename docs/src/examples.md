@@ -1,88 +1,94 @@
 # Examples
 
-This section provides practical examples of working with MES.
+This section provides practical examples of using Memory Evolutive Systems (MES) for financial and economic modeling.
 
-## Basic Categories
+## Basic Category Theory Examples
 
+### Category Creation
+- Objects and morphisms
+- Composition rules
+- Identity morphisms
+
+### Pattern Recognition
+- Pattern definition
+- Colimit calculation
+- Pattern matching
+
+### Memory Systems
+- State storage
+- Pattern retrieval
+- Memory evolution
+
+## Implementation Examples
+
+### Financial Systems
 ```julia
-using MES
+# Create a financial system category
+financial_system = create_category("FinancialSystem")
 
-# Create a simple category
-cat = create_category([
-    ("A", "B", "f"),
-    ("B", "C", "g")
-])
+# Define core components
+bank = create_object(financial_system, "Bank")
+buyer = create_object(financial_system, "Buyer")
+seller = create_object(financial_system, "Seller")
 
-# Verify the category
-is_valid = verify_category(cat)
+# Define key relationships
+add_morphism!(financial_system, "loan", bank, buyer)
+add_morphism!(financial_system, "payment", buyer, seller)
+
+# Create transaction patterns
+transaction_pattern = create_pattern(financial_system, "Transaction")
+add_morphism!(transaction_pattern, "payment", buyer, seller)
 ```
 
-## Working with Patterns
-
+### Booking Systems
 ```julia
-# Create a pattern
-pattern = create_pattern([
-    ("A", "B", "f")
-])
+# Create a booking system
+booking_system = create_category("BookingSystem")
 
-# Calculate the colimit
-colimit = calculate_colimit(pattern)
+# Define core objects
+customer = create_object(booking_system, "Customer")
+bike = create_object(booking_system, "Bike")
+station = create_object(booking_system, "Station")
+
+# Define relationships
+add_morphism!(booking_system, "rent", customer, bike)
+add_morphism!(booking_system, "park", bike, station)
 ```
 
-## Memory Systems
-
+### Neural Networks
 ```julia
-# Create a memory system
-memory = create_memory_system()
+# Create neural network category
+nn = create_category(
+    ["Input", "Hidden", "Output"],
+    Dict(
+        ("Input", "Hidden") => ["weights1"],
+        ("Hidden", "Output") => ["weights2"]
+    )
+)
 
-# Add some memory traces
-add_memory_trace!(memory, "event1", "data1")
-add_memory_trace!(memory, "event2", "data2")
-
-# Retrieve memory
-data = retrieve_memory(memory, "event1")
+# Create forward pass pattern
+forward_pattern = create_pattern(
+    nn,
+    ["Input", "Hidden", "Output"],
+    [("Input", "Hidden"), ("Hidden", "Output")]
+)
 ```
 
-## Neural Network Example
-
+### Social Networks
 ```julia
-# Create a category representing a simple neural network
-network = create_category([
-    ("Input", "Hidden", "weight1"),
-    ("Hidden", "Output", "weight2")
-])
+# Create social network category
+social = create_category(
+    ["User", "Post", "Group"],
+    Dict(
+        ("User", "Post") => ["create"],
+        ("User", "Group") => ["join"]
+    )
+)
 
-# Create a pattern for a specific activation
-activation = create_pattern([
-    ("Input", "Hidden", "weight1")
-])
-
-# Calculate the activation pattern's colimit
-activation_result = calculate_colimit(activation)
-```
-
-## Social Network Example
-
-```julia
-# Create a category representing social relationships
-social = create_category([
-    ("Person1", "Person2", "knows"),
-    ("Person2", "Person3", "knows")
-])
-
-# Create a pattern for a specific relationship
-relationship = create_pattern([
-    ("Person1", "Person2", "knows")
-])
-
-# Calculate the relationship pattern's colimit
-relationship_result = calculate_colimit(relationship)
-```
-
-## Next Steps
-
-Future examples will include:
-- Complex pattern recognition
-- Hierarchical system modeling
-- Advanced memory operations
-- System evolution tracking 
+# Create interaction pattern
+interaction_pattern = create_pattern(
+    social,
+    ["User", "Post"],
+    [("User", "Post")]
+)
+``` 

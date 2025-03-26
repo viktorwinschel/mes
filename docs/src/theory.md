@@ -1,144 +1,162 @@
-# Theory
+# Memory Evolutive Systems Theory
 
-This section covers the mathematical foundations of MES.
+This document outlines the core theoretical concepts of Memory Evolutive Systems (MES).
 
 ## Categories
 
-A category consists of objects and morphisms between them, satisfying certain properties.
-
-In MES, categories are represented by the `Category` type:
-
-```julia
-struct Category
-    objects::Vector{String}
-    morphisms::Vector{Tuple{String, String, String}}  # (source, target, name)
-end
-```
-
-### Basic Operations
-
-```julia
-# Create a category
-cat = create_category([
-    ("A", "B", "f"),
-    ("B", "C", "g")
-])
-
-# Verify category properties
-is_valid = verify_category(cat)
-```
-
-### Mathematical Definition
-
-A category $\mathcal{C}$ consists of:
-- A collection of objects: $\text{Ob}(\mathcal{C})$
-- A collection of morphisms: $\text{Hom}(\mathcal{C})$
-- Composition operation: $\circ: \text{Hom}(B,C) \times \text{Hom}(A,B) \to \text{Hom}(A,C)$
-- Identity morphisms: $\text{id}_A: A \to A$
-
-Satisfying the following axioms:
-
-1. **Associativity**:
-   $$\forall f: A \to B, g: B \to C, h: C \to D$$
-   $$(h \circ g) \circ f = h \circ (g \circ f)$$
-
-2. **Identity**:
-   $$\forall f: A \to B$$
-   $$f \circ \text{id}_A = f = \text{id}_B \circ f$$
+A category C consists of:
+- Objects: Ob(C)
+- Morphisms: Hom(C)
+- Composition and identity laws
 
 ## Patterns
 
-A pattern is a diagram in a category that represents a specific structure or relationship.
+A pattern P in a category C is a diagram consisting of:
+- Objects from C
+- Morphisms between these objects
+- Binding relations
 
-In MES, patterns are represented by the `Pattern` type:
+## Memory
+
+The memory component M maps:
+- Time T
+- Events E
+- Data D
+
+## Evolution
+
+Evolution occurs through:
+1. Pattern formation
+2. Binding
+3. Complex formation
+
+## Category Theory Basics
+
+### Categories
+
+A category \( \mathcal{C} \) consists of:
+- A collection of objects
+- A collection of morphisms (arrows) between objects
+- A composition operation for morphisms
+- Identity morphisms for each object
+
+In our implementation, a category is represented by the `Category` type:
 
 ```julia
-struct Pattern
-    objects::Vector{String}
-    morphisms::Vector{Tuple{String, String, String}}
+struct Category{T}
+    objects::Vector{T}
+    morphisms::Dict{Tuple{T,T},Vector{T}}
+    composition::Dict{Tuple{T,T,T},Bool}
 end
 ```
 
-### Pattern Operations
+The category must satisfy several axioms:
+1. **Composition Closure**: For morphisms \( f: A \to B \) and \( g: B \to C \), there exists a composition \( g \circ f: A \to C \)
+2. **Associativity**: For morphisms \( f, g, h \), we have \( (h \circ g) \circ f = h \circ (g \circ f) \)
+3. **Identity**: For each object \( A \), there exists an identity morphism \( id_A: A \to A \) such that \( f \circ id_A = f \) and \( id_A \circ g = g \)
+
+### Patterns and Colimits
+
+A pattern \( P \) in a category \( \mathcal{C} \) is a diagram consisting of:
+- A collection of objects from \( \mathcal{C} \)
+- A collection of morphisms between these objects
+
+In our implementation:
 
 ```julia
-# Create a pattern
-pattern = create_pattern([
-    ("A", "B", "f")
-])
-
-# Calculate colimit
-colimit = calculate_colimit(pattern)
+struct Pattern
+    category::Category
+    objects::Vector{String}
+    links::Vector{Tuple{String,String}}
+end
 ```
 
-### Mathematical Definition
-
-A pattern $P$ in a category $\mathcal{C}$ is defined as:
-$$P = \{O_i, M_j\}$$
-where:
-- $O_i$ are objects in $\mathcal{C}$
-- $M_j$ are morphisms between these objects
-
-The colimit of a pattern $P$, denoted $\text{colim}(P)$, is an object $C$ together with morphisms $\varphi_i: O_i \to C$ satisfying the universal property:
-
-$$\forall X \in \mathcal{C}, \forall \psi_i: O_i \to X \text{ such that } \psi_j \circ M_j = \psi_i$$
-$$\exists! \psi: C \to X \text{ such that } \psi \circ \varphi_i = \psi_i$$
+A colimit of a pattern \( P \) is an object \( C \) together with morphisms from each object in the pattern to \( C \) that satisfy the universal property:
+- For any other object \( D \) with morphisms from the pattern objects, there exists a unique morphism \( C \to D \) making all diagrams commute.
 
 ## Memory Systems
 
-Memory Evolutive Systems extend categories with memory capabilities:
+A Memory Evolutive System extends these categorical concepts with:
+
+### Hierarchical Categories
+
+A hierarchical category adds complexity levels to objects:
 
 ```julia
-# Create a memory system
-memory = create_memory_system()
-
-# Add memory trace
-add_memory_trace!(memory, "event1", "data1")
-
-# Retrieve memory
-data = retrieve_memory(memory, "event1")
+struct HierarchicalCategory{T}
+    levels::Dict{Int,Vector{T}}
+    bindings::Dict{T,Vector{T}}
+    complexity::Dict{T,Int}
+end
 ```
 
-### Mathematical Definition
+This structure allows us to represent:
+- Objects at different complexity levels
+- Bindings between levels
+- Complexity measures for objects
 
-A Memory Evolutive System $\mathcal{M}$ is defined as:
-$$\mathcal{M} = (\mathcal{C}, M, \mathcal{P})$$
-where:
-- $\mathcal{C}$ is a category
-- $M$ is a memory system
-- $\mathcal{P}$ is a set of procedures
+### Memory Components
 
-The memory system $M$ is a function:
-$$M: T \times E \to D$$
-where:
-- $T$ is the time domain
-- $E$ is the event space
-- $D$ is the data space
+Memory components handle the storage and retrieval of information:
 
-## Mathematical Foundations
-
-The key mathematical concepts are expressed through:
-
-1. Category Axioms:
-```math
-\forall f: A \to B, g: B \to C, h: C \to D
-(h \circ g) \circ f = h \circ (g \circ f)
+```julia
+struct MemoryComponent{T}
+    records::Vector{T}
+    timestamps::Vector{DateTime}
+    multiplicity::Int
+    decay_rate::Float64
+end
 ```
 
-2. Pattern Recognition:
-```math
-P = \{O_i, M_j\} \text{ where } O_i \text{ are objects and } M_j \text{ are morphisms}
+Key features include:
+- Variable multiplicity of records
+- Temporal aspects (timestamps)
+- Decay of information over time
+
+### Co-Regulators
+
+Co-regulators manage system adaptation:
+
+```julia
+struct CoRegulator{T}
+    landscape::Dict{T,Float64}
+    threshold::Float64
+    decay_rate::Float64
+end
 ```
 
-3. Colimit Universal Property:
-```math
-\forall X, \exists! \psi: C \to X \text{ such that } \psi \circ \varphi_D = \text{unique}
+They handle:
+- Activation landscapes
+- Thresholds for transitions
+- Decay of activation levels
+
+## Pattern Synchronization
+
+Pattern synchronization allows us to relate patterns in different contexts:
+
+```julia
+struct Synchronization
+    source_pattern::Pattern
+    target_pattern::Pattern
+end
 ```
 
-## Next Steps
+This enables:
+- Pattern matching across contexts
+- Transfer of structure between patterns
+- Coordination of complex behaviors
 
-Future implementations will include:
-- Functorial evolution
-- Complexification process
-- Co-regulators
-- Advanced pattern recognition 
+## Mathematical Properties
+
+The system as a whole satisfies several important properties:
+
+1. **Emergence**: Higher-level patterns emerge from interactions at lower levels
+2. **Stability**: The system maintains coherence through co-regulation
+3. **Adaptability**: Memory components allow learning from experience
+4. **Hierarchy**: Multiple complexity levels interact through bindings
+
+These properties make MES suitable for modeling complex systems that:
+- Develop hierarchical structures
+- Learn from experience
+- Adapt to changing conditions
+- Maintain stability while evolving 

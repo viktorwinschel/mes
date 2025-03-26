@@ -1,37 +1,47 @@
-# Category Theory Appendix
+# Category Theory
 
-This appendix provides a detailed mathematical treatment of category theory concepts used in Memory Evolutive Systems.
+This appendix provides the mathematical foundations of category theory used in MES.
 
 ## Basic Definitions
 
 ### Category
-
-A category $\mathcal{C}$ consists of:
-1. A collection of objects $\text{Ob}(\mathcal{C})$
-2. A collection of morphisms $\text{Hom}(\mathcal{C})$
-3. For each object $A$, an identity morphism $1_A$
-4. A composition operation $\circ$ that is associative and respects identity
+A category C consists of:
+```math
+\begin{array}{rcl}
+1. & & Objects: Ob(C) \\
+2. & & Morphisms: Hom(C) \\
+3. & & Composition: Hom(B,C) \times Hom(A,B) \to Hom(A,C) \\
+4. & & Identity: id_A: A \to A
+\end{array}
+```
 
 ### Functor
-
-A functor $F: \mathcal{C} \to \mathcal{D}$ between categories consists of:
-1. A map on objects: $F: \text{Ob}(\mathcal{C}) \to \text{Ob}(\mathcal{D})$
-2. A map on morphisms: $F: \text{Hom}(\mathcal{C}) \to \text{Hom}(\mathcal{D})$
-3. Preservation of identity: $F(1_A) = 1_{F(A)}$
-4. Preservation of composition: $F(f \circ g) = F(f) \circ F(g)$
+A functor F: C \to D between categories consists of:
+```math
+\begin{array}{rcl}
+1. & & Objects: F: Ob(C) \to Ob(D) \\
+2. & & Morphisms: F: Hom(C) \to Hom(D)
+\end{array}
+```
 
 ### Natural Transformation
+A transformation n: F \to G between functors F,G: C \to D consists of:
+```math
+\begin{array}{rcl}
+1. & & \text{For each } A \text{ in } C \text{, a morphism } n_A: F(A) \to G(A)
+\end{array}
+```
 
-A natural transformation $\eta: F \to G$ between functors $F,G: \mathcal{C} \to \mathcal{D}$ consists of:
-1. For each object $A$ in $\mathcal{C}$, a morphism $\eta_A: F(A) \to G(A)$
-2. For each morphism $f: A \to B$, the following diagram commutes:
-   ```
-   F(A) ---> G(A)
-    |         |
-    |         |
-    v         v
-   F(B) ---> G(B)
-   ```
+### Universal Constructions
+
+#### Limits
+A limit of a diagram D: J \to C is a universal cone over D.
+
+#### Adjunctions
+Functors F: C \to D and G: D \to C form an adjunction if:
+```math
+Hom_D(F(A), B) \cong Hom_C(A, G(B))
+```
 
 ## Advanced Concepts
 

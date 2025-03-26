@@ -1,27 +1,197 @@
 # API Reference
 
-This section provides detailed documentation for the MES API.
+This page documents the public API of the Memory Evolutive Systems (MES) package.
 
-## Core Types
-
-```@docs
-MES.Category
-MES.Pattern
-```
-
-## Functions
+## Categories
 
 ```@docs
-MES.create_category
-MES.add_morphism!
-MES.create_pattern
-MES.calculate_colimit
+Category
+create_category
+verify_category
+verify_composition_closure
+verify_identity_existence
 ```
 
-## Other Functions
+## Patterns
 
-```@autodocs
-Modules = [MES]
-Order   = [:function]
-Filter = t -> t != :create_category && t != :add_morphism! && t != :create_pattern && t != :calculate_colimit
+```@docs
+Pattern
+create_pattern
+calculate_colimit
+```
+
+## Memory Systems
+
+```@docs
+MemorySystem
+store!
+retrieve
+verify_memory_system
+```
+
+## Synchronization
+
+```@docs
+Synchronization
+verify_synchronization
+```
+
+## Category Operations
+
+The following functions provide core operations for manipulating categories:
+
+```@docs
+add_morphism!
+compose_morphisms!
+```
+
+## Memory Components
+
+The following functions create and manage memory components in the system:
+
+```@docs
+create_memory_component
+create_hierarchical_category
+create_co_regulator
+```
+
+## Binding Operations
+
+The following functions manage bindings between different levels of the hierarchy:
+
+```@docs
+add_binding!
+update_landscape!
+```
+
+## Implementation Details
+
+### Category Operations
+
+The category operations form the foundation of our system:
+
+```julia
+# Add a new morphism
+add_morphism!(category::Category{T}, source::T, target::T, morphism::T) where T
+
+# Compose two morphisms
+compose_morphisms!(category::Category{T}, f::T, g::T, result::T) where T
+```
+
+### Memory Components
+
+Memory components are the building blocks of the MES:
+
+```julia
+# Create a memory component
+create_memory_component(capacity::Int, decay_rate::Float64)
+
+# Build a hierarchical category
+create_hierarchical_category(levels::Dict{Int, Vector{T}}) where T
+
+# Create a coregulator
+create_co_regulator(threshold::Float64, decay_rate::Float64)
+```
+
+### Binding Operations
+
+Binding operations connect different levels of the hierarchy:
+
+```julia
+# Create a binding between levels
+add_binding!(category::HierarchicalCategory{T}, lower::T, higher::T) where T
+
+# Update the system landscape
+update_landscape!(regulator::CoRegulator{T}, activations::Dict{T, Float64}) where T
+```
+
+## Examples
+
+### Creating and Composing Morphisms
+
+```julia
+# Create a category
+category = create_category(["A", "B", "C"], Dict())
+
+# Add morphisms
+add_morphism!(category, "A", "B", "f")
+add_morphism!(category, "B", "C", "g")
+
+# Compose morphisms
+compose_morphisms!(category, "f", "g", "h")
+```
+
+### Building Memory Systems
+
+```julia
+# Create memory components
+stm = create_memory_component(5, 0.3)  # Short-term memory
+ltm = create_memory_component(20, 0.05) # Long-term memory
+
+# Create hierarchical structure
+levels = Dict(
+    1 => ["n1", "n2", "n3"],
+    2 => ["P1", "P2"],
+    3 => ["C1"]
+)
+hierarchy = create_hierarchical_category(levels)
+
+# Add bindings
+add_binding!(hierarchy, "n1", "P1")
+add_binding!(hierarchy, "n2", "P1")
+add_binding!(hierarchy, "P1", "C1")
+
+# Create and update coregulator
+regulator = create_co_regulator(0.6, 0.1)
+activations = Dict("n1" => 0.8, "n2" => 0.6)
+update_landscape!(regulator, activations)
+```
+
+## Mathematical Background
+
+### Category Theory
+
+The category operations satisfy the standard categorical laws:
+
+```math
+\begin{array}{l}
+g \circ (f \circ h) = (g \circ f) \circ h \quad \text{(associativity)} \\
+f \circ \text{id}_A = f = \text{id}_B \circ f \quad \text{(identity)}
+\end{array}
+```
+
+### Memory Evolution
+
+Memory components evolve according to:
+
+```math
+\begin{array}{l}
+\text{State}(t+1) = \text{State}(t) \cdot (1 - \text{decay\_rate}) + \text{input}(t) \\
+\text{Capacity}(t) = \min(\text{capacity}, \sum_{i} \text{State}_i(t))
+\end{array}
+```
+
+### Hierarchical Structure
+
+The hierarchical category maintains level-based relationships:
+
+```math
+\begin{array}{l}
+\text{Level}(M) = \max\{\text{Level}(N) \mid N \to M\} + 1 \\
+\text{Bindings}(M) = \{f: N \to M \mid \text{Level}(N) < \text{Level}(M)\}
+\end{array}
+```
+
+### Coregulator Dynamics
+
+The coregulator updates follow:
+
+```math
+\begin{array}{l}
+\text{Landscape}(t+1) = \text{Landscape}(t) \cdot (1 - \text{decay\_rate}) + \text{activations}(t) \\
+\text{Stability}(M) = \begin{cases}
+1 & \text{if } \text{Landscape}(M) > \text{threshold} \\
+0 & \text{otherwise}
+\end{cases}
+\end{array}
 ```

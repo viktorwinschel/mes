@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Synchronization · Memory Evolutive Systems</title><meta name="title" content="Synchronization · Memory Evolutive Systems"/><meta property="og:title" content="Synchronization · Memory Evolutive Systems"/><meta property="twitter:title" content="Synchronization · Memory Evolutive Systems"/><meta name="description" content="Documentation for Memory Evolutive Systems."/><meta property="og:description" content="Documentation for Memory Evolutive Systems."/><meta property="twitter:description" content="Documentation for Memory Evolutive Systems."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/custom.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../index.html">Memory Evolutive Systems</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../index.html">Home</a></li><li><span class="tocitem">Theory</span><ul><li><a class="tocitem" href="categories.html">Category Theory</a></li><li class="is-active"><a class="tocitem" href="synchronization.html">Synchronization</a><ul class="internal"><li><a class="tocitem" href="#Basic-Definition"><span>Basic Definition</span></a></li><li><a class="tocitem" href="#Properties"><span>Properties</span></a></li><li><a class="tocitem" href="#Basic-Concepts"><span>Basic Concepts</span></a></li><li><a class="tocitem" href="#Synchronization-Mechanisms"><span>Synchronization Mechanisms</span></a></li><li><a class="tocitem" href="#Applications"><span>Applications</span></a></li></ul></li><li><a class="tocitem" href="memory_systems.html">Memory Systems</a></li></ul></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../examples.html">Basic Examples</a></li><li><a class="tocitem" href="../examples/national_accounting.html">National Accounting</a></li><li><a class="tocitem" href="../examples/boe_cycles.html">Bill of Exchange</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Theory</a></li><li class="is-active"><a href="synchronization.html">Synchronization</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href="synchronization.html">Synchronization</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/viktorwinschel/mes" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/viktorwinschel/mes/blob/main/docs/src/theory/synchronization.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Synchronization"><a class="docs-heading-anchor" href="#Synchronization">Synchronization</a><a id="Synchronization-1"></a><a class="docs-heading-anchor-permalink" href="#Synchronization" title="Permalink"></a></h1><p>This document describes the synchronization process in Memory Evolutive Systems.</p><h2 id="Basic-Definition"><a class="docs-heading-anchor" href="#Basic-Definition">Basic Definition</a><a id="Basic-Definition-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Definition" title="Permalink"></a></h2><p>A synchronization S between two patterns P1 and P2 is defined as:</p><p class="math-container">\[S = (P_1, P_2, \phi)\]</p><p>where:</p><ul><li>P1, P2 are patterns</li><li>\phi is a binding morphism</li></ul><h2 id="Properties"><a class="docs-heading-anchor" href="#Properties">Properties</a><a id="Properties-1"></a><a class="docs-heading-anchor-permalink" href="#Properties" title="Permalink"></a></h2><h3 id="Transitivity"><a class="docs-heading-anchor" href="#Transitivity">Transitivity</a><a id="Transitivity-1"></a><a class="docs-heading-anchor-permalink" href="#Transitivity" title="Permalink"></a></h3><p class="math-container">\[\text{if } S_{12} \text{ and } S_{23} \text{ then } S_{13}\]</p><h3 id="Self-Synchronization"><a class="docs-heading-anchor" href="#Self-Synchronization">Self-Synchronization</a><a id="Self-Synchronization-1"></a><a class="docs-heading-anchor-permalink" href="#Self-Synchronization" title="Permalink"></a></h3><p class="math-container">\[\exists S: P \to P\]</p><h2 id="Basic-Concepts"><a class="docs-heading-anchor" href="#Basic-Concepts">Basic Concepts</a><a id="Basic-Concepts-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Concepts" title="Permalink"></a></h2><h3 id="Mathematical-Definition"><a class="docs-heading-anchor" href="#Mathematical-Definition">Mathematical Definition</a><a id="Mathematical-Definition-1"></a><a class="docs-heading-anchor-permalink" href="#Mathematical-Definition" title="Permalink"></a></h3><p>A synchronization <span>$\mathcal{S}$</span> between two patterns <span>$P_1$</span> and <span>$P_2$</span> is defined as: <span>$\mathcal{S} = (P_1, P_2, \varphi)$</span> where:</p><ul><li><p class="math-container">\[P_1\]</p>and <span>$P_2$</span> are patterns</li><li><p class="math-container">\[\varphi\]</p>is a morphism between their colimits</li></ul><p>The synchronization process satisfies several mathematical properties:</p><ol><li><p><strong>Compatibility</strong>: <span>$\forall x \in \text{colim}(P_1), y \in \text{colim}(P_2)$</span> <span>$\varphi(x) = y \implies \text{compatible}(x, y)$</span></p></li><li><p><strong>Transitivity</strong>: <span>$\forall P_1, P_2, P_3$</span> <span>$\text{if } \mathcal{S}_{12} \text{ and } \mathcal{S}_{23} \text{ then } \mathcal{S}_{13}$</span></p></li><li><p><strong>Reflexivity</strong>: <span>$\forall P$</span> <span>$\exists \mathcal{S}: P \to P$</span></p></li></ol><h3 id="Implementation"><a class="docs-heading-anchor" href="#Implementation">Implementation</a><a id="Implementation-1"></a><a class="docs-heading-anchor-permalink" href="#Implementation" title="Permalink"></a></h3><p>In MES, synchronization is implemented using the <code>Synchronization</code> type:</p><pre><code class="language-julia hljs">struct Synchronization
+    pattern1::Pattern
+    pattern2::Pattern
+    morphism::Tuple{String, String, String}
+end</code></pre><h3 id="Example"><a class="docs-heading-anchor" href="#Example">Example</a><a id="Example-1"></a><a class="docs-heading-anchor-permalink" href="#Example" title="Permalink"></a></h3><p>Here&#39;s a simple example of creating and working with synchronization:</p><pre><code class="language-julia hljs"># Create two patterns to synchronize
+pattern1 = Pattern(
+    [&quot;A&quot;, &quot;B&quot;],
+    [(&quot;A&quot;, &quot;B&quot;, &quot;f&quot;)]
+)
+
+pattern2 = Pattern(
+    [&quot;X&quot;, &quot;Y&quot;],
+    [(&quot;X&quot;, &quot;Y&quot;, &quot;g&quot;)]
+)
+
+# Create a synchronization between the patterns
+sync = Synchronization(
+    pattern1,
+    pattern2,
+    (&quot;A&quot;, &quot;X&quot;, &quot;sync&quot;)
+)
+
+# Verify synchronization properties
+verify_synchronization(sync)  # Returns true if properties are satisfied</code></pre><h2 id="Synchronization-Mechanisms"><a class="docs-heading-anchor" href="#Synchronization-Mechanisms">Synchronization Mechanisms</a><a id="Synchronization-Mechanisms-1"></a><a class="docs-heading-anchor-permalink" href="#Synchronization-Mechanisms" title="Permalink"></a></h2><h3 id="Implementation-2"><a class="docs-heading-anchor" href="#Implementation-2">Implementation</a><a class="docs-heading-anchor-permalink" href="#Implementation-2" title="Permalink"></a></h3><p>The synchronization mechanisms are implemented in the code:</p><pre><code class="language-julia hljs">function verify_synchronization(sync::Synchronization)
+    # Check compatibility
+    for (src1, tgt1, _) in sync.pattern1.morphisms
+        for (src2, tgt2, _) in sync.pattern2.morphisms
+            if (src1, src2, _) == sync.morphism
+                if !compatible(tgt1, tgt2)
+                    return false
+                end
+            end
+        end
+    end
+    
+    # Check transitivity
+    if !verify_transitivity(sync)
+        return false
+    end
+    
+    # Check reflexivity
+    if !verify_reflexivity(sync)
+        return false
+    end
+    
+    return true
+end
+
+function compatible(x::String, y::String)
+    # Implementation of compatibility check
+    return true  # Simplified for example
+end
+
+function verify_transitivity(sync::Synchronization)
+    # Implementation of transitivity check
+    return true  # Simplified for example
+end
+
+function verify_reflexivity(sync::Synchronization)
+    # Implementation of reflexivity check
+    return true  # Simplified for example
+end</code></pre><h3 id="Example-2"><a class="docs-heading-anchor" href="#Example-2">Example</a><a class="docs-heading-anchor-permalink" href="#Example-2" title="Permalink"></a></h3><p>Here&#39;s an example of synchronizing neural network components:</p><pre><code class="language-julia hljs"># Create patterns for different network components
+input_pattern = Pattern(
+    [&quot;Input&quot;, &quot;Hidden&quot;],
+    [(&quot;Input&quot;, &quot;Hidden&quot;, &quot;weights1&quot;)]
+)
+
+output_pattern = Pattern(
+    [&quot;Hidden&quot;, &quot;Output&quot;],
+    [(&quot;Hidden&quot;, &quot;Output&quot;, &quot;weights2&quot;)]
+)
+
+# Create synchronization between components
+nn_sync = Synchronization(
+    input_pattern,
+    output_pattern,
+    (&quot;Hidden&quot;, &quot;Hidden&quot;, &quot;sync_hidden&quot;)
+)
+
+# Verify the synchronization
+@assert verify_synchronization(nn_sync)</code></pre><h2 id="Applications"><a class="docs-heading-anchor" href="#Applications">Applications</a><a id="Applications-1"></a><a class="docs-heading-anchor-permalink" href="#Applications" title="Permalink"></a></h2><h3 id="Neural-Networks"><a class="docs-heading-anchor" href="#Neural-Networks">Neural Networks</a><a id="Neural-Networks-1"></a><a class="docs-heading-anchor-permalink" href="#Neural-Networks" title="Permalink"></a></h3><p>Synchronization can coordinate neural network components:</p><pre><code class="language-julia hljs"># Create patterns for a complex neural network
+input_pattern = Pattern(
+    [&quot;Input&quot;, &quot;Hidden1&quot;],
+    [(&quot;Input&quot;, &quot;Hidden1&quot;, &quot;w1&quot;)]
+)
+
+hidden_pattern = Pattern(
+    [&quot;Hidden1&quot;, &quot;Hidden2&quot;],
+    [(&quot;Hidden1&quot;, &quot;Hidden2&quot;, &quot;w2&quot;)]
+)
+
+output_pattern = Pattern(
+    [&quot;Hidden2&quot;, &quot;Output&quot;],
+    [(&quot;Hidden2&quot;, &quot;Output&quot;, &quot;w3&quot;)]
+)
+
+# Create synchronizations between all components
+sync1 = Synchronization(input_pattern, hidden_pattern, (&quot;Hidden1&quot;, &quot;Hidden1&quot;, &quot;sync1&quot;))
+sync2 = Synchronization(hidden_pattern, output_pattern, (&quot;Hidden2&quot;, &quot;Hidden2&quot;, &quot;sync2&quot;))
+
+# Verify all synchronizations
+@assert verify_synchronization(sync1)
+@assert verify_synchronization(sync2)</code></pre><h3 id="Social-Networks"><a class="docs-heading-anchor" href="#Social-Networks">Social Networks</a><a id="Social-Networks-1"></a><a class="docs-heading-anchor-permalink" href="#Social-Networks" title="Permalink"></a></h3><p>Synchronization can coordinate social network interactions:</p><pre><code class="language-julia hljs"># Create patterns for social network components
+user_pattern = Pattern(
+    [&quot;User&quot;, &quot;Post&quot;],
+    [(&quot;User&quot;, &quot;Post&quot;, &quot;creates&quot;)]
+)
+
+post_pattern = Pattern(
+    [&quot;Post&quot;, &quot;Comment&quot;],
+    [(&quot;Post&quot;, &quot;Comment&quot;, &quot;has&quot;)]
+)
+
+# Create synchronization between components
+social_sync = Synchronization(
+    user_pattern,
+    post_pattern,
+    (&quot;Post&quot;, &quot;Post&quot;, &quot;sync_post&quot;)
+)
+
+# Verify the synchronization
+@assert verify_synchronization(social_sync)</code></pre><p>For more detailed information about synchronization in MES, refer to the original papers in the <a href="../papers/mes/mes-summary.html">Papers</a> section. </p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="categories.html">« Category Theory</a><a class="docs-footer-nextpage" href="memory_systems.html">Memory Systems »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.9.0 on <span class="colophon-date" title="Wednesday 26 March 2025 13:19">Wednesday 26 March 2025</span>. Using Julia version 1.11.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

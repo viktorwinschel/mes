@@ -46,7 +46,9 @@ Calculate the colimit of a pattern in a category.
 - `pattern::Pattern`: The pattern to calculate the colimit for
 
 # Returns
-A dictionary containing the colimit object and the morphisms from the pattern objects to the colimit.
+A dictionary containing:
+- `:object`: The colimit object
+- `:morphisms`: A dictionary mapping pattern objects to morphisms to the colimit
 
 # Examples
 ```julia
@@ -56,15 +58,17 @@ colimit = calculate_colimit(pattern)
 ```
 """
 function calculate_colimit(pattern::Pattern)
-    colimit_object = "Colimit_$(join(pattern.objects, "_"))"
+    # Create a unique name for the colimit object
+    colimit_obj = "colim_" * join(pattern.objects, "_")
 
+    # Create morphisms from each pattern object to the colimit
     morphisms = Dict{String,String}()
     for obj in pattern.objects
-        morphisms[obj] = "morphism_to_colimit_$obj"
+        morphisms[obj] = "m_" * obj * "_" * colimit_obj
     end
 
     return Dict(
-        "object" => colimit_object,
-        "morphisms" => morphisms
+        :object => colimit_obj,
+        :morphisms => morphisms
     )
 end

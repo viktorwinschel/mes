@@ -1,55 +1,49 @@
 using Documenter
-
-# Add the parent directory to the Julia path so we can import MES
-push!(LOAD_PATH, dirname(@__DIR__))
 using MES
 
-# Set prettyurls based on environment
-const is_ci = get(ENV, "CI", "false") == "true"
+# LaTeX command definitions for category theory
+const latex_preamble = """
+\\newcommand{\\cat}[1]{\\mathcal{#1}}
+\\newcommand{\\Set}{\\mathbf{Set}}
+\\newcommand{\\Cat}{\\mathbf{Cat}}
+\\newcommand{\\Ab}{\\mathbf{Ab}}
+\\newcommand{\\Time}{\\mathbf{Time}}
+\\newcommand{\\Ord}{\\mathbf{Ord}}
+\\newcommand{\\Ctrl}{\\mathbf{Ctrl}}
+\\newcommand{\\State}{\\mathbf{State}}
+\\newcommand{\\cod}{\\mathrm{cod}}
+\\newcommand{\\id}{\\mathrm{id}}
+\\newcommand{\\colim}{\\mathrm{colim}}
+"""
 
-# Build documentation
 makedocs(
-    sitename="MES Documentation",
+    sitename="Memory Evolutive Systems",
     format=Documenter.HTML(
-        # Enable pretty URLs for GitHub Pages
-        prettyurls=is_ci,
-        # Update canonical URL to GitHub Pages
-        canonical="https://viktorwinschel.github.io/mes",
-        edit_link="main",
-        # Add GitHub Pages optimizations
-        assets=[
-            "assets/favicon.ico",
-            "assets/custom.css"
-        ],
-        # Add navigation options
-        collapselevel=2,
-        sidebar_sitename=true
+        prettyurls=false,
+        assets=["assets/custom.css"]
     ),
+    clean=true,
+    doctest=true,
+    checkdocs=:all,
+    modules=[MES],
     pages=[
         "Home" => "index.md",
-        "Getting Started" => "getting_started/quickstart.md",
+        "Getting Started" => "getting_started/index.md",
         "Theory" => [
-            "Overview" => "theory.md",
-            "Categories" => "theory/categories.md",
-            "Patterns" => "theory/patterns.md"
+            "Overview" => "theory/index.md",
+            "Category Theory" => "theory/categories.md",
+            "Synchronization" => "theory/synchronization.md",
+            "Memory Systems" => "theory/memory_systems.md"
         ],
         "Examples" => [
-            "Overview" => "examples.md",
-            "Categories" => "examples/categories.md"
+            "Overview" => "examples/index.md",
+            "Basic Examples" => "examples.md",
+            "National Accounting" => "examples/national_accounting.md",
+            "Bill of Exchange" => "examples/boe_cycles.md"
         ],
-        "API Reference" => "api.md"
-    ],
-    modules=[MES],
-    authors="Viktor Winschel",
-    repo="https://github.com/viktorwinschel/mes",
-    doctest=false,
-    checkdocs=:none,
-    linkcheck=false
+        "API Reference" => "api.md",
+        "Papers & References" => "papers.md"
+    ]
 )
 
-# Deploy documentation
-deploydocs(
-    repo="viktorwinschel/mes",
-    devbranch="main",
-    push_preview=true
-)
+# Documenter can also automatically deploy documentation to gh-pages.

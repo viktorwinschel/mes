@@ -1,10 +1,36 @@
-# Julia specific
-*.jl.*.cov
+# Julia
 *.jl.cov
+*.jl.*.cov
 *.jl.mem
-/deps/deps.jl
-/docs/build/
+deps/deps.jl
 Manifest.toml
+
+# Documentation build
+docs/build/
+docs/site/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Simulation and data files
+simulation_data/
+simulation_results.csv
+plots/
+
+# Temporary files
+*.log
+*.tmp
 
 # System specific
 .DS_Store
@@ -19,11 +45,6 @@ Thumbs.db
 # Build specific
 /build/
 /dist/
-
-# Editor specific
-*.swp
-*.swo
-*~
 
 # LaTeX specific
 *.aux
