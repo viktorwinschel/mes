@@ -1,214 +1,108 @@
-# Monetary Macro Accounting (MoMa)
+# Monetary Macro Accounting with Memory Evolutive Systems (MoMaMES)
 
-A Julia package for simulating and analyzing money flows and operations in monetary economic systems using Memory Evolutive Systems (MES) principles.
+A Julia package that implements monetary and economic systems using Memory Evolutive Systems (MES), providing a rigorous mathematical framework for analyzing economic dynamics through category theory.
 
 ## Overview
 
-MOMA is a simulation tool that models economic transactions and money flows between different agents in a financial system. It implements a double-entry accounting system and tracks the evolution of balance sheets over time. The macro economics dynamics are modelled in memory evolutive systems (MES) of Andree Ehresmann and Jean-Paul Vanbremeersch.
+This project combines two powerful frameworks:
+
+1. **MoMa (Monetary Macro Accounting)**
+   - Models economic transactions and money flows between agents
+   - Implements double-entry accounting at micro and macro levels
+   - Tracks balance sheet evolution and transaction flows
+   - Provides visualization and analysis tools
+
+2. **MES (Memory Evolutive Systems)**
+   - Provides mathematical foundation using category theory
+   - Models complex systems that evolve over time
+   - Maintains structural relationships and memory
+   - Supports functors and natural transformations
 
 ## Features
 
-- Agent-based simulation with support for multiple economic actors
-- Double-entry accounting system
+### Economic Features
+- Agent-based simulation with multiple economic actors
+- Double-entry accounting system at micro and macro levels
 - Balance sheet tracking and evolution
-- Transaction flow analysis
-- Visualization of results
-- Detailed reporting and statistics
-
-## Installation
-
-```julia
-using Pkg
-Pkg.add("MOMA")
-```
-
-## Usage
-
-```julia
-using MOMA
-
-# Run the simulation
-include("src/moma_main.jl")
-```
-
-## Project Structure
-
-- `src/moma_simulation.jl`: Core simulation structures and initialization
-- `src/moma_events.jl`: Event processing and simulation logic
-- `src/moma_visualization.jl`: Visualization and reporting functions
-- `src/moma_main.jl`: Main script to run the simulation
-
-## Dependencies
-
-- Julia 1.6 or higher
-- Dates
-- DataFrames
-- Plots
-
-## License
-
-MIT License
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. 
-
-## Testing
-
-To run the tests, use:
-
-```julia
-using Pkg
-Pkg.test("MOMA")
-```
-
-## Micro-Macro Accounting Relationship
-
-This project implements a monetary economics simulation using double-entry bookkeeping principles at both micro and macro levels. It demonstrates how individual accounting practices (micro) give rise to system-wide properties (macro) through categorical relationships.
-
-### Key Concepts
-
-#### Double-Entry Bookkeeping
-
-##### Micro Level (Individual Agent Accounting)
-- Each agent (bank, central bank, etc.) maintains their own T-accounts
-- Every transaction affects two accounts (debit = credit)
-- All accounts within an agent must sum to zero (micro invariance)
-- Example:
-  ```
-  Bank A's books:
-  Deposits at Bank B (DR) | 100
-  CB Reserve (CR)         | 100
-  ```
-
-##### Macro Level (System-wide Accounting)
-- Debt relationships always involve exactly two agents (debtor-creditor pairs)
-- At macro level, there is no "net debt" - every debt is someone's asset
-- Claims between agents must cancel out perfectly (macro invariance)
-- Example:
-  ```
-  Bank A's "Deposits at Bank B" ↔ Bank B's "Deposits from Bank A"
-  These must net to zero at system level
-  ```
-
-##### Categorical Structure
-- Accounts are morphisms between debits and credits
-- Transactions are natural transformations between accounts
-- Micro invariance is a local colimit (within each agent)
-- Macro invariance is a global colimit (across the system)
-- The accounting equation emerges from these categorical relationships
-
-#### Implementation Details
-
-##### Account Structure
-```julia
-mutable struct Account
-    name::String
-    debit::Float64  # Left side of T-account
-    credit::Float64 # Right side of T-account
-    transactions::Vector{Dict}
-end
-```
-
-##### Invariance Checks
-- Micro invariance: Verifies that all debits = all credits within each agent
-- Macro invariance: Verifies that all debt relationships between agents net to zero
-
-##### Events
-The simulation supports various financial events:
-- Money creation
-- Loans between banks
-- Bicycle purchase (real economy transaction)
+- Transaction flow analysis and visualization
 - Bills of Exchange (BOE) creation and transfer
-- Settlement between banks
+- Interbank settlement systems
 
-Each event maintains both micro and macro invariance through proper double-entry bookkeeping.
-
-## References
-[Add references to monetary economics papers/books]
-
-# MES (Memory Evolutive Systems)
-
-A Julia package for implementing and analyzing Memory Evolutive Systems (MES) in economic contexts.
-
-## Overview
-
-MES is a mathematical framework for modeling complex systems that evolve over time, with particular applications in economic systems. This package provides tools for creating, analyzing, and visualizing MES structures.
-
-## Features
-
-- Category theory-based implementation of MES
-- Support for functors and natural transformations
-- Economic system modeling capabilities
-- Comprehensive documentation and examples
+### Mathematical Features
+- Category theory-based implementation
+- Functors for time evolution
+- Natural transformations for system changes
+- Pattern matching and colimit computation
+- Memory system implementation
 
 ## Installation
 
 ```julia
 using Pkg
-Pkg.add("MES")
+Pkg.add(url="https://github.com/viktorwinschel/mes")
 ```
 
-## Usage
+## Quick Start
 
 ```julia
 using MES
 
-# Create a category
-C = create_category(["A", "B"], ["f", "g"])
+# Create and run a basic economic simulation
+include("examples/national_accounting_example.jl")
 
-# Add morphisms
-add_morphism!(C, "A", "B", "f")
-add_morphism!(C, "B", "A", "g")
+# Create a category with economic objects
+C = create_category(["Bank", "Firm", "Household"], ["loan", "payment"])
 
-# Define composition
-compose_morphisms!(C, "f", "g", "id_A")
-compose_morphisms!(C, "g", "f", "id_B")
+# Add economic morphisms
+add_morphism!(C, "Bank", "Firm", "loan")
+add_morphism!(C, "Firm", "Household", "payment")
 ```
-
-## Project Structure
-
-- `src/core/`: Core MES implementation
-  - `types.jl`: Basic type definitions
-  - `category.jl`: Category theory implementation
-  - `functor.jl`: Functor implementation
-  - `natural_transformation.jl`: Natural transformation implementation
-- `src/examples/`: Example usage and demonstrations
-- `docs/`: Documentation and papers
-
-## Dependencies
-
-- Julia 1.6 or higher
-- Dates
-- DataFrames
-- Documenter.jl (for documentation)
 
 ## Documentation
 
-Documentation is currently being built and is available here:
+Comprehensive documentation is available at:
 https://viktorwinschel.github.io/mes/
 
+Key sections:
+- Getting Started Guide
+- Theory and Mathematical Background
+- Examples and Tutorials
+- API Reference
 
-## Papers
+## Project Structure
 
-The following papers are available in the `papers/` directory:
-- `bcbaas25/bcbaas25.pdf`: "Memory Evolutive Systems in Economic Contexts"
-- `mes07/mes07.pdf`: "Memory Evolutive Systems"
-- `mes23/mes23.pdf`: "Memory Evolutive Systems in Economics"
+```
+mes/
+├── src/
+│   ├── core/           # Core implementations
+│   │   ├── category.jl     # Category theory
+│   │   ├── types.jl       # Basic types
+│   │   └── memory.jl      # Memory systems
+│   └── examples/      # Example implementations
+├── docs/             # Documentation
+└── test/            # Test suite
+```
 
-## License
+## Dependencies
 
-MIT License
+- Julia 1.9 or higher
+- DataFrames
+- Documenter.jl
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a Pull Request
 
-## Testing
+## Papers and References
 
-To run the tests, use:
+Available in `docs/papers/`:
+- "Memory Evolutive Systems in Economic Contexts"
+- "Memory Evolutive Systems"
+- "Memory Evolutive Systems in Economics"
 
-```julia
-using Pkg
-Pkg.test("MES")
-``` 
+## License
+
+MIT License 
