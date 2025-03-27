@@ -98,10 +98,19 @@ Contributions are welcome! Please feel free to:
 
 ## Papers and References
 
-Available in `docs/papers/`:
-- "Memory Evolutive Systems in Economic Contexts"
-- "Memory Evolutive Systems"
-- "Memory Evolutive Systems in Economics"
+Available in `papers/`:
+1. **Memory Evolutive Systems: Hierarchy, Emergence, Cognition** (2007)  
+   *Ehresmann, A. C., & Vanbremeersch, J. P.*  
+   Elsevier Science, Volume 4  
+   *The foundational book introducing Memory Evolutive Systems theory*
+
+2. **Memory Evolutive Systems: A Categorical Framework for Complex Systems** (2023)  
+   *Ehresmann, A.C., Béjean, M., & Vanbremeersch, J.-P.*  
+   *A modern extension of MES theory for complex systems*
+
+3. **Monetary Macro Accounting Theory (MoMaT)** (2025)  
+   *Menéndez, R., & Winschel, V.*  
+   *Application of MES to monetary and economic systems*
 
 ## License
 
