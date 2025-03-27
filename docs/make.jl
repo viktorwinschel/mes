@@ -53,4 +53,7 @@ makedocs(;
 deploydocs(;
     repo="github.com/viktorwinschel/mes",
     devbranch="main",
+    versions=nothing,  # Don't store multiple doc versions
+    forcepush=true,   # Force push to overwrite gh-pages branch
+    push_preview=false  # Don't create preview deployments
 )
