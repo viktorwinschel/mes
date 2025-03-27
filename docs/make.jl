@@ -1,6 +1,5 @@
 using Documenter
 using MES
-using Remotes
 
 # LaTeX command definitions for category theory
 const latex_preamble = """
@@ -20,13 +19,13 @@ const latex_preamble = """
 makedocs(;
     modules=[MES],
     authors="Viktor Winschel",
-    repo=Remotes.GitHub("viktorwinschel", "mes"),
+    repo="https://github.com/viktorwinschel/mes",
     sitename="MoMa in MES",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://viktorwinschel.github.io/mes/",
         edit_link="main",
-        assets=["assets/css/style.scss"],
+        repolink="https://github.com/viktorwinschel/mes",
         mathengine=Documenter.MathJax3(Dict(
             :loader => Dict("load" => ["[tex]/physics"]),
             :tex => Dict(
