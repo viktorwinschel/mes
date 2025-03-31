@@ -12,9 +12,11 @@ A category C consists of:
 ## Patterns
 
 A pattern P in C is defined as:
-```math
+
+$$
 P = (O, M)
-```
+$$
+
 where:
 - O_i are objects in C
 - M_i are morphisms between objects
@@ -22,9 +24,11 @@ where:
 ## Memory Evolutive System
 
 A Memory Evolutive System M is defined as:
-```math
+
+$$
 M = (C, M, P)
-```
+$$
+
 where:
 - C is a category
 - M is a memory function
@@ -33,22 +37,26 @@ where:
 ## Synchronization
 
 A synchronization S between patterns P1 and P2 is:
-```math
+
+$$
 S = (P_1, P_2, \phi)
-```
+$$
+
 where \phi is a binding morphism.
 
 ### Properties
 
 1. Transitivity:
-```math
+
+$$
 \text{if } S_{12} \text{ and } S_{23} \text{ then } S_{13}
-```
+$$
 
 2. Self-Synchronization:
-```math
+
+$$
 \exists S: P \to P
-```
+$$
 
 ## Implementation in Julia
 

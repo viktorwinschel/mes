@@ -235,35 +235,67 @@ Verify that financial conservation laws hold in the category.
 function verify_conservation_laws(category::FinancialCategory)
     # Get all accounts
     accounts = filter(obj -> obj isa Account, category.objects)
+    if isempty(accounts)
+        return (bank_balance=false, loan_balance=false)
+    end
 
-    # Check bank account balances sum to zero
-    bank_accounts = filter(acc -> acc.type == "BANK", accounts)
-    bank_balance = sum(acc.balance for acc in bank_accounts)
+    # Check bank account balances (debit - credit should sum to zero)
+    # For each agent's bank accounts, debit - credit should sum to their net position
+    company_bank = filter(acc -> acc.agent == "COMPANY" && acc.type == "BANK", accounts)
+    bank_company = filter(acc -> acc.agent == "BANK" && acc.type == "COMPANY_BANK", accounts)
+    household_bank = filter(acc -> acc.agent == "HOUSEHOLD" && acc.type == "BANK", accounts)
+
+    # Calculate net positions
+    company_net = !isempty(company_bank) ? sum(endswith(acc.name, "_DEBIT") ? acc.balance : -acc.balance for acc in company_bank) : 0.0
+    bank_net = !isempty(bank_company) ? sum(endswith(acc.name, "_DEBIT") ? acc.balance : -acc.balance for acc in bank_company) : 0.0
+    household_net = !isempty(household_bank) ? sum(endswith(acc.name, "_DEBIT") ? acc.balance : -acc.balance for acc in household_bank) : 0.0
+
+    # Total bank balance should sum to zero
+    bank_balance = company_net + bank_net + household_net
 
     # Check loan balances match between bank and company
-    company_loans = filter(acc -> acc.name == "COMPANY_LOAN", accounts)
-    bank_loans = filter(acc -> acc.name == "BANK_COMPANY_LOAN", accounts)
-    loan_balance = sum(acc.balance for acc in company_loans) +
-                   sum(acc.balance for acc in bank_loans)
+    company_loans = filter(acc -> acc.agent == "COMPANY" && acc.type == "LOAN", accounts)
+    bank_loans = filter(acc -> acc.agent == "BANK" && acc.type == "COMPANY_LOAN", accounts)
 
-    return (
-        bank_balance=isapprox(bank_balance, 0.0, atol=1e-10),
-        loan_balance=isapprox(loan_balance, 0.0, atol=1e-10)
-    )
+    # Calculate net loan positions
+    company_loan_net = !isempty(company_loans) ? sum(endswith(acc.name, "_DEBIT") ? acc.balance : -acc.balance for acc in company_loans) : 0.0
+    bank_loan_net = !isempty(bank_loans) ? sum(endswith(acc.name, "_DEBIT") ? acc.balance : -acc.balance for acc in bank_loans) : 0.0
+
+    # Loan balances should be equal and opposite
+    loan_balance = company_loan_net + bank_loan_net
+
+    # Print debug information
+    println("Bank balances:")
+    println("Company net: ", company_net)
+    println("Bank net: ", bank_net)
+    println("Household net: ", household_net)
+    println("Total bank balance: ", bank_balance)
+    println("\nLoan balances:")
+    println("Company loan net: ", company_loan_net)
+    println("Bank loan net: ", bank_loan_net)
+    println("Total loan balance: ", loan_balance)
+
+    return (bank_balance=isapprox(bank_balance, 0.0, atol=1e-10), loan_balance=isapprox(loan_balance, 0.0, atol=1e-10))
 end
 
 """
-    verify_category(category)
+    verify_category(category::Category)
 
-Verify that a category satisfies the category axioms.
+Verify that a category satisfies the category axioms:
+1. Composition closure
+2. Identity existence
+3. Associativity
+4. Identity laws
 """
 function verify_category(category::Category)
     verify_composition_closure(category) &&
-        verify_identity_existence(category)
+        verify_identity_existence(category) &&
+        verify_associativity(category) &&
+        verify_identity_laws(category)
 end
 
 """
-    verify_composition_closure(category)
+    verify_composition_closure(category::Category)
 
 Verify that morphism composition is closed in the category.
 """
@@ -271,8 +303,8 @@ function verify_composition_closure(category::Category)
     for f in category.morphisms
         for g in category.morphisms
             if haskey(category.composition, (f, g))
-                h = category.composition[(f, g)]
-                if !(h in category.morphisms)
+                comp = category.composition[(f, g)]
+                if !(comp in category.morphisms)
                     return false
                 end
             end
@@ -282,7 +314,7 @@ function verify_composition_closure(category::Category)
 end
 
 """
-    verify_identity_existence(category)
+    verify_identity_existence(category::Category)
 
 Verify that each object has an identity morphism.
 """
@@ -293,4 +325,320 @@ function verify_identity_existence(category::Category)
         end
     end
     return true
+end
+
+"""
+    verify_associativity(category::Category)
+
+Verify that morphism composition is associative.
+"""
+function verify_associativity(category::Category)
+    for f in category.morphisms
+        for g in category.morphisms
+            for h in category.morphisms
+                if haskey(category.composition, (f, g)) && haskey(category.composition, (g, h))
+                    # (f ∘ g) ∘ h
+                    fg = category.composition[(f, g)]
+                    fgh1 = category.composition[(fg, h)]
+
+                    # f ∘ (g ∘ h)
+                    gh = category.composition[(g, h)]
+                    fgh2 = category.composition[(f, gh)]
+
+                    if fgh1 != fgh2
+                        return false
+                    end
+                end
+            end
+        end
+    end
+    return true
+end
+
+"""
+    verify_identity_laws(category::Category)
+
+Verify that identity morphisms satisfy the identity laws.
+"""
+function verify_identity_laws(category::Category)
+    for f in category.morphisms
+        source_id = category.identity[f.source]
+        target_id = category.identity[f.target]
+
+        # Left identity: id ∘ f = f
+        if haskey(category.composition, (source_id, f))
+            if category.composition[(source_id, f)] != f
+                return false
+            end
+        end
+
+        # Right identity: f ∘ id = f
+        if haskey(category.composition, (f, target_id))
+            if category.composition[(f, target_id)] != f
+                return false
+            end
+        end
+    end
+    return true
+end
+
+"""
+    get_source(morphism::CategoryMorphism)
+
+Get the source object of a morphism.
+"""
+function get_source(morphism::CategoryMorphism)
+    morphism.source
+end
+
+"""
+    get_target(morphism::CategoryMorphism)
+
+Get the target object of a morphism.
+"""
+function get_target(morphism::CategoryMorphism)
+    morphism.target
+end
+
+"""
+    get_identity(category::Category, object::CategoryObject)
+
+Get the identity morphism for an object.
+"""
+function get_identity(category::Category, object::CategoryObject)
+    category.identity[object]
+end
+
+"""
+    compose(category::Category, f::CategoryMorphism, g::CategoryMorphism)
+
+Compose two morphisms if they are composable.
+"""
+function compose(category::Category, f::CategoryMorphism, g::CategoryMorphism)
+    if haskey(category.composition, (f, g))
+        category.composition[(f, g)]
+    else
+        throw(ArgumentError("Morphisms are not composable"))
+    end
+end
+
+"""
+    Functor{C<:Category,D<:Category}
+
+A functor between categories C and D, consisting of:
+- object_map: Maps objects from C to D
+- morphism_map: Maps morphisms from C to D
+"""
+struct Functor{C<:Category,D<:Category}
+    source::C
+    target::D
+    object_map::Dict{CategoryObject,CategoryObject}
+    morphism_map::Dict{CategoryMorphism,CategoryMorphism}
+end
+
+"""
+    NaturalTransformation{C<:Category,D<:Category}
+
+A natural transformation between functors F,G: C → D, consisting of:
+- components: Component morphisms for each object in C
+"""
+struct NaturalTransformation{C<:Category,D<:Category}
+    source_functor::Functor{C,D}
+    target_functor::Functor{C,D}
+    components::Dict{CategoryObject,CategoryMorphism}
+end
+
+"""
+    create_functor(source::C, target::D, 
+                  object_map::Dict{CategoryObject,CategoryObject},
+                  morphism_map::Dict{CategoryMorphism,CategoryMorphism}) where {C<:Category,D<:Category}
+
+Create a functor between two categories.
+
+# Arguments
+- `source::Category`: Source category
+- `target::Category`: Target category
+- `object_map::Dict{CategoryObject,CategoryObject}`: Mapping of objects
+- `morphism_map::Dict{CategoryMorphism,CategoryMorphism}`: Mapping of morphisms
+
+# Examples
+```julia
+F = create_functor(C, D, object_map, morphism_map)
+```
+"""
+function create_functor(source::C, target::D,
+    object_map::Dict{CategoryObject,CategoryObject},
+    morphism_map::Dict{CategoryMorphism,CategoryMorphism}) where {C<:Category,D<:Category}
+    # Verify functoriality
+    for f in source.morphisms
+        for g in source.morphisms
+            if haskey(source.composition, (f, g))
+                h = source.composition[(f, g)]
+                Ff = morphism_map[f]
+                Fg = morphism_map[g]
+                Fh = morphism_map[h]
+                if !haskey(target.composition, (Ff, Fg)) ||
+                   target.composition[(Ff, Fg)] != Fh
+                    throw(ArgumentError("Mapping does not preserve composition"))
+                end
+            end
+        end
+    end
+
+    # Verify identity preservation
+    for obj in source.objects
+        id = source.identity[obj]
+        Fid = morphism_map[id]
+        Fobj = object_map[obj]
+        if target.identity[Fobj] != Fid
+            throw(ArgumentError("Mapping does not preserve identities"))
+        end
+    end
+
+    Functor{C,D}(source, target, object_map, morphism_map)
+end
+
+"""
+    create_natural_transformation(F::Functor{C,D}, G::Functor{C,D},
+                                components::Dict{CategoryObject,CategoryMorphism}) where {C<:Category,D<:Category}
+
+Create a natural transformation between two functors.
+
+# Arguments
+- `F::Functor{C,D}`: Source functor
+- `G::Functor{C,D}`: Target functor
+- `components::Dict{CategoryObject,CategoryMorphism}`: Component morphisms
+
+# Examples
+```julia
+α = create_natural_transformation(F, G, components)
+```
+"""
+function create_natural_transformation(F::Functor{C,D}, G::Functor{C,D},
+    components::Dict{CategoryObject,CategoryMorphism}) where {C<:Category,D<:Category}
+    # Verify naturality condition
+    for f in F.source.morphisms
+        source_obj = get_source(f)
+        target_obj = get_target(f)
+
+        # Get component morphisms
+        α_source = components[source_obj]
+        α_target = components[target_obj]
+
+        # Get functor images
+        Ff = F.morphism_map[f]
+        Gf = G.morphism_map[f]
+
+        # Check naturality square commutes
+        if !haskey(F.target.composition, (α_source, Gf)) ||
+           !haskey(F.target.composition, (Ff, α_target)) ||
+           F.target.composition[(α_source, Gf)] != F.target.composition[(Ff, α_target)]
+            throw(ArgumentError("Naturality condition not satisfied"))
+        end
+    end
+
+    NaturalTransformation{C,D}(F, G, components)
+end
+
+"""
+    apply_functor(F::Functor, x::Union{CategoryObject,CategoryMorphism})
+
+Apply a functor to an object or morphism.
+"""
+function apply_functor(F::Functor, x::CategoryObject)
+    F.object_map[x]
+end
+
+function apply_functor(F::Functor, f::CategoryMorphism)
+    F.morphism_map[f]
+end
+
+"""
+    apply_natural_transformation(α::NaturalTransformation, x::CategoryObject)
+
+Apply a natural transformation to an object.
+"""
+function apply_natural_transformation(α::NaturalTransformation, x::CategoryObject)
+    α.components[x]
+end
+
+"""
+    SimpleObject <: CategoryObject
+
+A simple category object that wraps a string name.
+"""
+struct SimpleObject <: CategoryObject
+    name::String
+end
+
+Base.:(==)(a::SimpleObject, b::SimpleObject) = a.name == b.name
+
+"""
+    SimpleMorphism <: CategoryMorphism
+
+A simple category morphism between string-named objects.
+"""
+struct SimpleMorphism <: CategoryMorphism
+    name::String
+    source::SimpleObject
+    target::SimpleObject
+end
+
+"""
+    create_category(objects::Vector{String}, morphisms::Dict{String,Tuple{String,String}})
+
+Create a category from string names of objects and morphisms.
+
+# Arguments
+- `objects::Vector{String}`: Vector of object names
+- `morphisms::Dict{String,Tuple{String,String}}`: Dictionary mapping morphism names to (source, target) pairs
+
+# Examples
+```julia
+objects = ["A", "B", "C"]
+morphisms = Dict("f" => ("A", "B"), "g" => ("B", "C"))
+category = create_category(objects, morphisms)
+```
+"""
+function create_category(objects::Vector{String}, morphisms::Dict{String,Tuple{String,String}})
+    # Convert strings to objects
+    cat_objects = [SimpleObject(name) for name in objects]
+
+    # Convert morphism descriptions to morphisms
+    cat_morphisms = SimpleMorphism[]
+    for (name, (src, tgt)) in morphisms
+        source = SimpleObject(src)
+        target = SimpleObject(tgt)
+        if source in cat_objects && target in cat_objects
+            push!(cat_morphisms, SimpleMorphism(name, source, target))
+        end
+    end
+
+    # Create identity morphisms
+    identities = Dict{SimpleObject,SimpleMorphism}()
+    for obj in cat_objects
+        identities[obj] = SimpleMorphism("id_$(obj.name)", obj, obj)
+    end
+
+    # Create composition dictionary
+    composition = Dict{Tuple{SimpleMorphism,SimpleMorphism},SimpleMorphism}()
+
+    # Add basic compositions (including with identities)
+    for f in cat_morphisms
+        source_id = identities[f.source]
+        target_id = identities[f.target]
+
+        # id ∘ f = f
+        composition[(source_id, f)] = f
+        # f ∘ id = f
+        composition[(f, target_id)] = f
+    end
+
+    # Create the category
+    ConcreteCategory{SimpleObject,SimpleMorphism}(
+        cat_objects,
+        cat_morphisms,
+        composition,
+        identities
+    )
 end

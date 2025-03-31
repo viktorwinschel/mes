@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\title{Memory Evolutive Systems - Mathematical Formulas}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Colimits in Categories}
+A colimit captures the idea of binding objects and morphisms into a new higher-level object:
+\begin{equation}
+    \forall X, \exists! \psi: C \to X \text{ such that } \psi \circ \varphi_D = \text{unique}
+\end{equation}
+where $\varphi_D$ represents a universal morphism integrating a pattern.
+
+\section{Functorial Evolution of Systems}
+A functor $F: \mathcal{C}(t) \to \mathcal{C}(t+1)$ models the transformation of system configurations over time:
+\begin{equation}
+    F(A) = A' \quad \text{and} \quad F(f: A \to B) = f': A' \to B'
+\end{equation}
+This ensures structural preservation during evolution.
+
+\section{Composition and Associativity}
+Composition in categories follows an associative rule:
+\begin{equation}
+    (f \circ g) \circ h = f \circ (g \circ h)
+\end{equation}
+ensuring a unique way to interpret composition sequences.
+
+\section{Universal Property of Limits}
+Limits generalize constructions like products, ensuring a unique mapping:
+\begin{equation}
+    \forall X, \exists! \psi: X \to L \text{ such that } \varphi_X = \psi \circ \varphi_L
+\end{equation}
+where $L$ is the limit object.
+
+\section{Complexification Process}
+Successive complexifications form a hierarchy:
+\begin{equation}
+    C_0 \to C_1 \to C_2 \to \dots \to C_n
+\end{equation}
+Each step integrates patterns into a higher-order structure.
+
+\section{Multiplicity Principle}
+Emergence requires degeneracy in colimits:
+\begin{equation}
+    \exists P, Q \text{ such that } colim(P) = colim(Q) 
+\end{equation}
+indicating that different substructures can form equivalent emergent objects.
+
+\section{Memory Dynamics}
+The evolution of memory structures can be functorially expressed as:
+\begin{equation}
+    M_{t+1} = F(M_t, P_t)
+\end{equation}
+where $M_t$ is the memory at time $t$, and $P_t$ represents new procedural inputs.
+
+\end{document}

@@ -2,6 +2,42 @@
 
 This page documents the public API of the Memory Evolutive Systems (MES) package.
 
+## Core Types
+
+```@docs
+SimpleObject
+SimpleMorphism
+Functor
+NaturalTransformation
+```
+
+## Category Operations
+
+```@docs
+get_source
+get_target
+get_identity
+compose
+verify_identity_laws
+verify_associativity
+```
+
+## Functor Operations
+
+```@docs
+create_functor
+apply_functor
+create_natural_transformation
+apply_natural_transformation
+```
+
+## Pattern Operations
+
+```@docs
+verify_pattern
+verify_colimit
+```
+
 ## Categories
 
 ```@docs
@@ -164,45 +200,20 @@ update_landscape!(regulator, activations)
 
 The category operations satisfy the standard categorical laws:
 
-```math
+$$
 \begin{array}{l}
 g \circ (f \circ h) = (g \circ f) \circ h \quad \text{(associativity)} \\
 f \circ \text{id}_A = f = \text{id}_B \circ f \quad \text{(identity)}
 \end{array}
-```
+$$
 
 ### Memory Evolution
 
 Memory components evolve according to:
 
-```math
+$$
 \begin{array}{l}
-\text{State}(t+1) = \text{State}(t) \cdot (1 - \text{decay\_rate}) + \text{input}(t) \\
-\text{Capacity}(t) = \min(\text{capacity}, \sum_{i} \text{State}_i(t))
+\text{Activation}(t+1) = \text{Activation}(t) \cdot (1 - \text{decay\_rate}) + \text{input}(t) \\
+\text{Threshold}(t) = \text{base\_threshold} \cdot (1 + \text{activation\_rate} \cdot \text{Activation}(t))
 \end{array}
-```
-
-### Hierarchical Structure
-
-The hierarchical category maintains level-based relationships:
-
-```math
-\begin{array}{l}
-\text{Level}(M) = \max\{\text{Level}(N) \mid N \to M\} + 1 \\
-\text{Bindings}(M) = \{f: N \to M \mid \text{Level}(N) < \text{Level}(M)\}
-\end{array}
-```
-
-### Coregulator Dynamics
-
-The coregulator updates follow:
-
-```math
-\begin{array}{l}
-\text{Landscape}(t+1) = \text{Landscape}(t) \cdot (1 - \text{decay\_rate}) + \text{activations}(t) \\
-\text{Stability}(M) = \begin{cases}
-1 & \text{if } \text{Landscape}(M) > \text{threshold} \\
-0 & \text{otherwise}
-\end{cases}
-\end{array}
-```
+$$

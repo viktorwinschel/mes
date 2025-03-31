@@ -1,0 +1,795 @@
+Monetary Macro Accounting Theory (MoMaT)
+Dr. Renée Menéndez, Dr. Viktor Winschel∗
+March 25, 2025
+
+Contents
+1 Introduction
+
+2
+
+2 Microeconomics
+2.1 Supply Chains and Pins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2.2 Prices and Beavers and Deer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+4
+5
+
+3 Mesoeconomics
+3.1 Bill of Exchange . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.2 Schumpeter Entrepreneur . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.3 Banking . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3.4 Supply Chain Finance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+6
+8
+8
+9
+
+4 Macroeconomics
+10
+4.1 Central Banking . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+4.2 Monetary Vortex . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+5 Mathematics
+
+14
+
+6 Conclusion
+
+16
+
+Abstract
+We develop a specification for a software for macro accounting (MoMa) and a monetary macro
+accounting theory (MoMaT) where money functions as a medium of payment for obligations and
+debts and not as a medium of exchange. The necessity arises from the temporal misalignment in
+production when producers must pay suppliers before receiving payments for their products. The
+legal principles of Separation and Abstraction conceptualise debt, contracts, property rights, and
+money. For a systemic perspective, monetary systems operate at three interconnected levels of Micro
+level, facilitating the division of labor, Meso level, enabling risk sharing in banking, and Macro level,
+governing the distribution of GDP by issued money. We identify debt relations in monetary macro
+(MoMa, quadruple) accounting as the core concern of monetary theory and inspect the circulation of
+money and the vortices of debts, their continuous creation and resolution in financial obligations. The
+Bill of Exchange (BoE) serves as a unifying instrument, bridging our understanding of debt processes
+and money issuing across both fiat and gold-based systems. Sheafs can formalise the invariances of
+balanced accounting across economic levels and homology theory a rigorous mathematical foundation
+for monetary policy. Open Games provide concepts and computation of monetary macro accounting
+with structural macro econometric data analysis by multi-agent models. Beyond monetary policy
+MoMaT has industrial applications in supply chain finance.
+
+∗
+
+viktor.winschel@gmail.com, mob: +49 179 7621055
+
+1
+
+1
+
+Introduction
+
+Economists since Adam Smith in 1776, The Wealth of Nations [29] ask the question: What is
+money? Martin Hellwig in 1993, The Challenge of Monetary Theory [9] writes: In general terms,
+the problem is to find appropriate conceptual foundations for monetary economics. [...] we do
+not [...] have a suitable theoretical framework for studying the functioning of a monetary system.
+The main obstacle to the development of such a framework is our habit of thinking in terms of
+frictionless, organised, i.e. Walrasian markets. [...] we tend to apply them rather automatically to
+the ’market’ for money, frequently without realizing that the ’market’ for money must be a rather
+non-Walrasian ’market’, if indeed it can be called a ’market’ at all.
+Monetary theory offers more perspectives on the nature of money. Money emerges in search
+theoretic models [11] as a medium of exchange. Money is Memory [13] relates to imperfect
+record-keeping and frictions like limited enforcement and anonymity. Heterodox approaches like
+Modern Money Theory [37], [10] emphasise the role of states and central banks in defining
+and managing money beyond a market framework. Walrasian approaches of Dynamic Stochastic
+General Equilibrium [5] incorporate money as cash-in-advance constraints but struggle to account
+for financial crises. Cryptocurrencies have revived debates on the definition of money, revisiting
+record-keeping challenges extending Money is Memory. Institutions like the Bank of England [15]
+contributed practical insights into money issuing and continue to explore central bank digital
+currencies (CBDCs) and keep on asking the question: What is money? [30]
+We develop a monetary macro accounting (MoMa) theory (MoMaT) to function to facilitate
+division of labor in decision on supply chains:1 Money is needed because production takes time,
+requiring producers to incur debts to pay suppliers and employees before receiving payments from
+customers. Money serves as a medium of payment and medium of exchange used in purchase or
+loan obligation and disposition contracts on transferring property rights on money or products in
+economies characterised by division of labor.
+MoMaT does not justify relative prices or assign intrinsic value to money. It is based on contractually recorded value judgments made by economic agents. Money functions to record and settle
+debts arising from contracts but does not itself require having some inherent value for its role
+in obligation settlements. In order to understand money in debt relations, we look at exchanges
+involving bookings in two double-entry accounting systems, often termed quadruple accounting.2
+We use the term macro accounting distinguishing it from traditional micro or double-entry accounting. Beyond the micro level of the division of labor and debt networks, we discuss the meso
+level where the risk of failing investments is distributed by banks across a portfolio of investments. At the macro level the GDP is shared, risk is socialised, and money is created, issued,
+and circulated by central banks. We use the legal principles of Separation and Abstraction to
+clarify conceptual challenges in monetary theory, particularly concerning the nature of debt and
+payments answering what money is by typing money in obligation relations as the fulfillment
+thing for disposition contracts on property rights between products and money.
+MoMaT uses the Bill of Exchange (BoE) instrument as principles to understand paper and goldbased money over the hierarchical levels of economies. A BoE is a formal financial version of the
+informal I owe you contract of a bar beer coaster. We connect to sheaf theory as the mathematics
+of the transition from local to global structures to model the accounting invariances of Assets,
+Equity and Liability at the micro level. The meso and macro are invariances of debt and payment
+relations as sums of receivables and liabilities and payment relations as sums of expenditures and
+revenues. Open games can implement macro accounting systems, smart contracts and structural
+econometric models to analyse macro accounting data. MoMaT applies to monetary policy, supply
+chain finance, or platform-based demand-supply matching.
+1
+2
+
+See [16] for a precursor of a money theory proposed in this paper.
+See [17] for a quadruple System of National Accounts 2008.
+
+2
+
+Figure 1: Obligation and Disposition Contracts
+
+2
+
+Microeconomics
+
+Macro accounting records networks of debts in economies characterised by division of labor. To
+understand them, we use the legal Principles of Separation and Abstraction from the German
+Civil Code (Bürgerliches Gesetzbuch, BGB). They delineate fundamental concepts like claims,
+receivables, debts, liabilities, money or payments.
+The Separation Principle asserts that the obligation contract which establishes a debt relation
+and the disposition contracts which govern the transfer of property rights are associated but
+distinct legal transactions. Obligation contracts involve two parties, like in purchase, work or
+loan contracts, illustrated in Figure 1. In exchanges of goods, money, or loans, the structure
+consists of the obligation contract that governs the agreement to exchange, establish, modify,
+or extinguish rights, like ownership of a bicycle and money, and two disposition contracts to
+fulfil the obligation, like to transfer ownerships on the exchanged.
+Payments are not always executed through the physical handover of money. Instead, another
+contract on bank deposits enables payments by transferring money ownership to the payee. This
+involves a crucial distinction: bank deposits are not money, but option rights allowing customers
+to instruct their bank to withdraw money or to transfer the deposit to others. The role of a bank
+in the deposit obligation contract is to await customers’ instructions before fulfilling the disposal
+contract by executing a money transfer or withdrawal. We denote transfer rights over money in
+deposits as "money" or commands for money.
+The Abstraction Principle states that the validity of the obligation contract is independent of the validity of the disposition contracts. Even if an obligation contract is redeemed
+invalid, ownership transfers executed through disposition contracts remain legally effective. Likewise, if a disposition contract is invalid, the obligation contract remains unaffected. This can
+create imbalances, where one party acquires ownership without a valid contractual basis. To
+rectify such situations § 812 BGB provides a restitution claim and ensures that the party who
+benefited without a legal basis must return the asset or compensate the counterparty.
+In the principles applied to purchase a product for money (§ 433 BGB), the obligation contract
+commits the seller to deliver a product and the buyer to provide payment. The disposition
+contracts transfers the ownership (§ 929 BGB) of the product from seller to buyer and money
+from buyer to seller.
+In the principles applied to a loan contract (§ 488 BGB), the obligation contract is about a loan
+that obligates the bank to grant access to money and the debtor to repay it. The two disposition
+contracts are: the bank grants a deposit, enabling the debtor to command central bank money
+transfers or withdrawals and the debtor repays the loan, settling the obligation.
+Misconceptions in monetary theory often arise from a failure to apply these principles correctly.
+An example is the concept of Kreditgeld (German for loan money). Here, a contradiction emerges:
+A loan is a two-sided obligation contract, establishing mutual commitments between debtor and
+3
+
+creditor. Money, on the other hand, serves as a means to fulfill an obligation, facilitating settlement rather than creating new contractual obligations. By conflating loans and money, such
+interpretations blur the distinction between the creation of debt and the fulfillment of debt, leading
+to conceptual inconsistencies in monetary theory.
+
+2.1
+
+Supply Chains and Pins
+
+Figure 2: Money Demand in Supply Chains
+Figure 2 shows the need for integrating obligations in supply chains of economies organised by a
+division of labor. Money exists because producers need investments to pay suppliers of resources
+before being paid by customers. The double coincidence of wants story with money as a medium
+of exchange in time misses to capture this functionality needed to intermediate between producers
+and customers over time.
+A similar pattern is in the bookings of a Bills of Exchange (BoE) [22]: When buying goods, two
+different interests meet. The supplier of inputs of production wants to receive his money as early
+as possible, since he has made payments in advance in various ways - he has produced, processed
+or procured the goods at his own expense. The producer wants to pay as late as possible, as he
+still has to sell the goods and only receives the money from his customers later (own translation,
+buyer replaced by producer ).
+The same pattern appears in the first sentence of The Wealth of Nations [29], followed by the
+famous example of the production of pins: The greatest improvement in the productive powers of
+labor, and the greater part of the skill, dexterity, and judgment with which it is any where directed,
+or applied, seem to have been the effects of the division of labor.[...] One man draws out the wire,
+another straights it, a third cuts it, a fourth points it, a fifth grinds it at the top for receiving the
+head [...].
+Economies with a division of labor are sequences of decentralised resources transformations into
+products spread over production steps, producers, and consumers. A producer is first indebted
+and second does not only (if at all) consume his product but also other goods. He sells his product
+for money, which allows him to buy other goods and to repay debts to investors to pay workers and
+resource suppliers. Workers are not indebted from the beginning; they use money for consumption
+or saving.
+To emphasise the distinction between production and consumption, we use two terms for products: Commodities serve as a means to attract money to producers. Goods provide utility through
+consumption to consumers. Although it may appear that products and money circulate in cycles, their movement are rather vortices in time, connecting past and future obligations. While
+money circulates as paper, the paper itself remains the same, facilitating different obligation and
+disposition contracts. The key focus is on debt contracts and how they originate, are cleared,
+and eventually conclude. Money flows through different transactions, repaying distinct debts in
+different contractual contexts.
+4
+
+BoEs have a finite lifespan, ending at maturity, once the BoE is settled, causing the debt
+relation and the need for money to cease. This contrasts with the concept of money circulation;
+debt relations continuously emerge and disappear which form the entities of interest in a money
+theory.
+In Figure 2 the question mark denotes that theories of money as a medium of exchange overlook
+the crucial distinction between commodities and goods. The opposing demands for products
+and money between producers and consumers naturally align and eliminate the need for a value
+theory of money in sequential exchanges of consumers. A value argument is needed to argue why
+to accept a worthless money for one’s own valuable resources in order to exchange afterwards for
+another valuable consumption good. The key insight is that producers demand money to repay
+debts, while consumers acquire goods for money. Since these flows match, monetary theory can
+be based on monetary macro accounting (MoMa) rather than subjective valuations of money.
+
+2.2
+
+Prices and Beavers and Deer
+
+Figure 2 also shows another starting point of monetary theories: some products are to be exchanged, here beavers and deer, as in The Wealth of Nations [29], in chapter 6: If among a nation
+of hunters, for example, it usually costs twice the labor to kill a beaver which it does to kill a deer,
+one beaver should naturally exchange for or be worth two deer. It is natural that what is usually
+the produce of two day’s or two hours labor, should be worth double of what is usually the produce
+of one day’s or one hour’s labor.
+Without money, the number of beavers exchanged for the number of deer represents their relative
+value. The natural theory argues that the relative price should depend on the relative amount
+of labor used to produce the products. The cause of the existence of money is then that money
+enables exchanges even if owners of deer do not want to exchange them for beavers, tomatoes or
+potatoes. This overly restricted requirement is called the double coincidence of wants. Money
+relieves it and enables otherwise impossible exchanges. Money is conceptualised as a numéraire
+or neutral commodity for exchange. The value of money is then for example given by the welfare
+increase from enabling exchanges.
+In MoMaT the story can be told by debt relations rather then by money value and relative
+prices. If owner B of beavers b, measured in units of b, denoted by [b], and the owner D of deer d
+in [d] want to exchange 1 [b] for 1 [d], they record the difference in value, at an agreed upon price
+of say 2 [b] for 1 [d], i.e. 2/1 [b/d]. This might have been the birth of the marks, measured in
+[b], on tally sticks, documenting the claim of D to B. If D has trained his son in hunting d at no
+costs for D, he can be taken as a child abusing entrepreneur, who made a profit from a markup
+over his costs. The next day D gets one [b] from B, the debt relation ceases to exist, and the tally
+stick can be thrown away, used as a tooth brush or for burning down the British parliament, as in
+1876 [33], when wooden tally sticks where abandoned after they have been used for 40,000 years
+as a debt recording instrument.
+In a gold-based system prices are expressed in gold [kg of gold/b] and converted into money
+prices [$/b] via money as a numéraire [kg of gold/$]. In fiat systems prices are directly measured
+in monetary units [$/b] without requiring a numéraire. The specific currency like Dollar or
+CryptoToken is irrelevant; what matters is that it is a legally defined means of payment, enabling
+the settlement of debts from obligation contracts through disposal contracts.
+Money does not need intrinsic value for producers either. They calculate input and output prices
+in monetary units, with profits as a markup, where the monetary unit cancels out. Intrinsic value
+would be counterproductive, obscuring this ratio.
+Assigning value to money resembles a Russell paradox (of sets containing themselves), suggesting
+a need for type theory in monetary theory. A higher-order type theory could model the creation
+of currencies as the type of a type-generating operation: e.g. where the Euro and the ECB are
+created rather than issued Euros by the ECB. A Russell paradox of central banking is analogous
+5
+
+to: Who shaves the barber who shaves all those who can not shave themselves?, as: Who provides
+the means of payments to the bank which provides the means of payments to those banks which
+can not provide the means of payments to themselves?
+Rather than a value theory of money we need money to represent: (A) what is to be paid at the
+beginning, 100.000 [$], and repaid at the end of an investment, 110.000 [$], with the interest rate
+being 10.0%=110/100 - 1.0, (B) a price of a product, 6.59 [$/BigMac], (C) a relative price of two
+products, 2.45 [BigMac/Cheeseburger] ≈ 6.59 [$/BigMac] / 2.69 [$/Cheeseburger], and (D) a ratio
+of costs to output prices for calculating profits by markup pricing, like in π = p−c = mc−c where
+π := profit [$/product], p := price [$/product], m := markup [R, > 1.0], c := costs [$/product].
+
+3
+
+Mesoeconomics
+
+At the meso level banks manage loans, investments, repayments, clearing, and risk allocation.
+Failed investments are to be booked as consumption expenditures, reducing investor’s wealth.
+Risk absorption involves three layers: producers absorb failures of unproductive use of money.
+Banks distribute risks via interest rates over portfolios of failed and successful investments into
+producers. Central banks act as unlimited risk absorbers of failed banks.
+To properly account for returns and losses from investment, it is crucial to note that banks do
+not create money but only references to money in deposits. They can instruct the central bank to
+issue cash but must first incur debt at the central bank to generate loans from the central bank,
+as well. Essentially, banks produce solvency for companies using money as input, with the supply
+chains being central bank, bank, company.
+Modern liberal societies, structured around obligation and disposition contracts for property
+transfers, operate as follows: 1. Central banks issue means of payment to settle monetary obligations. 2. Banks finance investments using central bank money. 3. Companies use loans to pay
+resources, labor and insurance premiums (interest rates) for the possibility to not being able to
+repay the loans. 4. Consumers or households consume products produced from the resources and
+companies they own.
+
+3.1
+
+Bill of Exchange
+
+A Bill of Exchange (BoE) is a financial instrument used in trade and commerce to provide credit
+and facilitate payments. It functions as an unconditional disposition contract within an obligation
+contract, where the drawer issues the BoE, ordering the drawee to pay a specified amount to
+the payee often the drawer at a future date or on demand, at a discount or interest rate. The
+drawee accepts the order by signing it, becoming the acceptor commited to pay.
+Figure 3a illustrates the macro bookings of a BoE based purchase. The BoE shifts payments into
+the future while the product is delivered immediately. The are four micro accountings: Seller,
+Buyer, Seller Bank, and Buyer Bank and five macro bookings of two micro bookings each: 1:
+delivery of product: 1a: Seller sells product to Buyer, 1b: Buyer purchases product from Seller.
+2: creation of BoE: 2a: Seller issues BoE to Buyer, 2b: Buyer accepts BoE from Seller. 3: "money"
+exchange for BoE: 3a: Seller sells BoE to Seller Bank, 3b: Seller Bank buys BoE from Seller. 4:
+transfer of BoE for liabilities: 4a: Seller Bank sells BoE to Buyer Bank, 4b: Buyer Bank buys
+BoE from Seller Bank. 5: BoE settlement: 5a: Buyer Bank submits BoE to Buyer, 5b: Buyer
+settles BoE by payment.
+The debt flow in the BoE process involves 4 steps. First internal receivables and liabilities are
+created at product delivery. The BoE makes them exchangeable by being a negotiable financial
+instrument. A: debt creation (blue arrow - Buyer to Seller): The Seller delivers the product to
+the Buyer (1a), creating a receivable for the Seller and a liability for the Buyer (1b). The Buyer
+formalises this debt by accepting a BoE issued by the Seller (2a, 2b). B: BoE monetization (green
+arrow - Seller to Seller Bank): The Seller converts the BoE into liquidity by selling it to Seller
+6
+
+(a) Bookings of a Bill of Exchange
+
+(b) Issuing Bank Notes in Gold-Based Monetary Systems
+
+(c) Issuing Paper Money in Fiat Monetary Systems
+
+Figure 3: Bill of Exchange and Money Issuing
+
+7
+
+Bank (3a), receiving a credit in return. The Seller Bank now holds the BoE as a receivable (3b). C:
+BoE transfer (gray arrow - Seller Bank to Buyer Bank): The Seller Bank transfers the BoE to the
+Buyer Bank (4a), receiving an equivalent receivable from the Buyer Bank. The Buyer Bank takes
+on the liability (4b), holding the BoE as an obligation from the Buyer. D: final settlement (yellow
+arrow - Buyer to Buyer Bank): The Buyer Bank presents the BoE to the Buyer for payment
+(5a), debiting Buyer’s account. The Buyer settles its debt (5b), completing the cycle. Each step
+transforms the debt, moving it through different financial entities. The BoE acts as a transferable
+financial instrument, facilitating liquidity while maintaining the underlying obligation until final
+settlement. The process creates a dynamic vortex of obligations, rather than closed loop over
+papers of money.
+In the BoE booking, no money is exchanged only deposits or "money" between the agents
+involved. Before money transfers occur, banks usually clear their mutual receivables and liabilities
+via central bank deposits, possibly followed by settlement in paper money. Figure 5 later illustrates
+that money primarily exists to facilitate debt repayment on the macro economic level as well.
+A BoE can also act as a substitute for money, as a simplified Sola (short of German Solawechsel ).
+A BoE is issued by the drawer and sent to the drawee for acceptance before returning to the drawer.
+A Sola skips this back-and-forth: the drawee creates, signs and sends it to the payee.
+There are two types of Solas (BoEs): With endorsement: The payee can transfer the Sola to
+others, e.g. suppliers, by signing on the endorsement list. Each endorser shares the liability: if the
+BoE is unpaid at maturity, the holder can claim repayment from anyone on the list, with recourse
+up the chain. Here the restitution and principle of abstraction come in handy. 2. Without
+endorsement: Acts like anonymous payment; only the drawee is liable to a payee presenting the
+BoE at maturity.
+The endorsement list is like a blockchain of the renaissance (or, a blockchain is like an endorsement list), enhancing credibility as more parties sign on. This financial instrument implemented
+distributed liabilities while facilitating secure, transferable payments, at least since the renaissance.
+
+3.2
+
+Schumpeter Entrepreneur
+
+The basic building block of a MoMa systems is an investment, defined by Kruschwitz as a time
+series: an initial payout from investor to producer followed by an expected repayment scheme
+from producer to investor. The legal principle of separation informs us that, unlike in Money is
+Memory [13], memory is given by loan contracts and repayment histories.
+Figure 4 illustrates the expected repayments as a dotted line. The sales success of producers
+determines whether actual and expected repayments match. A saying attributed to Schumpeter
+is: Entrepreneurs ride on debt to risky success. Deviations of actual from expected repayments
+lead to Walrasian liquidity markets matching supply and demand, see Figure 4. MoMaT answers
+Hellwig’s doubt on Walrasian money markets, by money is traded but not created at markets,
+which central banks freely do.
+
+3.3
+
+Banking
+
+In fiat systems, banks cannot issue the means of payment, like central banks couldn’t freely create gold in the gold-based systems. Since gold discoveries are random or rather unresponsive to
+monetary policy, alternative claims like BoEs and bank deposits emerged. We apply economic archaeology to derive applicable monetary theory, in that we study past monetary systems, abstract
+their functions, and instantiate them in modern technologies for understanding and improving
+institutional implementations.
+The role of banks is illustrated in the bookings of the BoE in Figure 3a, showcasing the simplest
+form of investment in supply chain finance. When the Seller Bank purchases a BoE, it invests
+8
+
+Figure 4: Kruschwitz Investment of an Schumpeter Entrepreneur
+and bears a risk, if the buyer defaults, the BoE goes to protest at a court. The risk persists
+until the obligation contract is fulfilled, with the Buyer settling the BoE. During this period,
+the Seller Bank shares joint liability with other endorsers and the drawee. In case of default,
+restitution claims disentangle the losses among the involved agents. A bank’s total portfolio of
+risky investments must balance returns and losses. If it fails to repay its debts to the central bank,
+it becomes illiquid, leading to bankruptcy. The interest rate functions as an insurance premium,
+ensuring that losses are covered before profit is declared.
+A fundamental question in monetary theory is whether claims and payments across the hierarchical levels of micro, meso, and macro agents align with macro invariances of debts and payments.
+The macro invariance of debt relations states that the sum of receivables equals the sum of liabilities. The macro invariance of payments states that the sum of expenditures equals the sum of
+revenues. These two invariances are to be consistent as well, as debt invariance pertains to state
+variables, whereas payment invariance concerns flow variables or changes of state variables. These
+invariances are not empirical or behavioural hypothesis but theoretical necessities for practical,
+consistent, distributed accounting systems. A bank has to assure that clearing and settlement possibilities and probabilities between financial BoE or Solas are sufficiently securitised by credibility
+loans by gold, central bank money or other forms of assets.
+At the micro level, production generates claims and debts or receivables and liabilities, which
+are exchanged, cleared, and settled using money or other claims. At the meso level, banks create
+receivables and liabilities, clearing and settling them either through the central bank or money
+payments. At the macro level, central banks issue money and deposits for bank. They may also
+refinance or invest in BoEs from companies. Deposits at the central bank serve as commands
+for money, cleared by banks against each other. Money issuing is recorded in the central bank’s
+micro accounting, but its role as a means of payment for obligation contracts emerges in macro
+accounting. Central banks alone, by monopolistic authority, define and issue money.
+
+3.4
+
+Supply Chain Finance
+
+MoMaT suggests money functions to be seen in rather pure form in Supply Chain Finance (SCF),
+like in Figure 2. A digital BoE based service, such as Dynamic Discounting (DD) on an SCF
+platform,3 streamlines these processes, making them more efficient and flexible. In DD, GY (a
+3
+
+This section benefited greatly from discussions with Markus Wohlgeschaffen, product manager at Traxpay, a
+pioneer in applications of digital BoEs for SCF.
+
+9
+
+supplier) has a button in its ERP system, next to invoices issued to VW (the buyer). When GY
+chooses early payment, an accountant presses the button, triggering a transfer of "money" from
+VW’s to GY’s bank account. The digital workflow encompasses four steps: 1. send GY’s request
+to a digital depository to create a BoE. 2. A bank purchases the BoE, transferring the dynamically
+discounted amount to VW to pay GY. 3. At maturity, the bank requests full repayment from
+VW, earning the discount as a return on its loan. 4. The BoE is deleted in the digital depository,
+as the obligation contract is fulfilled by the "money" transfer of the disposition contract without
+any more needs for money.
+The opportunity for services with digital documents, including BoEs, arose in UK in 2023
+adopting the Model Law of Electronic Transferable Records (MLETR) of the United Nations
+Commission on International Trade Law (UNCITRAL) by the Electronic Trade Documents Act
+(ETDA).4
+
+4
+
+Macroeconomics
+
+Marx’s critique of capitalism collapses in MoMaT: money is not created from money. Likewise, the
+misconception of interests on interests fades when interest rates are seen as insurance premiums
+for cross investment risk.
+The misunderstandings arise from a focus on money circulation rather than on the dynamics of
+debt (receivables and liabilities) forming vortices, not closed loops. A banknote changing hands
+may suggest circulation’s primacy, but legally and economically, debt evolution matters, not the
+movement of money. Money is a means of payment, not the debt itself.
+Geometrically, a vortex spanning time may appear circular when projected along the timeline,
+much like how money’s movement seems cyclical when debt vortices are mapped onto transactions.
+Just as Copernicus replaced Ptolemy’s geocentric model, monetary theory must shift focus: debt
+vortices, not money flows, define the system. To understand this, we examine money issuing
+under fiat and gold-based systems.
+
+4.1
+
+Central Banking
+
+Before the rise of central banks in the 17th century, banks issued banknotes backed by gold, or
+other valuable resources, making them debt instruments, a promise by the bank to redeem them
+for gold. This is modelled as credit (or credibility) loans as a financial instrument that extends the
+BoE into a Sola and two more future contracts on gold and products. This construction certify
+banks for proper clearing and settlement size and timing.
+Founded in 1609, the Wisselbank of Amsterdam [34] (Wissel is the Dutch word for the German
+Wechsel or BoE) pioneered international payments, crucial for European colonial trade, which
+required investments in shipping. Long voyages, high risks, and delayed revenues made financing
+essential. From this model, central banks emerged, including the Bank of England, which managed
+national currencies like the Pound, backed by Sterling silver. Early central banks operated on
+gold or silver debt, issuing banknotes as documented obligations.
+Figure 3b shows banknotes issuing in a gold-based system. The bookings involve two steps.
+Step 1: issuing a banknote (1a): The central bank prepares to buy gold, effectively expanding the
+money supply by recording a warehouse receipt. Step 2: gold transaction (2a, 2b): The central
+bank purchases gold from a gold miner (2a). The gold miner receives a banknote in exchange for
+gold (2b), serving as a claim on gold. Booking 3a records the issuance of a Sola, following the
+same process as issuing a banknote (1a).
+4
+
+See the Bills of Exchange Act of 1882 [18], the German Wechsel Law of 1933 [24], the MLETR of 2017 of
+UNCITRAL [31] and its UK adaptation ETDA [19].
+
+10
+
+Gold was the legal means of payment, but to avoid transferring it in every transaction, banknotes
+were introduced as claims on gold, redeemable at the central bank. Essentially, a gold miner
+deposited gold in the central bank, receiving a banknote in return. This note circulated as a
+transferable payment instrument within a purchase obligation, allowing any holder to exchange
+it for gold.
+In 1971, Nixon ended the gold-based systems, making paper money the basis of contracts under
+the fiat system. Unlike gold-based banknotes, paper money does not represent central bank
+debt and lacks inherent claims, meaning Issued Paper Money records circulation, not obligations.
+Without a claim, there is no corresponding liability.
+The bookings of issuing paper money in the fiat system follows 5 steps. 1: money issuing
+(1a): The central bank (CB) issues paper money, legally registering it in the Issued Paper Money
+database. 2: Loan to a Bank (2a, 2b): The CB grants a loan to a commercial bank. 2a: The CB
+records an increase in receivables and liabilities. 2b: The bank records an increase in its credit
+and liabilities. 3: Bank withdraws money from CB (3a, 3b): The bank transforms its option
+right into a due claim, thereby ordering the central bank to hand over the requested amount of
+paper money. 3a: The CB reduces its liabilities and cash holdings. 3b: The bank decreases its
+central bank deposit but increases its cash holdings. 4: Bank grants a loan to a company (4a,
+4b): The bank extends a loan to a company, creating new "money", i.e. new deposits. 4a: The
+bank records an increase in receivables and liabilities. 4b: The company records an increase in
+credits and liabilities. 5: Company withdraws cash (5a, 5b): The company converts part of its
+bank deposit into "money" for payments (e.g. wages). 5a: The bank reduces its liabilities and
+cash reserves. 5b: The company decreases its bank deposit but increases its cash holdings.
+Issuing a Sola (6a) follows the same principle as creating paper money (1a). Unlike gold-based
+money, paper money exists by legal decree, allowing unlimited issuance. It enters circulation
+through loans and withdrawals, enabling transactions without commodity backing. The Sola
+in 6a illustrates that issuing paper money can be seen as similar to a Sola. However, unlike a
+traditional Sola or a warehouse receipt, which represents a claim (e.g. gold in the gold-based
+system), fiat money has no underlying asset to claim. In the gold-based systems, central bank
+liabilities were backed by gold, effectively balancing debt. Gold itself is neither a claim nor a
+liability like paper money, which carries no inherent claim. Fiat systems require no backing, only
+legal declaration as a means of payment. In a fiat system, the central bank starts without debt,
+just as gold and banknotes balanced out in the gold-based systems. Money settles debt but is not
+debt itself. Since Nixon ended the gold-based system, central banks cannot go bankrupt in their
+own currency, making fiat systems bankrun resistant as an accidental feature, not a flaw. No gold
+or intrinsic value for paper money is needed for the system to function.
+Money issuing should align with productive economic activity and investment driven debt needs.
+MoMaT identifies SCF variables being key for monetary policy, now easily tracked via receivables
+and liabilities in company ERP and accounting systems. Monetary policy and liquidity platforms
+must consider liquidity demand and supply. Until the 1990s, the Bundesbank used BoE refinancing
+and the discount rate as policy tools, accompanied by interbank market interest rates and direct
+interventions at asset markets.
+MoMaT defines central bank policy involving three topics: 1: injecting money into the economy
+through bank loans, creating central bank deposits to create solvency, 2: setting a minimum
+credibility rating for such loans, and 3: managing the payment system and macro accounting with
+financial regulations. Following Bagehot’s principle, MoMaT advocates unlimited crisis lending
+at high costs while leaving inflation to government income policies. Unlike conventional monetary
+economics, MoMaT sees no need for artificial scarcity, money supply should allow to match the
+volume of unsettled receivables and liabilities.
+In the gold-based system, central banks acted as lenders of last resort, but this failed when they
+ran out of gold, leading Nixon to abandon the system. In the fiat system, central banks serve
+as first liquidity providers, able to issue money infinitely. When black swan events and banks
+11
+
+fail, central banks can insure losses through bailouts, effectively smoothing investment losses as
+consumption costs. These bailouts can be distributed at the highest societal level, with the central
+bank as the ultimate risk sharing entity.
+
+4.2
+
+Monetary Vortex
+
+In Figure 5, we illustrate that vortices of debt, rather than circulating money, are at the core of
+the dynamics of monetary systems. The macro accounting framework includes the Central Bank,
+Bank, Company, and Household sectors, where resources, products, liabilities, and money are
+created, exchanged, and deleted throughout the economy’s productive cycles.
+At t = 1.1.20015 , the Household sector holds resources with no liabilities, making assets equal
+equity (E = A). The Central Bank issues money as a sovereign act, recorded solely in its own micro
+accounting system like alchemically creating gold in a gold-based system, but without intrinsic
+value or backing. It is the only singleton (micro accounting) booking in a macro accounting
+system. The central bank’s balance sheet records cash (M) as an asset and Circulating M as a
+liability, marking registered paper money. The central bank then grants loans as credits. t =
+2002: The central bank lends to the bank. t = 2003: The bank withdraws cash and lends to
+a company. t = 2004: The company buys resources or work from households. t = 2005: The
+company produces goods. t = 2006: The household buys the product, returning cash to the
+company. t = 2007: The company repays its loan to the bank. t = 2008: The bank repays the
+central bank. t = 2009: The central bank destroys the money. t = 2010: Balance sheets reset to
+zero.
+This process transforms resources into products or GDP, illustrating an economy characterised
+by a division of labor where monetary vortices and debt repayments drive production and exchange
+over time in monetary macro accounting (MoMa). The monetary vortex in Figure 5 charts the flow
+of money (M) through balance sheets, from issuing to deletion at the central bank. Conversely,
+the physical vortex traces the conversion of resources into products, moving counter to the flow of
+money. When viewed along the time axis, top to bottom, the interplay of debts, money, resources,
+and products creates the illusion of circular flows, much like in Figure 2. Money and debt bridge
+the time gap in production, transforming resources into products and enabling exchange of the
+GDP. While this may appear as a circular flow, it is a timed vortex of resources and money. Once
+all debts are repaid (t = 1.1.2010), money can be deleted. Reusing the same money in new debt
+cycles only creates circulation of money, new and closing parallel debt relations. At t = 1.1.2010
+wealth and GDP distribution in the household sector reflects how investment risks and failures
+were absorbed by banks and how resources, labor, and investments were financed from t = 2002
+to t = 2009.
+Money functions not just to coordinate labor but also to allocate risk and distribute economic
+output, the GDP. Modeling risk requires stochastic processes to account for investment failures,
+treating losses as consumption or costs. Failed investments should not be hidden in bad banks or
+bailed out without a theoretical and political framework. The dynamics of debts and money and
+resources and products of the GDP as vortices is akin to our solar system’s planets in Figure 6,
+see the movie at [38]. The planets do not orbit in circles or ellipses around the sun but in vortices,
+following the sun’s trajectory as it travels at approximately 70,000 km/h around the galactic
+center. This motion appears as a circular orbit only when projected onto a two-dimensional plane
+through the sun, effectively neglecting the space-time direction in which the sun itself is moving.
+Paper money circulation masks debt repayments in anonymous transactions. Vortices can be
+found as money transactions in endorsement lists of BoEs. Anonymity is like projecting planetary
+orbits and debt relations on a plane through the sun or on papers of money. To address monetary
+5
+
+Balance sheets report state variables at a specific time, e.g. at t = 1.1.2001. Bookings in financial statement
+record flow variables as changes of state variables over a period, e.g. in t=2001.
+
+12
+
+Figure 5: Monetary Vortex
+13
+
+Figure 6: Planetary Vortices
+theory and policy challenges, we must link receivables, liabilities, expenditures, and revenues
+across economic micro, meso and macro layers with properly typed financial contracts.
+
+5
+
+Mathematics
+
+The challenge in monetary theory and policy is to model a Monetary Macro Accounting (MoMa)
+system in Figure 5. MoMa models national accounts as networks of debt contracts across banks,
+companies, and households, using a (reduced form) Markov model based only on past data.
+Analysing this requires MoMaT with structural econometric models with forward-looking agents,
+as in [36], [8] for econometrics or [12] for multi-agent AI, both programmable with open games.
+An Open Game [6] is depicted in Figure 7 as a string diagram, with a probabilistic extension
+in [3]. Open games represent time bidirectionally: past to future (left to right) and future to past
+
+Figure 7: Open Game
+(right to left). Decisions form one- or multi-person games, built from smaller n-person games
+into larger n+1-person games via sequential and parallel combinators. In category theory, these
+correspond to function composition and tensor product, providing a process-oriented approach
+to mathematics [27]. Parallel and sequential processes are composed through concatenation and
+juxtaposition in string diagrams, while hierarchical composition uses equational substitution, enabling both white-box and black-box economic modelling.6 In a string diagram the box represents
+functions (or processes or morphism in category theory) with the open games type:
+G : D × C∗ → A × U ∗
+Open games are compositional because Data, Action, Context, and Utility are also open games,
+and their compositions remain open games. The superscript ∗ denotes contravariance in teleology,
+goal, utility, belief, or anticipation where arrows point left, opposite to usual time flow. Open
+6
+
+White boxing means making explicit by showing the content of a black box. We can use the white box a = b + c
+to show in d = a + e the black box a as d = a + e = b + c + e.
+
+14
+
+games capture the Aristotelian teleological causality, linking the future to the present (purpose).
+The other three causes, normative (plan), material (bricks), and effective (work) define physical
+existence (e.g. of a house), while teleology defines purpose (e.g. living in a house).
+String diagrams are not just representations but formal mathematical objects with semantics for
+proofs. Open games provide a visual programming language for forward-looking economic models,
+making them executable software with provable properties. As both models and runnable programs, they leverage computer science and mathematics to understand and implement economies.
+Since open games are similar to the interdisciplinary research on quantum computing programming languages, economic theories formulated in open games are quantum ready.7 Therefore
+transactions of MoMa systems with open games as smart contracts can be about quantum secured assignments and transfers of property rights with non-deletable data with free write and
+read access on blockchains or distributed ledgers.
+Open games represent bidirectional computation, including time flow, relations, double-entry
+accounting, constraint propagation, or smart contracts. They can model structural econometrics,
+multi-agent systems, belief formation, or strategic decisions. With built-in back propagation [4],
+they also support parameter estimation and data science algorithms.
+Macro invariances can be modelled using sheaf theory over micro accounting automata [23],
+embedded in a network of contracts. A compositional semantics for MoMa must derive macro
+behaviour from micro accounting systems interconnected at the meso level. Constraints from
+micro, meso and macro invariances should be transparently booked. State transitions follow
+initial algebras in gold-based systems, while fiat systems can use final coalgebras to model infinite,
+behavioural structures for booking smart contracts in macro accounting.
+Category theory reorganises mathematics [27] as its compositional theory. It can provide semantics to economics in coalgebras [28].8 A compositional theory of monetary macro accounting
+needs to zoom in and out [35] at different behavioural levels of the systems. Systems are to be
+composed and decomposed while keeping the levels looked at in a consistent state. Global and
+local consistencies and inconsistencies of behaviours interact and we need to understand how local
+goals and obstacles can be resolved into a consistently behaving global whole.
+Sheaf theory constructs complex models by combining local information into a consistent whole
+[25, 26]. Like two eyes merging fields of view or an atlas forming a globe, sheaves splice local data
+into a global structure. In equations, local solutions integrate into a global solution, just as local
+function approximations combine into a globally defined function. Similarly, Bayesian networks
+update through local observations, propagating until the entire global model aligns with the data.
+A MoMa system integrates economic agents are resource owners, consumers, producers, banks,
+and central banks each maintaining local micro accounting of debt and payments. These agents
+form a network where nodes represent entities and edges track financial flows, ensuring consistency
+through receivables, liabilities, expenditures and revenues. Aggregated into macro accounting, this
+network maintains stability via macro invariances. In sheaf theory, the global section represents
+systemic consistency, which monetary policy must uphold. During crises, its role is to restore the
+system to this stable state.
+The name sheaf for these mathematical structures is an analogy to agricultural sheaves in
+Figure 8. Stalks represent micro accounting data atop the network of local agents, while the macro
+accounting as a sheaf forms the global structure, bound by consistency conditions, analogous to
+the thread in the agricultural sheaf. Stability emerges in the sheaf, a property individual stalks
+7
+
+The papers on coalgebraic games [2], [20] are precursors to open games [6] inspired by the work [1] on quantum
+protocols.
+8
+The discovery of open game structures emerged from the search for a mathematical framework addressing
+Lucas’ critique and reflexivity in social sciences [32]. Reflexive structures in mathematics, such as lambda calculus,
+higher order functions, Turing machines, and formal semantics in theoretical computer science [21], provide a
+foundation. Meta circular interpreters, like those by Graham [7] and McCarthy [14], illustrate this with Lisp
+implementing itself. Social sciences and economics offer complex epistemological situations where modern semantic
+tools like category theory, type theory, or coalgebras can enhance institutional modelling and implementations.
+
+15
+
+Figure 8: Agricultural Sheaf
+alone do not have, much like money’s functionality emerges only at the macro accounting level
+from booking its issuing in the central bank’s micro accounting.
+Homology theory identifies obstacles to global consistency and macro invariances, particularly
+when inconsistencies arise in specific regions or points in time. In MoMaT, these may appear
+as local liquidity imbalances or bad banks, resolved by issuing BoEs or some monetary policy
+across micro, meso, and macro levels. This enables a decentralised, automated monetary policy,
+reducing reliance on discretion. Automated policy is possible, debated as Taylor functions, which
+optimally set central banks’ interest rates based on inflation or the phase in the business cycles.
+
+6
+
+Conclusion
+
+What is money? is answered by money being the thing that settles obligation and debt relations
+and fulfils them by disposition of property rights over money and products. Money as a technology
+within macro accounting enables division of labor, risk allocation, and GDP distribution across
+micro, meso, and macro levels of an economy.
+At the micro level, money bridges the time gap in production, allowing producers to pay suppliers
+before receiving payment from customers. To do this, producers take on debt, repaying it with
+future earnings. Legally, money fulfils obligations in contracts either as payment for goods or
+repayment of loans without needing intrinsic value. Monetary units are arbitrary but serve as the
+legal means to settle debts. At the meso level, banks manage investment risks by pooling loans
+and balancing returns through interest rates, functioning as insurance premiums. They provide
+solvency for companies by guaranteeing this solvency at their own risk. At the macro level, central
+banks issue money and release it to banks for investment. They absorb non-insurable risks as
+lenders of first liquidity in fiat systems and lenders of last resort in gold-based systems.
+Sheaves can structure networks of debts and repayments, ensuring consistency across economic
+levels through macro accounting invariances. Homology theory can correct local inconsistencies,
+supporting automated monetary policy. Open games can serve as modelling and computational
+tools for deductive types in MoMa systems and inductive types in MoMaT for economic forecasts,
+back propagation, econometric, and multi-agent AI analysis.
+MoMaT defines the functionality of money as a means of payment and the unit of account for the
+settlement of monetary obligations in two-sided contracts governing obligations and dispositions
+of property rights. The store of value functionality can be modelled as financial BoEs or Solas in
+credit (credibility) loans. The means of exchange functionality of money provides a numéraire,
+and medium of exchange.
+
+16
+
+References
+[1] Samson Abramsky and Bob Coecke. A categorical semantics of quantum protocols. In Proceedings of the 19rd Annual ACM/IEEE Symposium on Logic in Computer Science (LICS),
+pages 415–425, 2004.
+[2] Samson Abramsky and Viktor Winschel. Coalgebraic analysis of subgame-perfect equilibria
+in infinite games without discounting. Mathematical Structures in Computer Science, 2015.
+[3] Joe Bolt, Jules Hedges, and Philipp Zahn. Bayesian open games. Compositionality, 5:9, 2023.
+[4] Brendan Fong, David I. Spivak, and Rémy Tuyéras. Backprop as functor: A compositional
+perspective on supervised learning. In Proceedings of the 34rd Annual ACM/IEEE Symposium
+on Logic in Computer Science (LICS), 2019.
+[5] Mark Gertler and Nobuhiro Kiyotaki. Financial intermediation and credit policy in business cycle analysis. Handbook of Monetary Economics, 3:547–599, 2011. doi: 10.1016/
+B978-0-444-53238-1.00011-9.
+[6] Neil Ghani, Jules Hedges, Viktor Winschel, and Philipp Zahn. Compositional game theory.
+In Proceedings of the 33rd Annual ACM/IEEE Symposium on Logic in Computer Science
+(LICS), 2018.
+[7] Paul Graham. The roots of lisp, 2001. URL https://paulgraham.com/rootsoflisp.html.
+[8] Florian Heiss and Viktor Winschel. Likelihood approximation by numerical integration on
+sparse grids. Journal of Econometrics, 144(1):62–80.
+[9] Martin F. Hellwig. The challenge of monetary theory. European Economic Review, 37(2):
+215–242, 1993.
+[10] Stephanie Kelton. The Deficit Myth: Modern Monetary Theory and the Birth of the People’s
+Economy. PublicAffairs, New York, 2020.
+[11] Nobuhiro Kiyotaki and Randall Wright. A search-theoretic approach to monetary economics.
+American Economic Review, 83(1):63–77, 1993.
+[12] Mykel J. Kochenderfer, Tim A. Wheeler, and Kyle H. Wray. Algorithms for Decision Making.
+MIT Press, 2022.
+[13] Narayana R. Kocherlakota. Money is memory. Journal of Economic Theory, 81(2):232–251,
+1998.
+[14] John McCarthy. Recursive functions of symbolic expressions and their computation by machine, part i. Communications of the ACM, 3(4):184–195, 1960.
+[15] Michael McLeay, Amar Radia, and Ryland Thomas. Money creation in the modern economy.
+Bank of England Quarterly Bulletin, 54(1):14–27, 2014.
+[16] Renée Menéndez. Theorie des Kapitalismus als Sozialwissenschaft: Prolegomena einer
+sozialen Zinstheorie. LIT Verlag Münster, 2010. ISBN 978-3-643-10901-9.
+[17] United Nations. System of national accounts 2008, 2010. URL https://unstats.un.org/
+unsd/nationalaccount.
+[18] UK Parliament. Bill of exchange act, 1882. URL https://www.legislation.gov.uk/
+ukpga/Vict/45-46/61.
+17
+
+[19] UK Parliament. Electronic trade documents act, 2023. URL https://bills.parliament.
+uk/bills/3344.
+[20] Dusko Pavlovic. A semantical approach to equilibria and rationality. In Alexander Kurz,
+Marina Lenisa, and Andrzej Tarlecki, editors, Algebra and Coalgebra in Computer Science,
+pages 317–334. Springer, 2009.
+[21] Dusko Pavlovic. Programs as Diagrams: From Categorical Computability to Computable
+Categories. Springer, 2023.
+[22] Horst-Dieter Radke and Iris Thomsen. Buchführung. Haufe, 2019. ISBN 978-3-648-13618-8.
+[23] Salvador Cruz Rambaud, José García Pérez, Robert A Nehmer, and Derek J S Robinson.
+Algebraic Models for Accounting Systems. World Scientific, 2010. doi: 10.1142/7445.
+[24] Reichsregierung. Wechselgesetz, 1933. URL https://www.gesetze-im-internet.de/wg/
+BJNR003990933.html.
+[25] Michael Robinson.
+Sheaf and duality methods for analyzing multi-model systems.
+arXiv:1604.04647, 2016.
+[26] Hal Schenck. Algebraic Foundations for Applied Topology and Data Analysis. Springer, 2023.
+[27] Dagstuhl Seminar. Categorical methods at the crossroad, 2014. URL https://www.
+dagstuhl.de/en/seminars/seminar-calendar/seminar-details/14182.
+[28] Dagstuhl Seminar. Coalgebraic semantics of reflexive economics, 2015. URL https://www.
+dagstuhl.de/en/seminars/seminar-calendar/seminar-details/15042.
+[29] Adam Smith. An Inquiry into the Nature and Causes of the Wealth of Nations. William
+Strahan and Thomas Cadell, London, 1776.
+[30] Ross M. Starr. Responding to martin hellwig’s presidential address: Smith, knapp, menger,
+hicks, and tobin deal with the hahn problem. University of California, San Diego, 2016. URL
+https://econweb.ucsd.edu/~rstarr/HahnProblemJune82016withTable.pdf.
+[31] UNCITRAL. Model law of electronic trade records, 2017. URL https://uncitral.un.org/
+en/texts/ecommerce/modellaw/electronic_transferable_records.
+[32] Wikipedia. Reflexivity, 2025.
+(social_theory).
+
+URL https://en.wikipedia.org/wiki/Reflexivity_
+
+[33] Wikipedia. Tally stick, 2025. URL https://en.wikipedia.org/wiki/Tally_stick.
+[34] Wikipedia. Bank of amsterdam, 2025. URL https://en.wikipedia.org/wiki/Bank_of_
+Amsterdam.
+[35] Jan C. Willems. The behavioral approach to open and interconnected systems. IEEE Control
+Systems Magazine, 27(6):46–99, 2007.
+[36] Viktor Winschel and Markus Krätzig. Solving, estimating, and selecting nonlinear dynamic
+models without the curse of dimensionality. Econometrica, 78(2):803–821, 2010.
+[37] L. Randall Wray. Modern monetary theory: A primer on macroeconomics for sovereign
+monetary systems. Palgrave Macmillan, 2012.
+[38] Youtube. The helical model - our solar system is a vortex, 2025. URL https://www.youtube.
+com/watch?v=0jHsq36_NTU.
+18
+
+

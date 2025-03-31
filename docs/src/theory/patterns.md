@@ -7,9 +7,9 @@ Patterns are essential structures in MES that represent complex configurations o
 ### Mathematical Definition
 A pattern P in a category C is defined as:
 
-```math
+$$
 P = \{O_i, M_j\}
-```
+$$
 
 where:
 - O_i are objects in C
@@ -17,9 +17,9 @@ where:
 
 The pattern recognition process can be expressed mathematically as:
 
-```math
+$$
 P = \{O_i, M_j\} \text{ where } O_i \text{ are objects and } M_j \text{ are morphisms}
-```
+$$
 
 ### Implementation
 In MES, patterns are implemented using the `Pattern` type:
@@ -54,12 +54,12 @@ verify_pattern(pattern)  # Returns true if pattern is valid
 ### Mathematical Definition
 The colimit of a pattern P, denoted colim(P), is an object C with morphisms v_i: O_i \to C satisfying:
 
-```math
+$$
 \begin{array}{l}
 X \in C, \forall v_i: O_i \to X \\
 \exists! v: C \to X \text{ with } v \circ v_i = v_i
 \end{array}
-```
+$$
 
 ### Implementation
 Colimits are calculated in the code:

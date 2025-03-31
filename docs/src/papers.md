@@ -1,12 +1,42 @@
 # Related Papers and Publications
 
-This page lists key papers and publications related to Memory Evolutive Systems (MES).
+This page lists key papers and publications related to Memory Evolutive Systems (MES) and monetary theory (MoMa).
 
 ## Core Publications
 
-### MOMAT: A Multi-level Optimization Model for Analyzing Trade Finance (2024)
+### Memory Evolutive Systems: Hierarchy, Emergence, Cognition
+**Authors**: Andrée C. Ehresmann and Jean-Paul Vanbremeersch  
+**Publisher**: Elsevier  
+**Year**: 2007  
+**PDF**: [Download MES Book](assets/papers/mes07.pdf)
+
+This foundational book presents a comprehensive mathematical framework for modeling complex evolutionary systems:
+- Develops the theory of Memory Evolutive Systems (MES) over 20 years of research
+- Applies category theory to model biological, social, and cognitive systems
+- Addresses key problems in complexity theory:
+  * The binding problem
+  * The emergence problem
+  * The hierarchy problem
+- Introduces concepts of self-regulation and co-regulators
+- Provides applications to cognitive systems and consciousness
+
+### A Mathematical Framework for Enriching Human–Machine Interactions
+**Authors**: Andrée C. Ehresmann, Mathias Béjean, and Jean-Paul Vanbremeersch  
+**Journal**: Machine Learning and Knowledge Extraction  
+**Year**: 2023  
+**DOI**: [10.3390/make5020034](https://doi.org/10.3390/make5020034)  
+**PDF**: [Download Paper](assets/papers/mes23.pdf)
+
+This paper extends MES theory to human-machine interactions:
+- Develops a framework for "multi-level artificial cognitive systems"
+- Introduces the concept of "data analyser" (DA) for rich human-machine collaboration
+- Applies MES to model social organizations and their evolution
+- Explores applications in risk prevention and decision-making
+- Bridges symbolic and connectionist AI approaches
+
+### Monetary Macro Accounting Theory (MoMaT)
 **Authors**: Dr. Renée Menéndez and Dr. Viktor Winschel  
-**Journal**: Blockchain in Banking and Financial Services  
+**Journal**: Blockchain Economics: Implications of Distributed Ledgers  
 **DOI**: [Forthcoming]  
 **PDF**: [Download MOMAT Paper](assets/papers/bcbaas25.pdf)
 
@@ -22,24 +52,10 @@ This paper develops a specification for macro accounting (MoMa) and a monetary m
 - Implements computation using open games
 - Applies to monetary policy and supply chain finance
 
-## Implementation Papers
-
-### MES.jl: A Julia Implementation of Memory Evolutive Systems
-**Status**: In preparation  
-**Expected Publication**: 2024
-
-This paper will describe:
-- The Julia implementation of MES theory
-- Core algorithms and data structures
-- Performance optimizations
-- Example applications
-- Future development directions
-
 ## Future Directions
 
-Current research directions in MES theory include:
-1. Applications to artificial general intelligence
-2. Integration with modern deep learning architectures
-3. Biological neural network modeling
-4. Social network analysis
-5. Complex systems theory 
+Extensions of MoMa and MES as DSLs for:
+1. national accounting, moneay theory and policy and exchange rate regimes
+2. platform of digital bill of exchange products for supply chains
+3. virtual power plant and quartier operating systems
+4. liuqidity management of a holding of windparks

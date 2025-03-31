@@ -6,9 +6,9 @@ This document describes the synchronization process in Memory Evolutive Systems.
 
 A synchronization S between two patterns P1 and P2 is defined as:
 
-```math
+$$
 S = (P_1, P_2, \phi)
-```
+$$
 
 where:
 - P1, P2 are patterns
@@ -17,20 +17,26 @@ where:
 ## Properties
 
 ### Transitivity
-```math
+
+$$
 \text{if } S_{12} \text{ and } S_{23} \text{ then } S_{13}
-```
+$$
 
 ### Self-Synchronization
-```math
+
+$$
 \exists S: P \to P
-```
+$$
 
 ## Basic Concepts
 
 ### Mathematical Definition
 A synchronization $\mathcal{S}$ between two patterns $P_1$ and $P_2$ is defined as:
-$$\mathcal{S} = (P_1, P_2, \varphi)$$
+
+$$
+\mathcal{S} = (P_1, P_2, \varphi)
+$$
+
 where:
 - $P_1$ and $P_2$ are patterns
 - $\varphi$ is a morphism between their colimits
@@ -38,16 +44,34 @@ where:
 The synchronization process satisfies several mathematical properties:
 
 1. **Compatibility**:
-   $$\forall x \in \text{colim}(P_1), y \in \text{colim}(P_2)$$
-   $$\varphi(x) = y \implies \text{compatible}(x, y)$$
+
+$$
+\forall x \in \text{colim}(P_1), y \in \text{colim}(P_2)
+$$
+
+$$
+\varphi(x) = y \implies \text{compatible}(x, y)
+$$
 
 2. **Transitivity**:
-   $$\forall P_1, P_2, P_3$$
-   $$\text{if } \mathcal{S}_{12} \text{ and } \mathcal{S}_{23} \text{ then } \mathcal{S}_{13}$$
+
+$$
+\forall P_1, P_2, P_3
+$$
+
+$$
+\text{if } \mathcal{S}_{12} \text{ and } \mathcal{S}_{23} \text{ then } \mathcal{S}_{13}
+$$
 
 3. **Reflexivity**:
-   $$\forall P$$
-   $$\exists \mathcal{S}: P \to P$$
+
+$$
+\forall P
+$$
+
+$$
+\exists \mathcal{S}: P \to P
+$$
 
 ### Implementation
 In MES, synchronization is implemented using the `Synchronization` type:

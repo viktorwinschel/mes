@@ -6,14 +6,15 @@ This document maps the key mathematical formulas from the 2007 Memory Evolutive 
 
 ### Category Definition
 A category C consists of:
-```math
+
+$$
 \begin{array}{rcl}
 Objects & : & Ob(C) \\
 Morphisms & : & Hom(C) \\
 Composition & : & \circ: Hom(B,C) \times Hom(A,B) \to Hom(A,C) \\
 Identity & : & id_A: A \to A
 \end{array}
-```
+$$
 
 Implementation:
 ```julia
@@ -26,12 +27,13 @@ end
 
 ### Composition Laws
 The category must satisfy:
-```math
+
+$$
 \begin{array}{rcl}
 Associative & : & (h \circ g) \circ f = h \circ (g \circ f) \\
 Identity & : & f \circ id_A = f = id_B \circ f
 \end{array}
-```
+$$
 
 Implementation:
 ```julia
@@ -48,9 +50,11 @@ end
 
 ### Pattern Definition
 A pattern P in C is:
-```math
+
+$$
 P = \{O_i, M_j\}
-```
+$$
+
 where:
 - O_i are objects in C
 - M_j are morphisms between objects
@@ -66,9 +70,11 @@ end
 
 ### Colimit Property
 The colimit of pattern P satisfies:
-```math
+
+$$
 \forall X, \exists! v: C \to X \text{ with } v \circ u_D = u
-```
+$$
+
 where:
 - C is the colimit object
 - u_D are morphisms from pattern objects
@@ -91,12 +97,13 @@ end
 
 ### Functor Definition
 A functor F maps:
-```math
+
+$$
 \begin{array}{rcl}
 F(A) & = & A' \\
 F(f: A \to B) & = & f': A' \to B'
 \end{array}
-```
+$$
 
 Implementation:
 ```julia
@@ -114,9 +121,11 @@ end
 
 ### Hierarchical Evolution
 Forms a sequence:
-```math
+
+$$
 C_0 \to C_1 \to C_2 \to \dots \to C_n
-```
+$$
+
 Each step integrates patterns into higher-order structures.
 
 Implementation:
@@ -132,17 +141,20 @@ end
 
 ### Pattern Matching
 Multiple patterns can match:
-```math
+
+$$
 \exists P, Q \text{ with } colim(P) = colim(Q)
-```
+$$
 
 ## 6. Memory
 
 ### Memory Evolution
 State changes as:
-```math
+
+$$
 M_{t+1} = F(M_t, P_t)
-```
+$$
+
 where:
 - M_t is state at t
 - P_t is input
@@ -164,12 +176,13 @@ end
 
 ### Component Definition
 A transformation has:
-```math
+
+$$
 \begin{array}{rcl}
 n_A & : & F(A) \to G(A) \\
 G(f) \circ n_A & = & n_B \circ F(f)
 \end{array}
-```
+$$
 
 Implementation:
 ```julia
@@ -190,11 +203,12 @@ end
 
 ### Fracture States
 Imbalances occur when:
-```math
+
+$$
 \begin{array}{rcl}
 Fracture(t) & = & \{(A_i, R_j) | Macro(\sum A_i) \neq Micro(\sum R_j)\}
 \end{array}
-```
+$$
 
 Implementation:
 ```julia
@@ -206,12 +220,13 @@ end
 
 ### Resynchronization
 Balance restores when:
-```math
+
+$$
 \begin{array}{rcl}
 Resync(t+1) & = & F(Fracture(t)) \\
 Macro(\sum A_i) & = & Micro(\sum R_j)
 \end{array}
-```
+$$
 
 Implementation:
 ```julia
@@ -224,9 +239,10 @@ end
 
 ### Multiple Paths
 Different paths can resolve:
-```math
+
+$$
 \exists P_1, P_2: F(P_1(F)) = F(P_2(F))
-```
+$$
 
 Implementation:
 ```julia
@@ -240,9 +256,11 @@ end
 
 ### Money Creation
 Money emerges as:
-```math
+
+$$
 Money_{macro} = colim(Account_{micro})
-```
+$$
+
 where:
 - Account_{micro} are entries
 - Money_{macro} is emergent money
@@ -302,7 +320,7 @@ end
 ### Pattern Generation
 Memory generates patterns through binding:
 
-$$P_{\text{new}} = \text{bind}(\\{A_i\\}) \text{ where } A_i \text{ are micro accounts}$$
+$$P_{\text{new}} = \text{bind}(\{A_i\}) \text{ where } A_i \text{ are micro accounts}$$
 
 Example patterns:
 1. Debt relationships: $\text{bind}(\text{Receivable}, \text{Liability})$

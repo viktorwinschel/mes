@@ -6,9 +6,9 @@ This document describes the core structure of Memory Evolutive Systems.
 
 A Memory Evolutive System M is defined as:
 
-```math
+$$
 M = (C, M, P)
-```
+$$
 
 where:
 - C is a category
@@ -16,9 +16,11 @@ where:
 - P is a set of procedures
 
 The memory function maps:
-```math
+
+$$
 M: T \times E \to D
-```
+$$
+
 where:
 - T is time domain
 - E is event space
@@ -70,25 +72,28 @@ store_data(mem_sys, "test data")
 The memory operations satisfy:
 
 1. **Storage**:
-   ```math
-   \begin{array}{rcl}
-   \forall t \in T, e \in E, d \in D & : & M(t, e) = d
-   \end{array}
-   ```
+
+$$
+\begin{array}{rcl}
+\forall t \in T, e \in E, d \in D & : & M(t, e) = d
+\end{array}
+$$
 
 2. **Retrieval**:
-   ```math
-   \begin{array}{rcl}
-   \forall t \in T, e \in E & : & \exists d \in D: M(t, e) = d
-   \end{array}
-   ```
+
+$$
+\begin{array}{rcl}
+\forall t \in T, e \in E & : & \exists d \in D: M(t, e) = d
+\end{array}
+$$
 
 3. **Update**:
-   ```math
-   \begin{array}{rcl}
-   \forall t_1, t_2 \in T, e \in E & : & M(t_2, e) = f(M(t_1, e))
-   \end{array}
-   ```
+
+$$
+\begin{array}{rcl}
+\forall t_1, t_2 \in T, e \in E & : & M(t_2, e) = f(M(t_1, e))
+\end{array}
+$$
 
 ### Implementation
 These operations are implemented in the code:
