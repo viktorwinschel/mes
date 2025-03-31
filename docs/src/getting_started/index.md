@@ -32,7 +32,6 @@ M = MemorySystem(C)
 
 - [Quick Start Guide](quickstart.md) - Basic examples of category creation and pattern usage
 - [Basic Usage](basic_usage.md) - Simple examples of category and pattern creation
-- [Economic System Example](economic_example.md) - A complete example of modeling an economic system
 - [Installation Guide](installation.md) - Detailed installation instructions
 
 ## Next Steps

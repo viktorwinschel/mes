@@ -2,6 +2,9 @@
 
 This section contains detailed examples of using Memory Evolutive Systems (MES) in economic and financial contexts.
 
+## Economic System
+A complete example demonstrating how to model a simple economic system with multiple agents (company, bank, household), their interactions, and the resulting economic flows. This example shows how to create and verify patterns, colimits, and conservation laws in a financial category.
+
 ## Bill of Exchange (BOE) Cycles
 A focused example demonstrating how MES can model financial instruments and their circulation using category theory. This example shows the power of categorical modeling in representing complex financial relationships at multiple scales.
 
@@ -52,8 +55,9 @@ Each example follows a consistent structure:
 
 For those new to MES, we recommend following this sequence:
 
-1. Start with the [Bill of Exchange](boe_cycles.md) example for a focused introduction
-2. Move on to the [National Accounting](national_accounting.md) example for comprehensive economic modeling
+1. Start with the [Economic System](economic_system.md) example for a complete introduction
+2. Move on to the [Bill of Exchange](boe_cycles.md) example for financial instrument modeling
+3. Finally, explore the [National Accounting](national_accounting.md) example for comprehensive economic modeling
 
 ## Contributing Examples
 

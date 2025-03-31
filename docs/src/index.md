@@ -1,9 +1,9 @@
-# Monetary Macro Accounting as Memory Evolutive System
+# Memory Evolutive System with Application to Monetary Macro Accounting
 
-We build an economic engine (MoMa) and a national, community or macro accounting as a memory evolutive system (MES) of Ehresmann and Vanbremeersch.
-It is a learned, simulated and deployed actual macro accounting,
-based on the monetary theory and of Renée Menéndez and Viktor Winschel
-with tools for MoMaMES systems using category theory.
+This repo is a brainstorming on building snippets from LLMs for an an Economic Engine (EcEng).
+We start by a national, community or Macro Accounting (MoMa) which is a monetary theory and of Renée Menéndez and Viktor Winschel.
+We want to use the categorical machinery of Memory Evolutive Systems (MES) of Ehresmann and Vanbremeersch.
+The MoMaMES is to be learned, simulated and deployed,
 
 ## Overview
 

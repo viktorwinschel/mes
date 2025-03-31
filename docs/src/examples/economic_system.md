@@ -168,5 +168,4 @@ After understanding this basic example, you can:
 4. Explore the memory system features
 5. Work with hierarchical categories
 
-For more advanced examples and detailed API documentation, see the [API Reference](../api.md).
-``` 
+For more advanced examples and detailed API documentation, see the [API Reference](../api.md). 
