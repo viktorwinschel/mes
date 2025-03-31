@@ -2,9 +2,13 @@
 
 This document outlines the core theoretical concepts of Memory Evolutive Systems (MES).
 
-[MES basics](theory/mes07_formulas.md)
-[MES boe](theory/mes07_boe_example.md)
-[nat_acc_mes](theory/national_accounting_mes.md)
+MES [basics](theory/mes07_formulas.md)
+
+MES [boe](theory/mes07_boe_example.md)
+
+MES [nat_acc_mes](theory/national_accounting_mes.md)
+
+MES [summary](theory/mes07summary.md)
 
 ## Categories
 

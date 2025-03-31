@@ -5,16 +5,14 @@ This document maps the key mathematical formulas from the 2007 Memory Evolutive 
 ## 1. Categories and Basic Structures
 
 ### Category Definition
-A category C consists of:
+A category $C$ consists of:
 
-$$
-\begin{array}{rcl}
+$\begin{array}{rcl}
 Objects & : & Ob(C) \\
 Morphisms & : & Hom(C) \\
 Composition & : & \circ: Hom(B,C) \times Hom(A,B) \to Hom(A,C) \\
 Identity & : & id_A: A \to A
-\end{array}
-$$
+\end{array}$
 
 Implementation:
 ```julia
@@ -28,36 +26,32 @@ end
 ### Composition Laws
 The category must satisfy:
 
-$$
-\begin{array}{rcl}
+$\begin{array}{rcl}
 Associative & : & (h \circ g) \circ f = h \circ (g \circ f) \\
 Identity & : & f \circ id_A = f = id_B \circ f
-\end{array}
-$$
+\end{array}$
 
 Implementation:
 ```julia
 function verify_composition_closure(category::Category)
-    # Checks (h ∘ g) ∘ f = h ∘ (g ∘ f)
+    # Checks $(h \circ g) \circ f = h \circ (g \circ f)$
 end
 
 function verify_identity_existence(category::Category)
-    # Checks f ∘ id = f = id ∘ f
+    # Checks $f \circ id = f = id \circ f$
 end
 ```
 
 ## 2. Patterns and Colimits
 
 ### Pattern Definition
-A pattern P in C is:
+A pattern $P$ in $C$ is:
 
-$$
-P = \{O_i, M_j\}
-$$
+$P = \{O_i, M_j\}$
 
 where:
-- O_i are objects in C
-- M_j are morphisms between objects
+- $O_i$ are objects in $C$
+- $M_j$ are morphisms between objects
 
 Implementation:
 ```julia
@@ -69,16 +63,14 @@ end
 ```
 
 ### Colimit Property
-The colimit of pattern P satisfies:
+The colimit of pattern $P$ satisfies:
 
-$$
-\forall X, \exists! v: C \to X \text{ with } v \circ u_D = u
-$$
+$\forall X, \exists! v: C \to X \text{ with } v \circ u_D = u$
 
 where:
-- C is the colimit object
-- u_D are morphisms from pattern objects
-- v is unique to any X
+- $C$ is the colimit object
+- $u_D$ are morphisms from pattern objects
+- $v$ is unique to any $X$
 
 Implementation:
 ```julia
@@ -89,21 +81,19 @@ function create_colimit(diagram::MacroEventDiagram)
 end
 
 function verify_universal_property(colimit::ColimitDiagram)
-    # Verifies ∀X, ∃! ψ: C → X
+    # Verifies $\forall X, \exists! \psi: C \to X$
 end
 ```
 
 ## 3. Evolution
 
 ### Functor Definition
-A functor F maps:
+A functor $F$ maps:
 
-$$
-\begin{array}{rcl}
+$\begin{array}{rcl}
 F(A) & = & A' \\
 F(f: A \to B) & = & f': A' \to B'
-\end{array}
-$$
+\end{array}$
 
 Implementation:
 ```julia
@@ -122,9 +112,7 @@ end
 ### Hierarchical Evolution
 Forms a sequence:
 
-$$
-C_0 \to C_1 \to C_2 \to \dots \to C_n
-$$
+$C_0 \to C_1 \to C_2 \to \dots \to C_n$
 
 Each step integrates patterns into higher-order structures.
 
@@ -142,23 +130,19 @@ end
 ### Pattern Matching
 Multiple patterns can match:
 
-$$
-\exists P, Q \text{ with } colim(P) = colim(Q)
-$$
+$\exists P, Q \text{ with } colim(P) = colim(Q)$
 
 ## 6. Memory
 
 ### Memory Evolution
 State changes as:
 
-$$
-M_{t+1} = F(M_t, P_t)
-$$
+$M_{t+1} = F(M_t, P_t)$
 
 where:
-- M_t is state at t
-- P_t is input
-- F evolves state
+- $M_t$ is state at $t$
+- $P_t$ is input
+- $F$ evolves state
 
 Implementation:
 ```julia
@@ -168,7 +152,7 @@ struct MemorySystem
 end
 
 function evolve_memory!(memory::MemorySystem, inputs::Dict)
-    # Implements M_{t+1} = F(M_t, P_t)
+    # Implements $M_{t+1} = F(M_t, P_t)$
 end
 ```
 
@@ -177,12 +161,10 @@ end
 ### Component Definition
 A transformation has:
 
-$$
-\begin{array}{rcl}
+$\begin{array}{rcl}
 n_A & : & F(A) \to G(A) \\
 G(f) \circ n_A & = & n_B \circ F(f)
-\end{array}
-$$
+\end{array}$
 
 Implementation:
 ```julia
@@ -194,7 +176,7 @@ end
 
 function create_natural_transformation(F::MicroMacroFunctor, G::MicroMacroFunctor,
                                     diagram::MacroEventDiagram)
-    # Creates components η_A: F(A) → G(A)
+    # Creates components $\eta_A: F(A) \to G(A)$
     # Ensures naturality condition
 end
 ```
@@ -204,11 +186,9 @@ end
 ### Fracture States
 Imbalances occur when:
 
-$$
-\begin{array}{rcl}
+$\begin{array}{rcl}
 Fracture(t) & = & \{(A_i, R_j) | Macro(\sum A_i) \neq Micro(\sum R_j)\}
-\end{array}
-$$
+\end{array}$
 
 Implementation:
 ```julia
@@ -221,12 +201,10 @@ end
 ### Resynchronization
 Balance restores when:
 
-$$
-\begin{array}{rcl}
+$\begin{array}{rcl}
 Resync(t+1) & = & F(Fracture(t)) \\
 Macro(\sum A_i) & = & Micro(\sum R_j)
-\end{array}
-$$
+\end{array}$
 
 Implementation:
 ```julia
@@ -240,9 +218,7 @@ end
 ### Multiple Paths
 Different paths can resolve:
 
-$$
-\exists P_1, P_2: F(P_1(F)) = F(P_2(F))
-$$
+$\exists P_1, P_2: F(P_1(F)) = F(P_2(F))$
 
 Implementation:
 ```julia
@@ -257,9 +233,7 @@ end
 ### Money Creation
 Money emerges as:
 
-$$
-Money_{macro} = colim(Account_{micro})
-$$
+$Money_{macro} = colim(Account_{micro})$
 
 where:
 - Account_{micro} are entries
@@ -286,7 +260,7 @@ end
 ### Memory Evolution Function
 In MES theory, memory actively generates data through its evolution function:
 
-$$M_{t+1} = F(M_t, P_t) \text{ where } F \text{ generates new data}$$
+$M_{t+1} = F(M_t, P_t) \text{ where } F \text{ generates new data}$
 
 In financial systems, this maps to:
 1. Transaction generation
@@ -320,7 +294,7 @@ end
 ### Pattern Generation
 Memory generates patterns through binding:
 
-$$P_{\text{new}} = \text{bind}(\{A_i\}) \text{ where } A_i \text{ are micro accounts}$$
+$P_{\text{new}} = \text{bind}(\{A_i\}) \text{ where } A_i \text{ are micro accounts}$
 
 Example patterns:
 1. Debt relationships: $\text{bind}(\text{Receivable}, \text{Liability})$
@@ -330,7 +304,7 @@ Example patterns:
 ### Relationship Generation
 Memory generates relationships through complex links:
 
-$$R_{\text{new}} = L(P_1, P_2) \text{ where } L \text{ is a complex link}$$
+$R_{\text{new}} = L(P_1, P_2) \text{ where } L \text{ is a complex link}$
 
 Examples:
 1. Debtor-creditor: $L(\text{Bank}_A, \text{Bank}_B) = \text{DebtRelation}$
@@ -342,10 +316,10 @@ Examples:
 ### Classifier Definition
 In MES, classifiers identify valid patterns. In our system, they map to macro invariance tests:
 
-$$C(P) = \begin{cases} 
+$C(P) = \begin{cases} 
 1 & \text{if } \sum \text{Claims} = \sum \text{Liabilities} \\
 0 & \text{otherwise}
-\end{cases}$$
+\end{cases}$
 
 Implementation:
 ```julia
@@ -361,18 +335,18 @@ end
 Different levels of classifiers test different invariance properties:
 
 1. Basic Balance:
-   $$C_1(A) = (\text{Debit}_A = \text{Credit}_A)$$
+   $C_1(A) = (\text{Debit}_A = \text{Credit}_A)$
 
 2. Relationship Invariance:
-   $$C_2(A,B) = (\text{Claims}_{A \to B} = \text{Liabilities}_{B \to A})$$
+   $C_2(A,B) = (\text{Claims}_{A \to B} = \text{Liabilities}_{B \to A})$
 
 3. System-wide Invariance:
-   $$C_3(\text{System}) = \sum_{i,j} \text{Claims}_{i \to j} = \sum_{i,j} \text{Liabilities}_{i \to j}$$
+   $C_3(\text{System}) = \sum_{i,j} \text{Claims}_{i \to j} = \sum_{i,j} \text{Liabilities}_{i \to j}$
 
 ### Classifier Composition
 Classifiers can compose to form more complex tests:
 
-$$C_{\text{composite}} = C_2 \circ C_1$$
+$C_{\text{composite}} = C_2 \circ C_1$
 
 Example:
 ```julia
@@ -392,7 +366,7 @@ end
 ### Memory Generation Through Classification
 Memory generates new data by applying classifiers:
 
-$$M_{t+1} = \{x \in F(M_t, P_t) \mid C(x) = 1\}$$
+$M_{t+1} = \{x \in F(M_t, P_t) \mid C(x) = 1\}$
 
 This ensures:
 1. Only valid patterns emerge
@@ -419,10 +393,10 @@ end
 ### Classifier-Based Evolution
 The evolution of the system is guided by classifiers:
 
-$$\text{Evolution} = \begin{cases}
+$\text{Evolution} = \begin{cases}
 F(M_t, P_t) & \text{if } C(F(M_t, P_t)) = 1 \\
 \text{Resynchronize}(M_t) & \text{otherwise}
-\end{cases}$$
+\end{cases}$
 
 This ensures:
 1. Valid states evolve normally
