@@ -20,7 +20,7 @@ makedocs(;
     modules=[MES],
     authors="Viktor Winschel",
     repo="https://github.com/viktorwinschel/mes",
-    sitename="MoMaMES",
+    sitename="MES",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://viktorwinschel.github.io/mes/",

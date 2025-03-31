@@ -1,19 +1,8 @@
-# Getting Started with MES
+# Economic System Example
 
-This guide will help you get started with using the Memory Evolutive Systems (MES) package in Julia.
+This guide demonstrates how to create and work with a simple economic system using MES.
 
-## Installation
-
-To install the MES package, you can use the Julia package manager:
-
-```julia
-using Pkg
-Pkg.add("MES")
-```
-
-## Basic Usage
-
-### Simple Economic System Example
+## Complete Example
 
 Here's a complete example showing how to create and work with a simple economic system using MES:
 
@@ -158,28 +147,9 @@ for (name, pattern) in [("Wage", wage_pattern), ("Loan", loan_pattern), ("Trade"
 end
 ```
 
-This example demonstrates:
+## Key Concepts
 
-1. Creating agents (company, bank, household)
-2. Setting up accounts for each agent
-3. Defining flows and transactions
-4. Creating a financial category
-5. Adding morphisms and identity morphisms
-6. Verifying category properties
-7. Checking conservation laws
-8. Creating and verifying patterns
-9. Calculating colimits
-
-The example shows how to model a simple economic system with:
-- Wage payments from company to household
-- Loan payments from company to bank
-- Good purchases from household to company
-
-Each relationship is represented as a pattern in the category, and we can verify the mathematical properties of these relationships using the category theory tools provided by MES.
-
-### Key Concepts
-
-The example above introduces several key concepts in MES:
+This example introduces several key concepts in MES:
 
 1. **Agents**: Represent economic actors (company, bank, household)
 2. **Accounts**: Track balances for different types of assets/liabilities
@@ -188,7 +158,7 @@ The example above introduces several key concepts in MES:
 5. **Patterns**: Represent relationships between objects in the category
 6. **Colimits**: Mathematical constructs that represent the "gluing" of patterns
 
-### Next Steps
+## Next Steps
 
 After understanding this basic example, you can:
 
@@ -198,4 +168,5 @@ After understanding this basic example, you can:
 4. Explore the memory system features
 5. Work with hierarchical categories
 
-For more advanced examples and detailed API documentation, see the [API Reference](api.md). 
+For more advanced examples and detailed API documentation, see the [API Reference](../api.md).
+``` 

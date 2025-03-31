@@ -2,13 +2,14 @@
 
 This document outlines the core theoretical concepts of Memory Evolutive Systems (MES).
 
-MES [basics](theory/mes07_formulas.md)
+[MES summary](theory/mes07summary.md)
 
-MES [boe](theory/mes07_boe_example.md)
+[MES basic mathematics and implementations](theory/mes07_formulas.md)
 
-MES [nat_acc_mes](theory/national_accounting_mes.md)
+[bill of exchange example as MES](theory/mes07_boe_example.md)
 
-MES [summary](theory/mes07summary.md)
+[national accounting as MES](theory/national_accounting_mes.md)
+
 
 ## Categories
 
@@ -193,13 +194,13 @@ $S: P_1 \to P_2$
 
 satisfying the commutative diagram:
 
-$$
+$
 \begin{CD}
 P_1 @>S>> P_2 \\
 @VVV @VVV \\
 C_1 @>F>> C_2
 \end{CD}
-$$
+$
 
 In our implementation:
 
@@ -242,13 +243,13 @@ $\eta: F \Rightarrow G$ = natural transformations for price changes
 
 The economic category satisfies:
 
-$$
+$
 \begin{CD}
 E_t @>F_t>> E_{t+1} \\
 @V\pi_tVV @VV\pi_{t+1}V \\
 \mathbb{R} @>>\phi_t> \mathbb{R}
 \end{CD}
-$$
+$
 
 where $\pi_t$ represents prices at time $t$ and $\phi_t$ represents the price transformation.
 

@@ -28,6 +28,13 @@ add_morphism!(C, "f", "A", "B")
 M = MemorySystem(C)
 ```
 
+## Examples
+
+- [Quick Start Guide](quickstart.md) - Basic examples of category creation and pattern usage
+- [Basic Usage](basic_usage.md) - Simple examples of category and pattern creation
+- [Economic System Example](economic_example.md) - A complete example of modeling an economic system
+- [Installation Guide](installation.md) - Detailed installation instructions
+
 ## Next Steps
 
 After getting familiar with the basics, you can:
